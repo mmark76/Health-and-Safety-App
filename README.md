@@ -134,6 +134,7 @@ Any future references to official guidance, guidelines, voluntary standards, goo
 The project follows a modular, feature-based architecture guided by:
 
 - `docs/architecture/PROJECT_ARCHITECTURE.md`
+- `docs/requirements/INFORMATION_ARCHITECTURE.md`
 - `docs/decisions/ADR-001-office-public-service-scope.md`
 - `docs/decisions/ADR-002-hybrid-product-architecture.md`
 - `docs/architecture/GENERAL_SOFTWARE_PROJECT_GUIDE.md`

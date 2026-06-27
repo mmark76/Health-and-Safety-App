@@ -15,6 +15,8 @@ Settings and user administration are supporting functions, not primary product a
 
 The user-facing navigation follows this hybrid structure. The underlying management logic follows Plan-Do-Check-Act and may map to relevant ISO 45001 concepts, but the application must not claim ISO 45001 certification or compliance.
 
+The user-facing information architecture is documented in `docs/requirements/INFORMATION_ARCHITECTURE.md`.
+
 ## Module Ownership
 
 ### Overview
