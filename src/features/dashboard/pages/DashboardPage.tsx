@@ -252,6 +252,7 @@ export function DashboardPage() {
           <nav className="sidebar-nav" aria-label={copy.navigation}>
             {copy.nav.map(([icon, label], index) => (
               <button
+                aria-current={index === 0 ? 'page' : undefined}
                 className={`sidebar-link${index === 0 ? ' is-active' : ''}`}
                 key={label}
                 onClick={() => setSidebarOpen(false)}
@@ -266,6 +267,7 @@ export function DashboardPage() {
           <div className="sidebar-footer">
             <div className="language-switch" aria-label="Language / Γλώσσα">
               <button
+                aria-pressed={language === 'el'}
                 className={language === 'el' ? 'is-active' : ''}
                 onClick={() => switchLanguage('el')}
                 type="button"
@@ -273,6 +275,7 @@ export function DashboardPage() {
                 Ελληνικά
               </button>
               <button
+                aria-pressed={language === 'en'}
                 className={language === 'en' ? 'is-active' : ''}
                 onClick={() => switchLanguage('en')}
                 type="button"
