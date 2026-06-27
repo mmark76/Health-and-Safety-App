@@ -2,18 +2,34 @@
 
 ## Purpose
 
-The application supports occupational safety and health management for office workplaces of the Cyprus Public Service. It is intended to help public-service organizations document office risk assessments, manage corrective measures, and monitor follow-up activity through a clear dashboard.
+The application supports Safety and Health at Work management for office workplaces of the Cyprus Public Service. It is intended to help public-service organizations document coverage, risk assessments, protective and corrective measures, training and preparedness, governance obligations, and Management reporting.
 
 The Ministry of Energy, Commerce and Industry is used as the initial organizational and operational model for early development. This does not make the application an official Ministry system.
+
+The software supports management and documentation. It cannot by itself guarantee safety, legal compliance, or the effectiveness of controls. Management remains accountable even when duties are assigned to the Safety and Health Officer, organizational units, committees, employees, or external services.
+
+## Product Areas
+
+The confirmed user-facing product areas are:
+
+1. Overview
+2. Coverage
+3. Risks and Measures
+4. Training and Preparedness
+5. Compliance and Governance
+6. Reports
+
+Settings and user administration are supporting functions, not primary product areas.
 
 ## Users
 
 Expected users include:
 
-- Occupational safety and health officers
+- Safety and Health Officers
 - Departmental or unit coordinators
 - Office managers and designated responsible persons
 - Authorized reviewers of written risk assessments and corrective measures
+- Management users reviewing risks, obligations, coverage gaps, and follow-up status
 
 The prototype must use demonstration users only. It must not include real names, email addresses, telephone numbers, health information, internal correspondence, real identifiable confidential certificate details, or personal data from real Ministry or government records. Fabricated demonstration certificate data may be used later if it is clearly non-real and non-identifiable.
 
@@ -51,6 +67,22 @@ Included office hazard categories are:
 - Visitor and reception-area safety
 - Emergency preparedness and first response arrangements
 
+## MVP Scope
+
+The first MVP is a limited but complete vertical slice containing:
+
+- Basic Coverage records for organizational units, people or affected groups, buildings, floors, spaces, work activities, and foreseeable conditions
+- One complete written risk-assessment workflow
+- Creation and assignment of additional or corrective measures
+- Basic Training and Preparedness records needed by the first workflows
+- Basic Compliance and Governance linkage to legal and other requirements
+- An Overview showing coverage gaps, active assessments, high risks, and overdue measures
+- Basic Management reporting
+
+## Later Expansion
+
+Later expansion remains outside the first MVP unless required by the initial vertical slice. Planned later areas include office workplace inspections, hazard, near-miss and incident reporting, first aid and AED, fire safety and evacuation, training and certification management, ESYPP and Safety Committees, documents and registers, management reporting, and Napo educational content.
+
 ## Exclusions
 
 The current product scope excludes:
@@ -68,7 +100,7 @@ The prototype may use demonstration data only. It must not contain real personal
 
 ## Official-Source Limitations
 
-The application must not claim to be an official Ministry system, an official OiRA tool, or endorsed by the Department of Labour Inspection, the Napo Consortium, or any European institution.
+The application must not claim to be an official Ministry system, an official OiRA tool, or endorsed by the Department of Labour Inspection, the Napo Consortium, ISO, or any European institution. The underlying management logic may map to Plan-Do-Check-Act and relevant ISO 45001 concepts, but the application must not claim ISO 45001 certification or compliance.
 
 Official sources may be referenced in future documentation or educational content only with clear attribution and without implying approval, certification, or endorsement.
 

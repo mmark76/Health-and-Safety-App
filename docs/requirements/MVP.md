@@ -2,15 +2,37 @@
 
 ## MVP
 
-The first MVP covers four office-focused capabilities for occupational safety and health management in the Cyprus Public Service.
+The first MVP is a limited but complete vertical slice for Safety and Health at Work management in office workplaces of the Cyprus Public Service. It uses the Ministry of Energy, Commerce and Industry only as the initial organizational and operational model.
 
-### 1. Organizational Structure and Office Areas
+The MVP is organized around the confirmed six product areas:
 
-The MVP records the public-service organizational structure using the Ministry of Energy, Commerce and Industry as the initial model. It supports office-based entities such as departments, units, floors, rooms, shared areas, meeting rooms, reception areas, archives, and welfare areas.
+1. Overview
+2. Coverage
+3. Risks and Measures
+4. Training and Preparedness
+5. Compliance and Governance
+6. Reports
 
-### 2. Written Risk Assessments
+Settings and user administration are supporting functions.
 
-The MVP supports written risk assessments for office workplaces using the five-stage workflow:
+## MVP Capabilities
+
+### 1. Basic Coverage Records
+
+Coverage records establish the minimum map of who or what is covered by Safety and Health at Work management. The MVP includes:
+
+- Organizational units
+- People or affected groups
+- Buildings, floors, and spaces
+- Work activities
+- Reasonably foreseeable conditions
+- Validity periods and coverage relationships
+
+People are recorded only where required for Safety and Health at Work purposes. Affected groups are used where individual identification is unnecessary.
+
+### 2. One Complete Written Risk-Assessment Workflow
+
+The MVP supports one complete office risk-assessment workflow:
 
 1. Preparation
 2. Hazard identification
@@ -20,19 +42,29 @@ The MVP supports written risk assessments for office workplaces using the five-s
 
 Report preparation completes the five-stage workflow, but periodic review and reassessment remain ongoing lifecycle requirements for office risk management.
 
-Risk assessments focus on office hazards such as emergency exits, electrical cabling, slips and trips, ergonomics, lighting, ventilation, housekeeping, office storage, and psychosocial risk factors.
+### 3. Additional and Corrective Measures
 
-### 3. Corrective Action Plans
+The MVP supports creation and assignment of additional or corrective measures identified through the risk-assessment workflow. Measures should support responsibility, priority, due date, status, evidence, verification, and escalation where needed.
 
-The MVP tracks corrective measures identified through office risk assessments, inspections, and hazard reports. Each corrective measure should support ownership, priority, due date, status, and verification.
+### 4. Basic Training and Preparedness Records
 
-### 4. Dashboard and Reporting
+The MVP includes only the basic Training and Preparedness records needed by the first workflows, such as required awareness, participation status, preparedness roles, and evidence that a requirement has been communicated or completed.
 
-The MVP provides a monitoring dashboard for office-area coverage, risk assessments in progress, open corrective measures, overdue corrective measures, upcoming office inspections, and demonstration alerts. Reporting is limited to office workplace management information.
+### 5. Basic Legal and Other Requirement Linkage
 
-## Later Modules
+The MVP includes basic Compliance and Governance linkage between legal or other requirements and relevant people, affected groups, locations, activities, assessments, controls, measures, or evidence. It does not attempt to implement a full legal compliance platform.
 
-Later modules may include:
+### 6. Overview
+
+The MVP Overview aggregates information from domain-owning modules. It shows coverage gaps, active assessments, high risks, overdue measures, and other key follow-up indicators. Overview must not own duplicate domain records.
+
+### 7. Basic Management Reporting
+
+The MVP Reports area provides basic Management reporting on coverage, active assessments, high risks, overdue measures, and requirement follow-up. Reports must read from authoritative module data and must not create duplicate domain records.
+
+## Later Expansion
+
+Later expansion remains outside the first MVP unless required by the initial vertical slice. Planned later modules include:
 
 - Office workplace inspections
 - Hazard, near-miss, and incident reporting
@@ -45,7 +77,9 @@ Later modules may include:
 - Napo educational content
 - Administration and configuration
 
-These later modules are outside the initial MVP. The Napo module will support education and awareness, but it is not part of the first MVP. Initial Napo implementation must use only official links or legally permitted embedding, and no Napo media or assets may be copied into this repository until usage rights are verified. No endorsement by the Napo Consortium or any European institution must be implied.
+Future detailed modules such as incidents, extensive inspection management, full committee meeting management, advanced document management, and full certification campaign management are outside the first MVP.
+
+The Napo module will support education and awareness, but it is not part of the first MVP. Initial Napo implementation must use only official links or legally permitted embedding, and no Napo media or assets may be copied into this repository until usage rights are verified. No endorsement by the Napo Consortium or any European institution must be implied.
 
 ## Out of Scope
 
@@ -56,6 +90,8 @@ The MVP does not include:
 - Field-work management
 - Heavy machinery, vehicle, or lifting-equipment management
 - Official OiRA integration
+- ISO 45001 certification or compliance claims
 - Government production deployment
 - Real Ministry records or personal data
+- Medical diagnoses, personal health histories, salary, performance, disciplinary, or unrelated HR data
 - Backend services or authentication
