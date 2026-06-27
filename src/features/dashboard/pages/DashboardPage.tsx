@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import './DashboardPage.css'
 
 type Language = 'el' | 'en'
@@ -207,12 +207,30 @@ export function DashboardPage() {
     return window.localStorage.getItem('hs-language') === 'en' ? 'en' : 'el'
   })
   const [sidebarOpen, setSidebarOpen] = useState(false)
+  const mobileMenuButtonRef = useRef<HTMLButtonElement>(null)
   const copy = translations[language]
 
   useEffect(() => {
     document.documentElement.lang = language
     window.localStorage.setItem('hs-language', language)
   }, [language])
+
+  useEffect(() => {
+    if (!sidebarOpen) return
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key !== 'Escape') return
+
+      setSidebarOpen(false)
+      mobileMenuButtonRef.current?.focus()
+    }
+
+    window.addEventListener('keydown', handleKeyDown)
+
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown)
+    }
+  }, [sidebarOpen])
 
   const switchLanguage = (nextLanguage: Language) => {
     setLanguage(nextLanguage)
@@ -230,7 +248,7 @@ export function DashboardPage() {
           />
         )}
 
-        <aside className={`dashboard-sidebar${sidebarOpen ? ' is-open' : ''}`}>
+        <aside className={`dashboard-sidebar${sidebarOpen ? ' is-open' : ''}`} id="dashboard-sidebar">
           <button
             aria-label={copy.closeMenu}
             className="mobile-close-button"
@@ -290,9 +308,12 @@ export function DashboardPage() {
         <div className="dashboard-main">
           <header className="dashboard-topbar">
             <button
+              aria-controls="dashboard-sidebar"
+              aria-expanded={sidebarOpen}
               aria-label={copy.openMenu}
               className="icon-button mobile-menu-button"
               onClick={() => setSidebarOpen(true)}
+              ref={mobileMenuButtonRef}
               type="button"
             >
               <Icon name="menu" />
