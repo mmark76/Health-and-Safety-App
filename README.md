@@ -10,7 +10,7 @@ All information currently displayed in the application is demonstration data. Th
 
 The application supports the Ministry in systematically managing and documenting Safety and Health at Work for every person who may reasonably be affected by its work activities, in every relevant building, workplace or other location, during all relevant activities and under normal, temporary, non-routine, emergency and other reasonably foreseeable conditions, throughout the period in which the activity, exposure or responsibility exists.
 
-This is achieved by identifying applicable legislation, regulations, official guidance and other relevant requirements; identifying hazards; assessing risks; applying prevention principles; defining technical and organizational protective measures; assigning responsibilities; providing training and preparedness; maintaining evidence; monitoring implementation; and carrying out periodic review and reassessment.
+This is achieved by identifying applicable binding legislation, regulations, requirements, instructions or decisions of competent authorities, official guidance, guidelines, voluntary standards, good practices and educational material; identifying hazards; assessing risks; applying prevention principles; defining technical and organizational protective measures; assigning responsibilities; providing training and preparedness; maintaining evidence; monitoring implementation; and carrying out periodic review and reassessment.
 
 The software supports management and documentation. It cannot by itself guarantee safety, legal compliance, or the effectiveness of controls.
 
@@ -119,7 +119,7 @@ This application is not:
 - Endorsed by ISO
 - Endorsed by any European institution
 
-Any future references to official guidance, standards, or educational materials must clearly identify the source and must not imply approval, certification, compliance, or endorsement.
+Any future references to official guidance, guidelines, voluntary standards, good practices, or educational materials must clearly identify the source and must not imply approval, certification, compliance, or endorsement.
 
 ## Technology
 

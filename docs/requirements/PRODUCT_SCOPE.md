@@ -52,6 +52,14 @@ Initial office area types include:
 - Small storage rooms for office supplies
 - Server or communications rooms where access is office-managed
 
+## Location Scope
+
+The product uses a general Location concept for any place where persons may reasonably be affected by Ministry work activities. A Location may represent Ministry-controlled buildings and workplaces, buildings shared with other organizations, floors, spaces, temporary office-related workplaces, external locations where Ministry work activities occur, or other relevant locations.
+
+Building, Floor and Space remain structured location types or parts of the location hierarchy. External or temporary locations do not require artificial building or floor records.
+
+The first MVP may implement only the minimum location types required by its vertical slice. Construction sites, industrial locations, manufacturing and unrelated field-work remain outside the active product scope.
+
 ## Included Hazard Categories
 
 Included office hazard categories are:
@@ -102,7 +110,13 @@ The prototype may use demonstration data only. It must not contain real personal
 
 The application must not claim to be an official Ministry system, an official OiRA tool, or endorsed by the Department of Labour Inspection, the Napo Consortium, ISO, or any European institution. The underlying management logic may map to Plan-Do-Check-Act and relevant ISO 45001 concepts, but the application must not claim ISO 45001 certification or compliance.
 
-Official sources may be referenced in future documentation or educational content only with clear attribution and without implying approval, certification, or endorsement.
+Compliance and learning sources must be distinguished as binding legislation, regulations, applicable requirements, instructions or decisions of competent authorities, official guidance, guidelines, voluntary standards, good practices, or educational material. Official sources may be referenced in future documentation or educational content only with clear attribution and without implying approval, certification, or endorsement.
+
+## Future Privacy and Security Requirements
+
+Before any real organizational or personal data is used, the system must define and implement role-based access control, audit history for important actions and changes, secure evidence and attachment handling, retention and deletion rules, data minimization, appropriate protection for confidential records, and authorization for viewing, uploading, changing and deleting records.
+
+These are architectural requirements for later implementation, not functionality to be built during the current prototype phase.
 
 ## Role of Napo as Future Educational Content
 

@@ -16,6 +16,8 @@ The product must avoid implying official endorsement by the Ministry, the Depart
 
 The first version will focus on office workplaces in the Cyprus Public Service.
 
+ADR-001 remains valid for the office public-service product scope. ADR-002 refines the product architecture, terminology and six-area hybrid structure, and takes precedence only where it introduces the newer architectural organization.
+
 The Ministry of Energy, Commerce and Industry will be used only as the initial organizational model for prototype structure, terminology, and workflow assumptions.
 
 Construction and industrial functionality is postponed. The current scope will not include construction sites, factories, industrial production, manufacturing, field-work operations, heavy machinery, vehicle fleets, or lifting-equipment management.

@@ -31,6 +31,7 @@ Coverage owns the authoritative records for:
 - People only to the extent required for Safety and Health at Work
 - Affected groups
 - Safety and Health roles and assignments
+- Locations
 - Buildings
 - Floors
 - Spaces
@@ -39,6 +40,8 @@ Coverage owns the authoritative records for:
 - Validity periods and coverage relationships
 
 Coverage defines who or what is covered, where, during which activities, under which foreseeable conditions, and for what period.
+
+A Location represents any place where persons may reasonably be affected by Ministry work activities. It may be a Ministry-controlled building or workplace, a building shared with other organizations, a floor, a space, a temporary office-related workplace, an external location where Ministry work activities occur, or another relevant location. Building, Floor and Space remain structured location types or parts of the location hierarchy. External or temporary locations do not require artificial building or floor records. The first MVP may implement only the minimum location types required by its vertical slice; construction sites, industrial locations, manufacturing and unrelated field-work remain outside the active product scope.
 
 ### Risks and Measures
 
@@ -53,7 +56,6 @@ Risks and Measures owns the authoritative records for:
 - Explicit risk-matrix result
 - Additional measures
 - Corrective actions
-- Evidence
 - Verification
 - Residual risk
 - Review and reassessment
@@ -86,6 +88,7 @@ Compliance and Governance owns the authoritative records for:
 - Regulations
 - Official guidance
 - Guidelines
+- Applicable requirements, instructions or decisions of competent authorities
 - Standards and good practices
 - Legal and other requirements register
 - Policies and procedures
@@ -105,6 +108,18 @@ Reports reads and aggregates information from domain-owning modules. It may prod
 
 Reports must not create duplicate copies of domain records.
 
+## Evidence Ownership
+
+Evidence is not a separate user-facing product module. The originating domain module owns the relationship between evidence and its domain record.
+
+Examples:
+
+- Risks and Measures owns evidence linked to measures, implementation and verification.
+- Training and Preparedness owns evidence linked to participation, certification and drills.
+- Compliance and Governance owns evidence linked to requirements, decisions, policies and reviews.
+
+A future shared technical evidence or attachment capability may provide common file storage, metadata, access control, audit history, retention and security. This technical capability must not become a duplicate source of domain ownership. Reports and Overview may read evidence metadata but do not own evidence records.
+
 ## Architectural Boundaries
 
 - One authoritative source exists for each domain entity.
@@ -119,6 +134,8 @@ Reports must not create duplicate copies of domain records.
 - The current prototype may use fabricated demonstration data only.
 - Medical diagnoses, personal health histories, salary, performance, disciplinary, and unrelated HR data are out of scope.
 - The software supports management and documentation but cannot by itself guarantee safety, legal compliance, or the effectiveness of controls.
+- Before any real organizational or personal data is used, the system must define and implement role-based access control, audit history for important actions and changes, secure evidence and attachment handling, retention and deletion rules, appropriate protection for confidential records, and authorization for viewing, uploading, changing and deleting records.
+- These privacy and security requirements are for later implementation, not functionality to be built during the current prototype phase.
 
 ## Indicative Feature-Based Folder Structure
 

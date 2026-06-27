@@ -48,7 +48,7 @@ Medical diagnoses, personal health histories, salary, performance, disciplinary,
 
 ### AffectedGroup
 
-- Purpose: Represents a category of people affected by work activities, such as office staff, visitors, contractors, or members of the public.
+- Purpose: Represents a category of people affected by work activities, such as office employees, cleaners, messengers or support staff, archive personnel, maintenance personnel, contractors, visitors, members of the public, or persons who may require additional functional protection arrangements.
 - Owning module: Coverage.
 - Important relationships: Used in CoverageAssignments, AssessmentScopes, and HazardAssessments.
 - Personal data: No when defined generically.
@@ -86,11 +86,19 @@ Medical diagnoses, personal health histories, salary, performance, disciplinary,
 - Personal data: Yes when linked to a Person.
 - Lifecycle or validity: Requires historical membership periods.
 
+### Location
+
+- Purpose: Represents any place where persons may reasonably be affected by Ministry work activities.
+- Owning module: Coverage.
+- Important relationships: May contain or be represented by Buildings, Floors and Spaces; may also represent shared, external or temporary office-related locations without artificial building or floor records. Links to CoverageAssignments, RiskAssessments, drills, requirements and reports.
+- Personal data: No.
+- Lifecycle or validity: Must support changes in control, use, relevance and validity over time. The first MVP may implement only the minimum location types required by its vertical slice.
+
 ### Building
 
-- Purpose: Represents an office building or relevant workplace location.
+- Purpose: Represents a Ministry-controlled or shared office building within the Location hierarchy.
 - Owning module: Coverage.
-- Important relationships: Contains Floors and Spaces; links to assessments, requirements, drills, and reports.
+- Important relationships: Is a structured Location type; contains Floors and Spaces; links to assessments, requirements, drills, and reports.
 - Personal data: No.
 - Lifecycle or validity: Must support opening, closure, and changes in use.
 
@@ -98,7 +106,7 @@ Medical diagnoses, personal health histories, salary, performance, disciplinary,
 
 - Purpose: Represents a floor or level within a Building.
 - Owning module: Coverage.
-- Important relationships: Belongs to Building; contains Spaces.
+- Important relationships: Is part of the Location hierarchy; belongs to Building; contains Spaces.
 - Personal data: No.
 - Lifecycle or validity: Must support changes in layout or occupancy.
 
@@ -106,7 +114,7 @@ Medical diagnoses, personal health histories, salary, performance, disciplinary,
 
 - Purpose: Represents an office room, shared area, meeting room, corridor, reception area, archive, kitchen, or other office space.
 - Owning module: Coverage.
-- Important relationships: Belongs to Floor or Building; links to WorkActivities, CoverageAssignments, RiskAssessments, requirements, and reports.
+- Important relationships: Is a structured Location type; belongs to Floor, Building or another Location; links to WorkActivities, CoverageAssignments, RiskAssessments, requirements, and reports.
 - Personal data: No.
 - Lifecycle or validity: Requires validity periods for use, changes, and decommissioning.
 
@@ -130,7 +138,7 @@ Medical diagnoses, personal health histories, salary, performance, disciplinary,
 
 - Purpose: Links a Person or AffectedGroup to a location, activity, foreseeable condition, and validity period.
 - Owning module: Coverage.
-- Important relationships: Connects Person or AffectedGroup, Space or Building, WorkActivity, ForeseeableCondition, and ValidityPeriod.
+- Important relationships: Connects Person or AffectedGroup, Location, WorkActivity, ForeseeableCondition, and ValidityPeriod.
 - Personal data: Yes when linked to a Person.
 - Lifecycle or validity: Central lifecycle entity; must maintain history and current coverage.
 
@@ -144,7 +152,7 @@ Medical diagnoses, personal health histories, salary, performance, disciplinary,
 
 ### LegalOrOtherRequirement
 
-- Purpose: Represents legislation, regulations, official guidance, guidelines, standards, good practices, or other relevant requirements.
+- Purpose: Represents binding legislation, regulations, applicable requirements, instructions or decisions of competent authorities, official guidance, guidelines, voluntary standards, good practices, educational material, or other relevant requirements.
 - Owning module: Compliance and Governance.
 - Important relationships: Links to RequirementApplicability, policies, procedures, assessments, controls, evidence, and ManagementDecisions.
 - Personal data: No.
@@ -217,10 +225,10 @@ Medical diagnoses, personal health histories, salary, performance, disciplinary,
 ### Evidence
 
 - Purpose: Records proof that an action, control, requirement, training, or review was completed or checked.
-- Owning module: Domain module that creates it; commonly Risks and Measures or Compliance and Governance.
-- Important relationships: Links to measures, controls, requirements, training, drills, verifications, and reports.
+- Owning module: Evidence is not a separate user-facing product module. The originating domain module owns the relationship between evidence and its domain record.
+- Important relationships: Risks and Measures owns evidence linked to measures, implementation and verification. Training and Preparedness owns evidence linked to participation, certification and drills. Compliance and Governance owns evidence linked to requirements, decisions, policies and reviews. Reports and Overview may read evidence metadata but do not own evidence records.
 - Personal data: May contain personal data; must be minimized.
-- Lifecycle or validity: Must support traceability, retention decisions, and source context.
+- Lifecycle or validity: Must support traceability, retention decisions, and source context. A future shared technical evidence or attachment capability may provide common file storage, metadata, access control, audit history, retention and security, but must not become a duplicate source of domain ownership.
 
 ### Verification
 
@@ -293,3 +301,9 @@ Medical diagnoses, personal health histories, salary, performance, disciplinary,
 - Important relationships: Links to RiskAssessments, requirements, ManagementDecisions, Evidence, and Reports.
 - Personal data: May contain personal data when participants are named.
 - Lifecycle or validity: Scheduled, completed, actions assigned, closed.
+
+## Future Privacy and Security Requirements
+
+Before any real organizational or personal data is used, the system must define and implement role-based access control, audit history for important actions and changes, secure evidence and attachment handling, retention and deletion rules, data minimization, appropriate protection for confidential records, and authorization for viewing, uploading, changing and deleting records.
+
+These are architectural requirements for later implementation, not functionality to be built during the current prototype phase.

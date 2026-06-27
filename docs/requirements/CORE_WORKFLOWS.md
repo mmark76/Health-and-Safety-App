@@ -2,12 +2,23 @@
 
 These workflows describe product behaviour conceptually. They do not define API endpoints, database schemas, or implementation-specific classes.
 
+## Role and Accountability Conventions
+
+- **Accountable:** the Management authority that remains ultimately answerable for ensuring the matter is addressed.
+- **Responsible:** the organizational unit or assigned person that performs the work.
+- **Approver:** the authorized person or body that formally accepts or approves the result.
+- **Advisor / Coordinator:** normally the Safety and Health Officer or another competent role that advises, coordinates, monitors or escalates.
+- **Verifier:** the competent person who checks that implementation is complete and effective.
+- **Participants / affected persons:** persons who provide information, are consulted, receive instructions or are affected by the workflow.
+
+One person may hold more than one role where appropriate. Accountability must not be silently transferred to the Safety and Health Officer. Independent verification should be used where risk, governance or control effectiveness requires it. Employee duties do not remove Management accountability.
+
 ## 1. Establish Organizational and Workplace Coverage
 
 - Trigger: A new organization, unit, office location, or activity needs Safety and Health coverage.
 - Required inputs: Organization, units, buildings, floors, spaces, activities, foreseeable conditions, validity dates.
 - Main steps: Create or verify Coverage records; link units to locations and activities; define affected people or groups; identify missing relationships.
-- Responsible roles: Safety and Health Officer, responsible unit, Management.
+- Roles: Accountable: Management. Responsible: responsible unit. Advisor / Coordinator: Safety and Health Officer.
 - Outputs: Initial coverage map.
 - Status or lifecycle: Draft, active, under review, superseded.
 - Evidence created: Coverage record history and review note.
@@ -19,7 +30,7 @@ These workflows describe product behaviour conceptually. They do not define API 
 - Trigger: A person has a Safety and Health responsibility or an affected group needs coverage.
 - Required inputs: Minimum person details or group definition, reason for recording, related unit or activity, validity period.
 - Main steps: Decide whether a named person is necessary; create Person or AffectedGroup; link to roles or coverage where needed.
-- Responsible roles: Safety and Health Officer, responsible unit, Management where role assignment is significant.
+- Roles: Accountable: Management where role assignment is significant. Responsible: responsible unit. Advisor / Coordinator: Safety and Health Officer.
 - Outputs: Person or AffectedGroup available for coverage, roles, training, or measures.
 - Status or lifecycle: Active, inactive, archived.
 - Evidence created: Registration reason and assignment history.
@@ -31,7 +42,7 @@ These workflows describe product behaviour conceptually. They do not define API 
 - Trigger: A building, floor, or office space enters the product scope.
 - Required inputs: Building identity, floors, spaces, use, responsible unit, validity period.
 - Main steps: Create Building; create Floors; create Spaces; classify office area type; link responsible units.
-- Responsible roles: Safety and Health Officer, facilities contact, responsible unit.
+- Roles: Accountable: Management where location responsibility is unclear. Responsible: responsible unit or facilities contact. Advisor / Coordinator: Safety and Health Officer.
 - Outputs: Location structure available for coverage and assessment.
 - Status or lifecycle: Draft, active, changed, closed.
 - Evidence created: Location registration history.
@@ -42,8 +53,8 @@ These workflows describe product behaviour conceptually. They do not define API 
 
 - Trigger: Coverage needs to show who may be affected by an activity in a location under foreseeable conditions.
 - Required inputs: Person or AffectedGroup, location, activity, foreseeable condition, validity period.
-- Main steps: Select group or person; link to Space or Building; link to WorkActivity and ForeseeableCondition; confirm validity.
-- Responsible roles: Safety and Health Officer, responsible unit.
+- Main steps: Select group or person; link to Location; link to WorkActivity and ForeseeableCondition; confirm validity.
+- Roles: Accountable: Management for coverage completeness. Responsible: responsible unit. Advisor / Coordinator: Safety and Health Officer.
 - Outputs: CoverageAssignment.
 - Status or lifecycle: Active, expired, superseded.
 - Evidence created: Coverage relationship history.
@@ -55,7 +66,7 @@ These workflows describe product behaviour conceptually. They do not define API 
 - Trigger: Overview, review, or user check detects missing coverage.
 - Required inputs: Current coverage records, locations, activities, people or affected groups, conditions.
 - Main steps: Compare expected coverage against actual assignments; classify the gap; assign follow-up.
-- Responsible roles: Safety and Health Officer, responsible unit.
+- Roles: Accountable: Management for unresolved gaps. Responsible: responsible unit. Advisor / Coordinator: Safety and Health Officer.
 - Outputs: Coverage gap record or corrective measure.
 - Status or lifecycle: Open, assigned, resolved, verified.
 - Evidence created: Gap finding and resolution evidence.
@@ -67,7 +78,7 @@ These workflows describe product behaviour conceptually. They do not define API 
 - Trigger: New coverage, periodic review, changed activity, identified hazard, or Management request.
 - Required inputs: Assessment scope, hazards, affected groups, existing controls, requirements, responsible roles.
 - Main steps: Prepare assessment; identify hazards; evaluate risk; define action plan; prepare report; approve and set review date.
-- Responsible roles: Safety and Health Officer, responsible unit, Management approver where required.
+- Roles: Accountable: Management. Responsible: responsible unit. Approver: authorized Management authority or delegated body where required. Advisor / Coordinator: Safety and Health Officer.
 - Outputs: Approved written RiskAssessment.
 - Status or lifecycle: Draft, under review, approved, active, due for review, superseded.
 - Evidence created: Assessment report, approval record, review schedule.
@@ -79,7 +90,7 @@ These workflows describe product behaviour conceptually. They do not define API 
 - Trigger: Risk assessment, inspection, hazard report, review, or changed condition.
 - Required inputs: Hazard description, affected groups, location, activity, condition, existing controls.
 - Main steps: Record hazard; link affected groups; record existing controls; evaluate probability and severity; record explicit risk-matrix result.
-- Responsible roles: Safety and Health Officer, responsible unit, specialist input where needed.
+- Roles: Accountable: Management for ensuring risk is addressed. Responsible: responsible unit with specialist input where needed. Advisor / Coordinator: Safety and Health Officer.
 - Outputs: HazardAssessment and RiskRating.
 - Status or lifecycle: Draft, evaluated, action required, controlled, reviewed.
 - Evidence created: Hazard record, risk rating rationale.
@@ -91,7 +102,7 @@ These workflows describe product behaviour conceptually. They do not define API 
 - Trigger: Hazard evaluation, coverage gap, overdue requirement, verification failure, or Management review.
 - Required inputs: Measure description, source record, priority, responsible person or role, due date.
 - Main steps: Create measure; assign responsibility; set priority and due date; link evidence requirements.
-- Responsible roles: Safety and Health Officer, responsible unit, assigned owner.
+- Roles: Accountable: Management for ensuring the measure is addressed. Responsible: assigned owner or responsible unit. Advisor / Coordinator: Safety and Health Officer.
 - Outputs: AdditionalMeasure or CorrectiveAction.
 - Status or lifecycle: Proposed, assigned, in progress, overdue, completed, verified, closed.
 - Evidence created: Measure record and assignment history.
@@ -103,7 +114,7 @@ These workflows describe product behaviour conceptually. They do not define API 
 - Trigger: Assigned owner marks a measure complete.
 - Required inputs: Completion evidence, measure record, verifier or verification role.
 - Main steps: Add evidence; review completion; verify effectiveness; update residual risk if needed; close or reopen.
-- Responsible roles: Assigned owner, verifier, Safety and Health Officer.
+- Roles: Accountable: Management for unresolved or high-risk measures. Responsible: assigned owner. Verifier: competent verifier. Advisor / Coordinator: Safety and Health Officer.
 - Outputs: Verification result and updated measure status.
 - Status or lifecycle: Completed, verified, reopened, closed.
 - Evidence created: Completion evidence and verification record.
@@ -115,7 +126,7 @@ These workflows describe product behaviour conceptually. They do not define API 
 - Trigger: Review date, changed workplace, new activity, incident, high risk, failed control, or new requirement.
 - Required inputs: Existing assessment, change reason, related coverage, hazards, controls, requirements.
 - Main steps: Record trigger; decide review or reassessment; update scope and hazards; revise controls and measures; prepare updated report.
-- Responsible roles: Safety and Health Officer, responsible unit, Management where significant.
+- Roles: Accountable: Management where the change is significant or unresolved. Responsible: responsible unit. Advisor / Coordinator: Safety and Health Officer.
 - Outputs: Review record, updated RiskAssessment, or new reassessment.
 - Status or lifecycle: Triggered, in review, updated, approved, superseded.
 - Evidence created: Review rationale and updated assessment evidence.
@@ -127,7 +138,7 @@ These workflows describe product behaviour conceptually. They do not define API 
 - Trigger: Training need, role assignment, requirement, renewal, or preparedness gap.
 - Required inputs: Training programme, session, participant or group, completion evidence, certification or renewal need.
 - Main steps: Schedule or record session; record participation; attach evidence; update certification or renewal status where relevant.
-- Responsible roles: Safety and Health Officer, trainer, responsible unit, participant.
+- Roles: Accountable: Management for required training coverage. Responsible: trainer, responsible unit and participant as applicable. Advisor / Coordinator: Safety and Health Officer.
 - Outputs: Participation and Certification records.
 - Status or lifecycle: Planned, completed, expired, renewed, archived.
 - Evidence created: Attendance, completion, renewal, or fabricated demonstration evidence.
@@ -139,7 +150,7 @@ These workflows describe product behaviour conceptually. They do not define API 
 - Trigger: Scheduled check, Overview indicator, role change, or review.
 - Required inputs: Preparedness roles, certifications, validity periods, buildings, spaces, requirements.
 - Main steps: Compare required coverage against current records; identify expired or missing certification; assign follow-up.
-- Responsible roles: Safety and Health Officer, responsible unit.
+- Roles: Accountable: Management for critical preparedness gaps. Responsible: responsible unit. Advisor / Coordinator: Safety and Health Officer.
 - Outputs: Gap record, renewal task, or corrective measure.
 - Status or lifecycle: Open, assigned, completed, verified.
 - Evidence created: Gap detection and resolution record.
@@ -148,10 +159,10 @@ These workflows describe product behaviour conceptually. They do not define API 
 
 ## 13. Record an Applicable Legal or Other Requirement
 
-- Trigger: New or updated legislation, regulation, official guidance, standard, good practice, or internal policy.
+- Trigger: New or updated binding legislation, regulation, applicable requirement, instruction or decision of a competent authority, official guidance, guideline, voluntary standard, good practice, educational material, or internal policy.
 - Required inputs: Requirement source, summary, applicability rationale, effective date, owner.
 - Main steps: Create requirement record; classify source; identify applicability; assign review responsibility.
-- Responsible roles: Safety and Health Officer, Compliance and Governance owner, Management where significant.
+- Roles: Accountable: Management where the requirement is significant. Responsible: Compliance and Governance owner. Advisor / Coordinator: Safety and Health Officer.
 - Outputs: LegalOrOtherRequirement.
 - Status or lifecycle: Draft, active, under review, superseded, retired.
 - Evidence created: Source reference and applicability note.
@@ -163,7 +174,7 @@ These workflows describe product behaviour conceptually. They do not define API 
 - Trigger: Requirement applicability is identified or reviewed.
 - Required inputs: Requirement, target records, applicability rationale, validity period.
 - Main steps: Link requirement to relevant Coverage, RiskAssessment, controls, measures, training, preparedness records, or evidence; set review date.
-- Responsible roles: Safety and Health Officer, Compliance and Governance owner.
+- Roles: Accountable: Management for unaddressed applicability. Responsible: Compliance and Governance owner. Advisor / Coordinator: Safety and Health Officer.
 - Outputs: RequirementApplicability.
 - Status or lifecycle: Active, changed, superseded, reviewed.
 - Evidence created: Applicability record and linked evidence.
@@ -175,7 +186,7 @@ These workflows describe product behaviour conceptually. They do not define API 
 - Trigger: High risk, overdue measure, failed verification, unaddressed requirement, or unresolved coverage gap.
 - Required inputs: Source record, risk or obligation context, due dates, responsible roles, evidence.
 - Main steps: Create escalation; notify or assign Management review; record decision; track follow-up.
-- Responsible roles: Safety and Health Officer, responsible unit, Management.
+- Roles: Accountable: Management. Responsible: responsible unit. Advisor / Coordinator: Safety and Health Officer.
 - Outputs: ManagementDecision or escalation record.
 - Status or lifecycle: Open, reviewed, actioned, closed.
 - Evidence created: Escalation note, decision record, follow-up evidence.
@@ -187,7 +198,7 @@ These workflows describe product behaviour conceptually. They do not define API 
 - Trigger: Scheduled reporting, Management request, review meeting, or audit preparation.
 - Required inputs: Coverage, risk, measures, training, preparedness, requirements, evidence, and review data.
 - Main steps: Aggregate authoritative data; generate report; identify gaps and trends; record report issue.
-- Responsible roles: Safety and Health Officer, reporting owner, Management.
+- Roles: Accountable: Management for review and decisions. Responsible: reporting owner. Advisor / Coordinator: Safety and Health Officer.
 - Outputs: Management report or coverage report.
 - Status or lifecycle: Draft, issued, reviewed, archived.
 - Evidence created: Report output and issue history.
@@ -199,7 +210,7 @@ These workflows describe product behaviour conceptually. They do not define API 
 - Trigger: Scheduled management review, significant change, recurring gaps, high risk, or governance need.
 - Required inputs: Reports, escalations, risk status, requirement status, training gaps, preparedness gaps, previous decisions.
 - Main steps: Review performance; decide priorities; assign improvements; set review dates; monitor completion.
-- Responsible roles: Management, Safety and Health Officer, relevant committees or responsible units.
+- Roles: Accountable: Management. Responsible: relevant committees or responsible units. Advisor / Coordinator: Safety and Health Officer.
 - Outputs: Review, ManagementDecision, assigned measures, improvement actions.
 - Status or lifecycle: Planned, completed, actions assigned, monitored, closed.
 - Evidence created: Review record, decisions, assigned actions, follow-up evidence.
