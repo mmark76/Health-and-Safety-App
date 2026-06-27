@@ -1,52 +1,55 @@
 # Project Product and Build Guide
 
-## 1. Document purpose
+## 1. Purpose
 
-Ο παρών οδηγός είναι το πρώτο σημείο αναφοράς πριν από σημαντική εργασία σε προϊόν, αρχιτεκτονική, λειτουργίες, πλοήγηση ή refactoring του Health and Safety App.
+This guide is the stable product and construction compass for the Health and Safety App. It is the first reference before significant product, architecture, feature, navigation, dashboard, or refactoring work.
 
-Συνοψίζει την αποδεκτή κατεύθυνση του προϊόντος και τις αρχές κατασκευής χωρίς να αντικαθιστά τα ADRs, τα requirements ή τα έγγραφα αρχιτεκτονικής. Όταν χρειάζεται λεπτομέρεια, η ομάδα πρέπει να επιστρέφει στα αντίστοιχα authoritative documents.
+It summarizes accepted decisions without replacing the authoritative documents. It must help a stateless future ChatGPT or Codex session reconstruct the product direction without relying on deleted conversations or memory.
 
-## 2. Documentation hierarchy and authority
+## 2. Documentation authority hierarchy
 
-Η ιεραρχία τεκμηρίωσης είναι:
+Use this hierarchy when reconstructing context or resolving uncertainty:
 
-- Τα ADRs παραμένουν authoritative για αποδεκτές αποφάσεις.
-- Τα requirement documents παραμένουν authoritative για λεπτομερή λειτουργικότητα.
-- Το `PROJECT_ARCHITECTURE.md` παραμένει authoritative για module boundaries και domain ownership.
-- Το `GENERAL_SOFTWARE_PROJECT_GUIDE.md` παραμένει authoritative για γενικές αρχές ανάπτυξης λογισμικού.
-- Ο παρών οδηγός είναι η κεντρική διατομεακή σύνοψη και το πρώτο operational reference.
+1. ADRs are authoritative for formally accepted decisions and their rationale.
+2. Requirements documents are authoritative for detailed product functionality and domain behaviour.
+3. `PROJECT_ARCHITECTURE.md` is authoritative for module boundaries and domain ownership.
+4. `GENERAL_SOFTWARE_PROJECT_GUIDE.md` is authoritative for general software-construction principles.
+5. `PROJECT_PRODUCT_GUIDE.md` is the central cross-cutting summary and first reference.
+6. `PROJECT_STATUS.md` is authoritative for the current phase, completed work and next approved task.
+7. Source code, Git history and CI results show what is actually implemented.
 
-Αν υπάρξει αντίφαση, δεν επιτρέπεται σιωπηρή απόκλιση. Πρέπει να ενημερωθεί το κατάλληλο authoritative document και, όπου χρειάζεται, να καταγραφεί νέο ή ενημερωμένο ADR.
+Contradictions must not be resolved silently. Report them and correct the appropriate authoritative document.
 
 ## 3. Product identity
 
-Το Health and Safety App είναι Safety and Health at Work management and documentation system για office workplaces of the Cyprus Public Service.
+The application is a Safety and Health at Work management and documentation system. It is initially and exclusively focused on office workplaces of the Cyprus Public Service.
 
-Το Ministry of Energy, Commerce and Industry χρησιμοποιείται μόνο ως αρχικό organizational and operational model για δομή, ορολογία και workflow assumptions. Δεν καθιστά την εφαρμογή επίσημο Ministry system.
+The Ministry of Energy, Commerce and Industry is used only as the initial organizational and operational model. It provides early structure, terminology and workflow assumptions, but the application is not an official Ministry system.
 
-Η τρέχουσα εφαρμογή είναι public prototype και χρησιμοποιεί fabricated demonstration data.
+The current application is a public prototype using fabricated demonstration data.
 
-Η εφαρμογή δεν είναι:
+The application is not:
 
-- official Ministry system
-- official OiRA tool
+- an official Ministry system
+- an official OiRA application
 - endorsed by the Department of Labour Inspection
 - ISO 45001 certified
-- endorsed by Napo, the Napo Consortium, ISO or any European institution
+- endorsed by Napo
+- endorsed by a European institution
 
-Το software υποστηρίζει management and documentation. Δεν μπορεί από μόνο του να εγγυηθεί safety, legal compliance, effectiveness of controls ή professional/legal judgement.
+The software supports management and documentation. It cannot by itself guarantee workplace safety, legal compliance, the effectiveness of controls, or correct professional or legal judgement.
 
-## 4. Central product mission
+## 4. Central mission
 
-Η κεντρική αποστολή είναι η συστηματική Safety and Health at Work coverage για κάθε person ή affected group που μπορεί εύλογα να επηρεαστεί:
+The system supports systematic Safety and Health at Work coverage for every person or affected group who may reasonably be affected:
 
-- σε κάθε relevant building, workplace ή άλλο location
-- κατά τη διάρκεια όλων των relevant activities
-- υπό normal, temporary, non-routine, emergency και other reasonably foreseeable conditions
-- σε όλο το relevant validity or exposure period
-- σύμφωνα με applicable legal and other requirements
+- in every relevant building, workplace or other location
+- during all relevant work activities
+- under normal, temporary, non-routine, emergency and other reasonably foreseeable conditions
+- throughout the relevant validity, assignment or exposure period
+- according to applicable legal and other requirements
 
-Η κεντρική conceptual relationship είναι:
+Core conceptual relationship:
 
 ```text
 Person or affected group
@@ -57,63 +60,29 @@ Person or affected group
 -> Risk and protection coverage
 ```
 
-## 5. Active product scope
+## 5. Active scope
 
-Το active scope είναι αποκλειστικά office workplaces of the Cyprus Public Service.
+The active product scope is office workplaces of the Cyprus Public Service.
 
-Περιλαμβάνει office departments, units, floors, rooms, shared areas, archives, meeting rooms, reception areas, corridors, kitchens, welfare areas και storage rooms for office supplies.
+In scope:
 
-Δεν περιλαμβάνει construction sites, factories, industrial production, manufacturing, unrelated field-work, heavy machinery, vehicle fleets, lifting equipment ή specialist high-risk operational environments.
+- office departments, units and sections
+- office buildings, floors and spaces
+- meeting rooms, reception areas, corridors, kitchens, welfare areas and archive rooms
+- office activities and reasonably foreseeable office conditions
+- written office risk assessments, measures, training, preparedness, applicable requirements, Overview indicators and Management reporting
 
-## 6. Affected persons and groups
+Out of current scope:
 
-Η εφαρμογή είναι people-centred μόνο για Safety and Health at Work purposes.
+- construction sites
+- factories, industrial production and manufacturing
+- unrelated field-work
+- heavy machinery, lifting equipment and vehicle fleets
+- specialist high-risk operational environments
 
-Named persons χρησιμοποιούνται μόνο όταν είναι αναγκαίο για responsibilities, training, certification, assigned measures, preparedness duties ή governance roles. Όπου δεν απαιτείται ατομική ταυτοποίηση, χρησιμοποιούνται affected groups.
+## 6. Accepted user-facing product architecture
 
-Affected groups μπορούν να περιλαμβάνουν office employees, cleaners, messengers or support staff, archive personnel, maintenance personnel, contractors, visitors, members of the public ή persons needing additional functional protection arrangements.
-
-## 7. Locations, activities, foreseeable conditions and validity
-
-Το Coverage πρέπει να απαντά ποιος ή τι καλύπτεται, πού, κατά ποια δραστηριότητα, υπό ποιες foreseeable conditions και για ποια validity period.
-
-Το Location είναι γενική έννοια για κάθε χώρο όπου πρόσωπα μπορεί εύλογα να επηρεαστούν από Ministry work activities. Μπορεί να είναι Ministry-controlled building, shared building, floor, space, temporary office-related workplace, external office-related location ή άλλη σχετική τοποθεσία.
-
-Building, Floor και Space παραμένουν structured location types ή μέρη location hierarchy όπου χρειάζονται. External ή temporary locations δεν πρέπει να εξαναγκάζονται σε τεχνητά building/floor records.
-
-## 8. Regulatory and guidance layer
-
-Το Compliance and Governance layer διακρίνει καθαρά:
-
-- binding legislation
-- regulations
-- applicable requirements, instructions or decisions of competent authorities
-- official guidance
-- guidelines
-- voluntary standards
-- good practices
-- educational material
-
-References σε ISO, OiRA, Napo ή European material δεν πρέπει να παρουσιάζονται ως certification, compliance, approval ή endorsement.
-
-## 9. Management accountability and responsibility roles
-
-Οι ρόλοι ευθύνης ορίζονται ως:
-
-- **Accountable:** η Management authority που παραμένει τελικά υπόλογη ότι το θέμα αντιμετωπίζεται.
-- **Responsible:** η organizational unit ή assigned person που εκτελεί την εργασία.
-- **Approver:** το εξουσιοδοτημένο πρόσωπο ή σώμα που αποδέχεται ή εγκρίνει επίσημα το αποτέλεσμα.
-- **Advisor / Coordinator:** συνήθως ο Safety and Health Officer ή άλλη competent role που advises, coordinates, monitors and escalates.
-- **Verifier:** το competent person που ελέγχει ότι η υλοποίηση είναι complete and effective.
-- **Participants / affected persons:** πρόσωπα που παρέχουν πληροφορίες, συμβουλεύονται, λαμβάνουν οδηγίες ή επηρεάζονται από το workflow.
-
-Management remains accountable. Η ανάθεση duties σε Safety and Health Officer, organizational units, committees, employees ή external services δεν αφαιρεί Management accountability.
-
-Ο Safety and Health Officer advises, coordinates, monitors and escalates. Δεν πρέπει να παρουσιάζεται ως ο τελικός accountable owner ολόκληρου του συστήματος.
-
-## 10. Accepted hybrid product architecture
-
-Η αποδεκτή user-facing architecture έχει ακριβώς έξι product areas:
+The accepted primary areas are exactly:
 
 1. Overview
 2. Coverage
@@ -122,29 +91,30 @@ Management remains accountable. Η ανάθεση duties σε Safety and Health 
 5. Compliance and Governance
 6. Reports
 
-Settings και user administration είναι supporting functions, όχι primary product areas.
+Settings and user administration are supporting functions, not primary product areas.
 
-ISO/PDCA είναι underlying management logic, όχι application navigation. Η πλοήγηση οργανώνεται γύρω από operational coverage, risk-management workflows, preparedness, governance και reporting.
+Overview and Reports aggregate and present information but do not own duplicate business records. Coverage owns foundational coverage entities and relationships. Risks and Measures owns assessments, hazards, controls, actions and reassessments. Training and Preparedness owns competence, certification and preparedness records. Compliance and Governance owns requirements and governance records.
 
-## 11. Responsibilities of the six product areas
+ISO and PDCA provide underlying management logic rather than user navigation.
 
-**Overview** reads and aggregates information from domain-owning modules. Μπορεί να δείχνει coverage gaps, active assessments, high risks, overdue measures, preparedness gaps, compliance gaps και Management-decision items. Δεν owns duplicate records.
+## 7. Management accountability
 
-**Coverage** owns foundational coverage entities: organizational units, people where necessary, affected groups, Safety and Health roles, locations, buildings, floors, spaces, work activities, foreseeable conditions, validity periods and coverage relationships.
+Role terms:
 
-**Risks and Measures** owns written risk assessments, hazard assessments, affected groups within assessments, existing controls, probability, severity, explicit risk-matrix result, additional measures, corrective actions, verification, residual risk, review and reassessment.
+- **Accountable:** Management authority ultimately answerable for ensuring the matter is addressed.
+- **Responsible:** organizational unit or assigned person that performs the work.
+- **Approver:** authorized person or body that formally accepts or approves the result.
+- **Advisor / Coordinator:** normally the Safety and Health Officer or another competent role that advises, coordinates, monitors and escalates.
+- **Verifier:** competent person who checks that implementation is complete and effective.
+- **Participants / affected persons:** persons who provide information, are consulted, receive instructions or are affected by the workflow.
 
-**Training and Preparedness** owns training programmes, training sessions, participation, certifications, renewals, first aid, AED, fire safety roles, evacuation roles, drills and educational awareness material including future Napo official links or legally permitted embeds.
+Management remains accountable. Assignment of work does not remove Management accountability. The Safety and Health Officer advises, coordinates, monitors and escalates; the Safety and Health Officer is not the final accountable owner of the whole system.
 
-**Compliance and Governance** owns legal and other requirements, applicability, policies, procedures, Management accountability, ESYPP, Safety Committees, governance decisions and Management review.
+## 8. Written Risk Assessment
 
-**Reports** reads and aggregates authoritative data for Management, coverage, risk, measure, training, preparedness and governance reporting. Δεν owns duplicate records.
+Written Risk Assessment is central, but it does not constitute the whole Safety and Health at Work system. The application also manages coverage, preparedness, requirements, governance, Management accountability and reporting.
 
-## 12. Written Risk Assessment role and lifecycle
-
-Written Risk Assessment είναι κεντρικό concept αλλά δεν είναι ολόκληρο το Safety and Health at Work system. Το σύστημα πρέπει επίσης να καλύπτει Coverage, Training and Preparedness, Compliance and Governance, Management accountability και Reports.
-
-Η ροή είναι:
+Lifecycle:
 
 ```text
 Coverage scope
@@ -159,9 +129,7 @@ Coverage scope
 -> Review and reassessment
 ```
 
-Το five-stage workflow είναι Preparation, Hazard identification, Risk evaluation, Action plan, Report preparation. Report preparation ολοκληρώνει το workflow, αλλά periodic review and reassessment παραμένουν ongoing lifecycle requirement.
-
-Η qualitative risk matrix χρησιμοποιεί explicit category lookup και όχι arbitrary numeric multiplication.
+The qualitative risk matrix uses explicit category lookup rather than arbitrary numeric multiplication.
 
 Canonical risk levels:
 
@@ -170,197 +138,181 @@ Canonical risk levels:
 - Medium / Μέτρια
 - High / Υψηλή
 
-## 13. Domain ownership and single source of truth
+## 9. Domain ownership and evidence
 
-Κάθε domain record έχει ένα authoritative owner. Overview και Reports διαβάζουν και aggregate, αλλά δεν δημιουργούν duplicate authoritative records.
+The system follows a single-source-of-truth principle. Each domain record has one authoritative owner.
 
-People, buildings, spaces, work activities, risk assessments, certifications, legal requirements, evidence relationships και governance decisions δεν πρέπει να αντιγράφονται σε πολλαπλά modules ως ανεξάρτητες πηγές αλήθειας.
+Examples:
 
-Cross-module navigation πρέπει να οδηγεί πίσω στο owning record. Modules επικοινωνούν μέσω explicit interfaces ή stable identifiers.
+- Person or affected group -> Coverage
+- Location -> Coverage
+- Written Risk Assessment -> Risks and Measures
+- Training certification -> Training and Preparedness
+- Applicable requirement -> Compliance and Governance
 
-## 14. Evidence ownership
+The originating domain module owns the relationship between evidence and its business record.
 
-Evidence δεν είναι ξεχωριστό user-facing product module. Το originating domain module owns τη σχέση μεταξύ evidence και του domain record.
+A future shared attachment capability may manage file storage, metadata, access control, audit history, retention and attachment security. It must not become a second owner of the underlying domain data.
 
-Παραδείγματα:
+## 10. Privacy and data minimization
 
-- Risks and Measures owns evidence linked to measures, implementation and verification.
-- Training and Preparedness owns evidence linked to participation, certification and drills.
-- Compliance and Governance owns evidence linked to requirements, decisions, policies and reviews.
+The application is people-centred only for Safety and Health at Work purposes.
 
-Ένα μελλοντικό shared technical attachment capability μπορεί να παρέχει storage, metadata, access control, audit history, retention and security, αλλά δεν πρέπει να γίνει duplicate domain owner.
+Exclude unrelated:
 
-## 15. Privacy and data minimization
-
-Η εφαρμογή καταγράφει people information μόνο όπου χρειάζεται για Safety and Health at Work.
-
-Εξαιρούνται unrelated:
-
-- HR data
-- salary data
-- performance data
-- disciplinary data
-- family data
-- home addresses
+- HR information
+- salary information
+- performance records
+- disciplinary information
+- family information
+- residential addresses
 - medical diagnoses
 - complete medical histories
 
-Όπου απαιτείται special protection, καταγράφεται μόνο minimum functional information. Πριν χρησιμοποιηθούν real organizational or personal data, απαιτούνται role-based access, audit history, secure attachments, retention and deletion, authorization and confidential-record protection.
+Where special protection is necessary, record only minimum functional information.
 
-## 16. Current MVP
+Future real-data use requires role-based access control, audit history, secure attachments, retention and deletion, authorization and confidential-record protection.
 
-Το MVP παραμένει περιορισμένο σε ένα complete vertical slice:
+## 11. Current MVP
 
-- basic organizational units
+The MVP remains limited to one complete vertical slice containing:
+
+- organizational units
 - people or affected groups
 - locations, buildings, floors and spaces
 - work activities
-- foreseeable conditions
-- coverage relationships and gaps
-- one complete written risk-assessment workflow
+- reasonably foreseeable conditions
+- coverage relationships
+- coverage-gap identification
+- one complete Written Risk Assessment workflow
 - hazard evaluation
 - measures, assignment, evidence and verification
 - minimal training and preparedness records
-- basic legal-requirement linkage
+- basic applicable-requirement linkage
 - Overview indicators
 - basic Management reporting
 
-Το MVP δεν πρέπει να επεκταθεί σε πλήρη platform scope ή later modules χωρίς νέα αποδεκτή απόφαση.
+Do not expand the MVP without an explicit documented decision.
 
-## 17. Later expansion
+## 12. Later expansion
 
-Later expansion παραμένει έξω από το first MVP εκτός αν απαιτείται από το initial vertical slice.
+Later expansion remains outside the first MVP unless required by the initial vertical slice. Planned later modules include office workplace inspections, hazard, near-miss and incident reporting, first aid and AED, fire safety and evacuation, training and certification management, ESYPP and Safety Committees, documents and registers, management reporting and Napo educational content.
 
-Planned later modules include:
+Napo will be used for education and awareness. It is not part of the first MVP. Initial use must rely on official links or legally permitted embedding. No Napo media or assets may be copied into the repository until usage rights are verified, and no endorsement may be implied.
 
-- office workplace inspections
-- hazard, near-miss and incident reporting
-- first aid and AED
-- fire safety and evacuation
-- training and certification management
-- ESYPP and Safety Committees
-- documents and registers
-- management reporting
-- Napo educational content
-- administration and configuration
+## 13. Construction principles
 
-Napo will be used for education and awareness, outside the first MVP. Initial implementation must use only official links or legally permitted embedding. No Napo media or assets may be copied into the repository until usage rights are verified, and no endorsement must be implied.
-
-## 18. Software construction principles
-
-Οι αρχές κατασκευής είναι:
+Build using:
 
 - feature-based architecture
-- one responsibility per file or module
+- one clear responsibility per file or module
 - low coupling
 - explicit interfaces and stable identifiers
 - business rules outside React presentation components
 - shared code only after genuine reuse
 - no premature abstractions
-- small controlled vertical slices
-- tests as part of development
-- accessibility as a permanent requirement
 - no duplicate authoritative records
+- small controlled vertical slices
+- testing as part of development
+- accessibility as a permanent requirement
+- root-cause fixes rather than accumulated patches
 
-Indicative structure only:
+Indicative feature structure only:
 
 ```text
 src/
   app/
   features/
-    overview/
+    dashboard/
     coverage/
     risks-and-measures/
     training-and-preparedness/
     compliance-and-governance/
     reports/
-    settings/
   shared/
 ```
 
-Αυτό δεν ορίζει final database schema, API ή πλήρη folder structure.
+This guide does not define a final database schema, API, route map or design system.
 
-## 19. Agreed implementation order
+## 14. Agreed implementation sequence
 
-Η συμφωνημένη σειρά είναι:
+Current sequence based on accepted documents and actual Git history:
 
 1. Product and architecture foundation - completed
-2. Controlled dashboard refactor
-3. First Coverage vertical slice
-4. First complete Written Risk Assessment flow
-5. Minimal Training, Preparedness and requirement linkage
-6. Basic Management reporting
-7. Gradual later-module expansion
+2. Public prototype, CI and deployment - completed
+3. Controlled dashboard refactor - completed in commit `d0adfbf`
+4. First Coverage vertical slice - next implementation task
+5. First complete Written Risk Assessment flow
+6. Minimal Training, Preparedness and applicable-requirement linkage
+7. Basic Management reporting
+8. Gradual later expansion
 
-## 20. UI, navigation and accessibility principles
+The task text that expected the dashboard refactor to remain next is stale relative to the repository. Source code and Git history show the refactor is already complete.
 
-Η πλοήγηση πρέπει να ακολουθεί τις έξι product areas και να μην αντιγράφει ISO clause structure.
+## 15. UI and accessibility
 
-Overview και Reports δείχνουν aggregation/read information και πρέπει να οδηγούν τον χρήστη πίσω στα authoritative source records. Global or contextual actions πρέπει να δημιουργούν records στο σωστό owning product area.
+Preserve:
 
-Το prototype παραμένει bilingual in Greek and English. Accessibility attributes, keyboard behaviour, language switching, visible demonstration-data indicator και clear status visibility είναι permanent requirements, όχι cosmetic additions.
+- bilingual Greek and English content
+- semantic equivalence between languages
+- responsive behaviour
+- keyboard operation
+- focus management
+- accessible labels
+- `aria-current`
+- `aria-expanded`
+- `aria-controls`
+- `aria-pressed`
 
-## 21. Public prototype and demonstration-data rules
+The public prototype must keep the demonstration-data indicator visible.
 
-Στο public prototype επιτρέπεται μόνο fabricated ή properly anonymized demonstration information.
+## 16. Public prototype rules
 
-Δεν επιτρέπονται real:
+Only fabricated, anonymized or demonstration data may appear publicly.
+
+Exclude real:
 
 - names
-- emails
+- email addresses
 - telephone numbers
-- correspondence
+- internal correspondence
 - certificate records
 - health information
 - costs
-- sensitive technical information
-- unauthorized Ministry branding
+- sensitive building or installation information
+- unauthorized official branding
 
-Το demonstration-data indicator πρέπει να παραμένει visible κατά τη public prototype phase.
+Do not claim official status, endorsement, certification or legal compliance.
 
-## 22. Checklist before adding a new feature
+## 17. New-feature checklist
 
-Πριν προστεθεί feature:
+Before adding a feature, confirm:
 
-- Επιβεβαίωσε ότι ανήκει σε ένα από τα έξι product areas ή σε supporting Settings/User Administration.
-- Επιβεβαίωσε το authoritative owner των records.
-- Έλεγξε ότι δεν επεκτείνει σιωπηρά το MVP.
-- Έλεγξε ότι δεν εισάγει construction, industrial, manufacturing, unrelated field-work ή heavy-machinery scope.
-- Καθόρισε affected persons/groups, locations, activities, foreseeable conditions and validity όπου σχετίζονται.
-- Καθόρισε accountability, responsible roles, approvers, advisors/coordinators and verifiers.
-- Καθόρισε privacy impact και minimum data needed.
-- Καθόρισε source records, evidence ownership and reporting impact.
-- Κράτησε business rules έξω από React presentation components.
-- Πρόσθεσε tests and accessibility checks proportional to risk.
+- the real Safety and Health at Work problem
+- owning product area
+- owning domain module
+- reused entities and stable identifiers
+- duplicate-source-of-truth risk
+- responsibility roles
+- minimum personal data
+- applicable requirements
+- lifecycle and states
+- evidence ownership
+- reassessment or review triggers
+- tests and accessibility checks
+- MVP necessity
+- simplest maintainable implementation
 
-## 23. Current development and deployment workflow
-
-Το project currently works directly on `main` as a project-specific workflow decision. Δεν δημιουργούνται branches, pull requests ή worktrees όταν η εργασία ζητείται έτσι ρητά.
-
-Local development uses:
-
-- `npm install`
-- `npm run dev`
-- `npm run lint`
-- `npm run build`
-
-Deployment uses GitHub Actions and GitHub Pages. Pushes to `main` run lint, build, upload `dist` and deploy through the GitHub Pages deployment action. The intended custom domain is `https://health-and-safety.markellosecosystem.com`.
-
-Deployment is not considered successful until the GitHub Actions deployment workflow completes successfully.
-
-## 24. Final guiding principle
-
-Κάθε αλλαγή πρέπει να διατηρεί το προϊόν office-focused, people-centred, privacy-conscious, Management-accountable, modular and maintainable.
-
-Το σύστημα πρέπει να βοηθά τη δημόσια υπηρεσία να γνωρίζει ποιος καλύπτεται, πού, σε ποια δραστηριότητα, υπό ποιες συνθήκες, με ποιους κινδύνους, ποια μέτρα, ποια τεκμήρια, ποια εκκρεμότητα και ποια Management accountability.
-
-## Cross-references
+## 18. Cross-references
 
 - [README](../README.md)
+- [Start Here - Stateless Project Recovery](START_HERE.md)
+- [Current Project Status](PROJECT_STATUS.md)
 - [General Software Project Guide](architecture/GENERAL_SOFTWARE_PROJECT_GUIDE.md)
 - [Project Architecture](architecture/PROJECT_ARCHITECTURE.md)
 - [ADR-001: Office Public-Service Scope](decisions/ADR-001-office-public-service-scope.md)
 - [ADR-002: Hybrid Product Architecture](decisions/ADR-002-hybrid-product-architecture.md)
+- [ADR-003: Repository as Persistent Project Memory](decisions/ADR-003-repository-as-persistent-project-memory.md)
 - [Product Scope](requirements/PRODUCT_SCOPE.md)
 - [Minimum Viable Product](requirements/MVP.md)
 - [Conceptual Domain Model](requirements/DOMAIN_MODEL.md)

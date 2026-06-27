@@ -145,6 +145,13 @@ Project-specific architecture documentation takes precedence where the general g
 
 Before significant product, architecture, feature, navigation, or refactoring work, use `docs/PROJECT_PRODUCT_GUIDE.md` as the central summary of the accepted product direction and construction principles.
 
+For stateless project continuity:
+
+- `docs/START_HERE.md` is the entry point for recovering project context without prior chat memory.
+- `docs/PROJECT_PRODUCT_GUIDE.md` is the central product and build compass.
+- `docs/PROJECT_STATUS.md` records current implementation status and the next approved task.
+- `AGENTS.md` contains operating rules for Codex and other coding agents.
+
 Current source structure:
 
 - `src/app/` - application entry point
