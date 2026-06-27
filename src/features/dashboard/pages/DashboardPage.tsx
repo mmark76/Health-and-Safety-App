@@ -333,22 +333,11 @@ export function DashboardPage() {
 
             <section className="metrics-grid" aria-label={copy.eyebrow}>
               {copy.metrics.map((metric, index) => {
-                const palette = [
-                  { bg: '#fef3c7', color: '#b45309', halo: '#fff4cf' },
-                  { bg: '#dff3fb', color: '#146c94', halo: '#e8f8fc' },
-                  { bg: '#dcfce7', color: '#15803d', halo: '#e9fbed' },
-                  { bg: '#eee7ff', color: '#6941c6', halo: '#f4efff' },
-                ][index]
 
                 return (
                   <article
-                    className="metric-card"
+                    className={`metric-card metric-card-${index + 1}`}
                     key={metric.label}
-                    style={{
-                      '--metric-bg': palette.bg,
-                      '--metric-color': palette.color,
-                      '--metric-halo': palette.halo,
-                    } as React.CSSProperties}
                   >
                     <div className="metric-top">
                       <p className="metric-label">{metric.label}</p>

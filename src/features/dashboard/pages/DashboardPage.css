@@ -185,6 +185,7 @@
   padding: 14px 30px;
   border-bottom: 1px solid var(--slate-200);
   background: rgb(255 255 255 / 94%);
+  -webkit-backdrop-filter: blur(12px);
   backdrop-filter: blur(12px);
 }
 
@@ -815,6 +816,30 @@
 
 .sidebar-overlay {
   display: none;
+}
+
+.metric-card-1 {
+  --metric-bg: #fef3c7;
+  --metric-color: #b45309;
+  --metric-halo: #fff4cf;
+}
+
+.metric-card-2 {
+  --metric-bg: #dff3fb;
+  --metric-color: #146c94;
+  --metric-halo: #e8f8fc;
+}
+
+.metric-card-3 {
+  --metric-bg: #dcfce7;
+  --metric-color: #15803d;
+  --metric-halo: #e9fbed;
+}
+
+.metric-card-4 {
+  --metric-bg: #eee7ff;
+  --metric-color: #6941c6;
+  --metric-halo: #f4efff;
 }
 
 @media (max-width: 1220px) {
