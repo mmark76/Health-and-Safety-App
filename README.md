@@ -141,6 +141,10 @@ The project follows a modular, feature-based architecture guided by:
 
 Project-specific architecture documentation takes precedence where the general guide intentionally allows project variation.
 
+## Project Guidance
+
+Before significant product, architecture, feature, navigation, or refactoring work, use `docs/PROJECT_PRODUCT_GUIDE.md` as the central summary of the accepted product direction and construction principles.
+
 Current source structure:
 
 - `src/app/` - application entry point
