@@ -175,10 +175,16 @@ Create a production build:
 
 `https://github.com/mmark76/Health-and-Safety-App`
 
-## Intended Deployment
+## Deployment
 
-The application is intended to be hosted through GitHub Pages at:
+Deployment uses GitHub Actions and GitHub Pages. Pushes to `main` run the deployment workflow, which installs dependencies, runs linting, builds the Vite application, uploads the generated `dist` directory as a GitHub Pages artifact, and deploys it through the GitHub Pages deployment action.
+
+The intended custom domain is:
 
 `https://health-and-safety.markellosecosystem.com`
 
-Deployment has not yet been configured or completed.
+Repository GitHub Pages settings must use `GitHub Actions` as the publishing source. The custom domain is configured in the repository Pages settings.
+
+The public application contains demonstration data only.
+
+Deployment should not be treated as successful until the GitHub Actions deployment workflow has completed successfully.
