@@ -1,5 +1,6 @@
 import { Icon } from './DashboardIcon'
 import type { DashboardContent, Language } from '../types/dashboard'
+import './DashboardSidebar.css'
 
 type DashboardView = 'overview' | 'about'
 
@@ -33,6 +34,11 @@ export function DashboardSidebar({
     onSelectAbout()
     onClose()
   }
+
+  const aboutBadge = language === 'el' ? 'Πληροφορίες' : 'Information'
+  const aboutDescription = language === 'el'
+    ? 'Σκοπός και κατάσταση του app'
+    : 'Purpose and project status'
 
   return (
     <aside className={`dashboard-sidebar${sidebarOpen ? ' is-open' : ''}`} id="dashboard-sidebar">
@@ -74,7 +80,7 @@ export function DashboardSidebar({
         })}
       </nav>
 
-      <div className="sidebar-footer">
+      <div className="sidebar-supporting-nav">
         <button
           aria-current={activeView === 'about' ? 'page' : undefined}
           className={`sidebar-link sidebar-about-link${activeView === 'about' ? ' is-active' : ''}`}
@@ -82,9 +88,15 @@ export function DashboardSidebar({
           type="button"
         >
           <Icon name="info" />
-          <span>{copy.aboutApp}</span>
+          <span className="sidebar-about-copy">
+            <span className="sidebar-about-badge">{aboutBadge}</span>
+            <strong>{copy.aboutApp}</strong>
+            <span className="sidebar-about-description">{aboutDescription}</span>
+          </span>
         </button>
+      </div>
 
+      <div className="sidebar-footer">
         <div className="language-switch" aria-label="Language / Γλώσσα">
           <button
             aria-pressed={language === 'el'}
