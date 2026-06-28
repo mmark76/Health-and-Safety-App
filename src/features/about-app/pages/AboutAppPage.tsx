@@ -18,8 +18,6 @@ type AboutAppContent = {
   noticeText: string
   nextTitle: string
   nextText: string
-  repositoryLink: string
-  documentationLink: string
 }
 
 const aboutAppContent: Record<Language, AboutAppContent> = {
@@ -28,19 +26,23 @@ const aboutAppContent: Record<Language, AboutAppContent> = {
     title: 'Ασφάλεια, Υγεία και Ευημερία των Ανθρώπων στην Εργασία',
     intro:
       'Το Health and Safety App έχει ως τελικό σκοπό την προστασία και προαγωγή της Ασφάλειας, της Υγείας και της Ευημερίας των ανθρώπων στην εργασία. Οι εγγραφές, οι εκτιμήσεις κινδύνου, τα μέτρα, η εκπαίδευση και οι αναφορές είναι τα διαχειριστικά εργαλεία που υπηρετούν αυτόν τον ανθρώπινο σκοπό.',
-    badges: ['Δημόσιο πρωτότυπο', 'Ελληνικά και Αγγλικά', 'Μόνο ενδεικτικά δεδομένα'],
+    badges: ['Εσωτερικό εργαλείο εργασίας', 'Ελληνικά και Αγγλικά', 'Μόνο ενδεικτικά δεδομένα'],
     summaries: [
       {
-        title: 'Ανθρώπινος σκοπός',
+        title: 'Ανθρωποκεντρικός σκοπός',
         text: 'Η πρόληψη βλάβης, η προστασία της υγείας και η υποστήριξη της ευημερίας κάθε ανθρώπου που μπορεί εύλογα να επηρεαστεί από την εργασία.',
       },
       {
-        title: 'Τρέχουσα φάση',
-        text: 'Δημόσιο frontend prototype με λειτουργική δίγλωσση Επισκόπηση και τεκμηρίωση συνέχειας του έργου.',
+        title: 'Κύρια υποστήριξη',
+        text: 'Το εργαλείο προορίζεται κυρίως για την υποστήριξη του Λειτουργού Ασφάλειας και Υγείας στην οργάνωση, παρακολούθηση και τεκμηρίωση της εργασίας του.',
       },
       {
-        title: 'Επόμενο ορόσημο',
-        text: 'Η πρώτη λειτουργική κάθετη ενότητα Κάλυψης, πριν από τη σταδιακή υλοποίηση των υπόλοιπων ροών του MVP.',
+        title: 'Προβλεπόμενη πρόσβαση',
+        text: 'Μελλοντική πρόσβαση μπορεί να δοθεί μόνο σε επιλεγμένο εξουσιοδοτημένο προσωπικό του Υπουργείου, σύμφωνα με ρόλο και αρμοδιότητες.',
+      },
+      {
+        title: 'Αρχικά προβλεπόμενοι χρήστες',
+        text: 'Οι αρχικά προβλεπόμενοι χρήστες περιλαμβάνουν τον Λειτουργό Ασφάλειας και Υγείας, τον Γενικό Διευθυντή, τον Πρώτο Διοικητικό Λειτουργό και άλλο ειδικά εξουσιοδοτημένο προσωπικό.',
       },
     ],
     areasTitle: 'Οι έξι κύριες περιοχές',
@@ -59,42 +61,44 @@ const aboutAppContent: Record<Language, AboutAppContent> = {
       'Δίγλωσση και responsive Επισκόπηση με ενδεικτικό περιεχόμενο.',
       'Επιλογή και αποθήκευση γλώσσας με ενημέρωση της γλώσσας του εγγράφου.',
       'Προσβάσιμο mobile sidebar με κλείσιμο μέσω Escape και επιστροφή focus.',
-      'Αυτοματοποιημένοι έλεγχοι lint και build και ρύθμιση ανάπτυξης μέσω GitHub Pages.',
+      'Υποστηρικτική σελίδα πληροφοριών για τον σκοπό, τους χρήστες και την κατάσταση της εφαρμογής.',
     ],
     pendingTitle: 'Τι δεν λειτουργεί ακόμη',
     pending: [
-      'Πραγματικές διαδρομές και λειτουργικές σελίδες για τις κύριες περιοχές.',
+      'Πλήρεις λειτουργικές σελίδες και ενέργειες για τις κύριες περιοχές.',
       'Εγγραφές και ροές Κάλυψης και ολοκληρωμένη γραπτή εκτίμηση κινδύνου.',
-      'Backend, βάση δεδομένων, authentication, authorization και audit logging.',
-      'Ασφαλής διαχείριση συνημμένων ή χρήση πραγματικών προσωπικών και επιχειρησιακών δεδομένων.',
+      'Ελεγχόμενη πρόσβαση χρηστών, πρόσβαση σύμφωνα με αρμοδιότητες και ασφαλές ιστορικό σημαντικών ενεργειών.',
+      'Ασφαλής αποθήκευση, ασφαλής διαχείριση συνημμένων ή χρήση πραγματικών προσωπικών και επιχειρησιακών δεδομένων.',
     ],
     noticeTitle: 'Σημαντική διευκρίνιση',
     noticeText:
-      'Η εφαρμογή είναι δημόσιο πρωτότυπο με κατασκευασμένα δεδομένα επίδειξης. Δεν είναι επίσημο σύστημα Υπουργείου ή OiRA, δεν αποτελεί πιστοποίηση ISO 45001 και δεν υποκαθιστά την επαγγελματική, νομική ή διοικητική κρίση. Η Διοίκηση παραμένει υπόλογη για την Ασφάλεια και Υγεία στην Εργασία.',
-    nextTitle: 'Τρέχουσα κατεύθυνση του έργου',
+      'Η εφαρμογή προορίζεται ως εσωτερικό εργαλείο εργασίας για την Ασφάλεια, Υγεία και Ευημερία των ανθρώπων στην εργασία. Υποστηρίζει την επαγγελματική και διοικητική κρίση, αλλά δεν την αντικαθιστά. Η Διοίκηση παραμένει υπεύθυνη για τις αποφάσεις, τις υποχρεώσεις και τη διασφάλιση ότι τα θέματα αντιμετωπίζονται κατάλληλα.',
+    nextTitle: 'Κατάσταση της εφαρμογής',
     nextText:
-      'Το επόμενο τεκμηριωμένο ορόσημο είναι η πρώτη λειτουργική κάθετη ενότητα Κάλυψης. Η ανάπτυξη θα συνεχιστεί με μικρά, ελεγχόμενα βήματα και με μία έγκυρη πηγή για κάθε εγγραφή.',
-    repositoryLink: 'Repository στο GitHub',
-    documentationLink: 'Αναλυτική κατάσταση έργου',
+      'Η εφαρμογή βρίσκεται σε ενεργή ανάπτυξη ως πρωτότυπο. Η σημερινή έκδοση χρησιμοποιεί μόνο ενδεικτικά δεδομένα και δεν διαθέτει ακόμη ελεγχόμενη πρόσβαση χρηστών. Πραγματικά δεδομένα του Υπουργείου θα μπορούν να χρησιμοποιηθούν μόνο όταν υλοποιηθούν οι απαραίτητοι μηχανισμοί ασφάλειας, πρόσβασης και προστασίας πληροφοριών.',
   },
   en: {
     eyebrow: 'People at the centre',
     title: 'Safety, Health and Wellbeing of People at Work',
     intro:
       'The ultimate purpose of the Health and Safety App is to protect and promote the Safety, Health and Wellbeing of people at work. Records, risk assessments, measures, training and reports are management tools that serve this human purpose.',
-    badges: ['Public prototype', 'Greek and English', 'Demonstration data only'],
+    badges: ['Internal working tool', 'Greek and English', 'Demonstration data only'],
     summaries: [
       {
         title: 'Human purpose',
         text: 'Preventing harm, protecting health and supporting the wellbeing of every person who may reasonably be affected by work.',
       },
       {
-        title: 'Current phase',
-        text: 'A public frontend prototype with a functional bilingual Overview and project-continuity documentation.',
+        title: 'Primary support',
+        text: 'The tool is intended primarily to support the Safety and Health Officer in organizing, monitoring and documenting professional Safety and Health work.',
       },
       {
-        title: 'Next milestone',
-        text: 'The first functional Coverage vertical slice, followed by gradual implementation of the remaining MVP workflows.',
+        title: 'Intended access',
+        text: 'Future access may be given only to selected authorized Ministry personnel according to their role and responsibilities.',
+      },
+      {
+        title: 'Initially intended users',
+        text: 'The initially intended users include the Safety and Health Officer, the Director General, the First Administrative Officer and other specifically authorized personnel.',
       },
     ],
     areasTitle: 'The six main product areas',
@@ -113,23 +117,21 @@ const aboutAppContent: Record<Language, AboutAppContent> = {
       'A bilingual, responsive Overview with demonstration content.',
       'Language selection and persistence, including document-language updates.',
       'An accessible mobile sidebar with Escape closing and focus return.',
-      'Automated lint and build checks and GitHub Pages deployment configuration.',
+      'A supporting information page explaining the application purpose, users and status.',
     ],
     pendingTitle: 'What is not yet functional',
     pending: [
-      'Real routes and functional pages for the main product areas.',
+      'Complete operational pages and actions for the main product areas.',
       'Coverage records and workflows and a complete written risk-assessment workflow.',
-      'A backend, database, authentication, authorization and audit logging.',
-      'Secure attachment handling or the use of real personal and operational data.',
+      'Controlled user access, access according to responsibilities and a secure record of important actions.',
+      'Secure storage, secure attachment handling or the use of real personal and operational data.',
     ],
     noticeTitle: 'Important clarification',
     noticeText:
-      'The application is a public prototype using fabricated demonstration data. It is not an official Ministry or OiRA system, does not represent ISO 45001 certification and does not replace professional, legal or Management judgement. Management remains accountable for Safety and Health at Work.',
-    nextTitle: 'Current project direction',
+      'The application is intended as an internal working tool for the Safety, Health and Wellbeing of people at work. It supports professional and administrative judgement, but it does not replace it. Management remains responsible for decisions, obligations and ensuring that matters are addressed appropriately.',
+    nextTitle: 'Application status',
     nextText:
-      'The next documented milestone is the first functional Coverage vertical slice. Development will continue through small, controlled steps with one authoritative source for every domain record.',
-    repositoryLink: 'GitHub repository',
-    documentationLink: 'Detailed project status',
+      'The application is in active development as a prototype. The current version uses demonstration data only and does not yet provide controlled user access. Real Ministry data may be used only after the necessary security, access and information-protection controls are implemented.',
   },
 }
 
@@ -201,24 +203,6 @@ export function AboutAppPage({ language }: AboutAppPageProps) {
       <section className="about-app-next-step">
         <h2>{copy.nextTitle}</h2>
         <p>{copy.nextText}</p>
-        <div className="about-app-links">
-          <a
-            className="about-app-link"
-            href="https://github.com/mmark76/Health-and-Safety-App"
-            rel="noreferrer"
-            target="_blank"
-          >
-            {copy.repositoryLink}
-          </a>
-          <a
-            className="about-app-link"
-            href="https://github.com/mmark76/Health-and-Safety-App/blob/main/docs/PROJECT_STATUS.md"
-            rel="noreferrer"
-            target="_blank"
-          >
-            {copy.documentationLink}
-          </a>
-        </div>
       </section>
     </div>
   )

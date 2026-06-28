@@ -4,20 +4,22 @@ A human-centred prototype web application for Safety and Health at Work manageme
 
 Its ultimate aim is to protect and promote the Safety, Health and Wellbeing of people at work. Records, risk assessments, measures, training and reports are management tools that support this human purpose.
 
-The application is being shaped around the Ministry of Energy, Commerce and Industry as the initial organizational and operational model. This model is used only to guide early structure, terminology, and workflows. The application is not an official Ministry system, an official OiRA tool, or a system endorsed by the Department of Labour Inspection, the Napo Consortium, ISO, or any European institution.
+The intended operational product is an internal Ministry working tool that primarily supports the Safety and Health Officer in organizing, monitoring and documenting Safety, Health and Wellbeing at work. Initially intended users include the Safety and Health Officer, the Director General, the First Administrative Officer, and other specifically authorized Ministry personnel at a later stage.
+
+The application is being shaped around the Ministry of Energy, Commerce and Industry as the initial organizational and operational model. This model is used only to guide early structure, terminology, and workflows. The current prototype is not an official Ministry system, an official OiRA tool, or a system endorsed by the Department of Labour Inspection, the Napo Consortium, ISO, or any European institution.
 
 All information currently displayed in the application is demonstration data. The project must not include real names, email addresses, telephone numbers, internal correspondence, real identifiable confidential certificate details, health information, or other personal data from real Ministry or government records. Fabricated demonstration certificate data may be used later if it is clearly non-real and non-identifiable.
 
 ## Current Project State
 
-- **Current phase:** Public frontend prototype and project-continuity documentation, before the first functional Coverage vertical slice.
+- **Current phase:** Development frontend prototype and project-continuity documentation, before the first functional Coverage vertical slice.
 - **Implemented:** Bilingual and responsive Overview dashboard, a bilingual informational About the App view, modular frontend components, language persistence, accessible mobile navigation, CI checks, and GitHub Pages deployment configuration.
 - **Prototype-only:** Product-area navigation, quick actions, search, notifications, profile controls, and product-area cards are currently visual placeholders rather than operational workflows.
 - **Not yet implemented:** Functional product-area routes, Coverage records and workflows, the written risk-assessment workflow, backend services, database persistence, authentication, authorization, audit logging, and secure attachment handling.
 - **Next documented milestone:** First functional Coverage vertical slice.
-- **Data and readiness:** The application uses fabricated demonstration data only and is not production-ready.
+- **Data and readiness:** The application uses fabricated demonstration data only, is currently publicly reachable as a development deployment, and is not ready for real operational Ministry data.
 
-For authoritative project context and the current implementation status, start with [Stateless Project Recovery](docs/START_HERE.md), the [Project Product and Build Guide](docs/PROJECT_PRODUCT_GUIDE.md), the [Current Project Status](docs/PROJECT_STATUS.md), and [AGENTS.md](AGENTS.md).
+For the authoritative product identity decision, see [ADR-004: Internal Ministry Working Tool Identity](docs/decisions/ADR-004-internal-ministry-working-tool-identity.md). For broader project context and current implementation status, start with [Stateless Project Recovery](docs/START_HERE.md), the [Project Product and Build Guide](docs/PROJECT_PRODUCT_GUIDE.md), the [Current Project Status](docs/PROJECT_STATUS.md), and [AGENTS.md](AGENTS.md).
 
 ## Product Mission
 
@@ -29,7 +31,7 @@ This is achieved by identifying applicable binding legislation, regulations, req
 
 The software supports management and documentation. It cannot by itself guarantee safety, legal compliance, wellbeing, or the effectiveness of controls.
 
-Management remains accountable for Safety and Health at Work. Assigning duties to the Safety and Health Officer, organizational units, committees, employees, or external services does not remove Management's responsibility.
+Management remains accountable for Safety and Health at Work. Assigning duties to the Safety and Health Officer, organizational units, committees, employees, or external services does not remove Management's responsibility. The software supports professional and administrative judgement, but does not replace it.
 
 ## Scope
 
@@ -152,6 +154,7 @@ The project follows a modular, feature-based architecture guided by:
 - `docs/requirements/INFORMATION_ARCHITECTURE.md`
 - `docs/decisions/ADR-001-office-public-service-scope.md`
 - `docs/decisions/ADR-002-hybrid-product-architecture.md`
+- `docs/decisions/ADR-004-internal-ministry-working-tool-identity.md`
 - `docs/architecture/GENERAL_SOFTWARE_PROJECT_GUIDE.md`
 
 Project-specific architecture documentation takes precedence where the general guide intentionally allows project variation.
@@ -201,6 +204,8 @@ Create a production build:
 ## Repository
 
 `https://github.com/mmark76/Health-and-Safety-App`
+
+Substantive or multi-file changes should use a worktree or feature branch, pass validation before merging, and be reviewed through a Pull Request. Squash merge is preferred for a clean `main` history. Direct changes to `main` should be limited to very small corrections or explicit owner instructions.
 
 ## Deployment
 

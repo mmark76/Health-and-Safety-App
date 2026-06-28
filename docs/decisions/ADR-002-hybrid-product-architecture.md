@@ -35,7 +35,7 @@ Overview and Reports aggregate information but do not own duplicate domain data.
 
 Project-specific architecture documentation takes precedence when the general guide intentionally allows project variation.
 
-The project currently works directly on `main`, without branches or pull requests, as a project-specific workflow decision. This workflow may be reconsidered when the project reaches a more mature or production-sensitive stage.
+The earlier project-specific workflow of working directly on `main` has been superseded for substantive work by ADR-004 and the repository operating instructions. Substantive or multi-file changes should now use a feature branch or worktree and be reviewed through a Pull Request before merging.
 
 ## Consequences
 
