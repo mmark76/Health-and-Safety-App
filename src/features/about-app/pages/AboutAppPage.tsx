@@ -51,7 +51,7 @@ const aboutAppContent: Record<Language, AboutAppContent> = {
     areas: [
       { title: 'Επισκόπηση', text: 'Συγκεντρωτικοί δείκτες, κενά, προθεσμίες και θέματα Διοίκησης.' },
       { title: 'Άνθρωποι, Χώροι και Δραστηριότητες', text: 'Άνθρωποι ή ομάδες, οργανωτικές μονάδες, χώροι, δραστηριότητες και συνθήκες.' },
-      { title: 'Κίνδυνοι και Μέτρα', text: 'Γραπτές εκτιμήσεις, κίνδυνοι, έλεγχοι, μέτρα, επαλήθευση και επανεκτίμηση.' },
+      { title: 'Γραπτές Εκτιμήσεις Κινδύνων (ΓΕΚ)', text: 'Γραπτές εκτιμήσεις, κίνδυνοι, έλεγχοι, μέτρα, επαλήθευση και επανεκτίμηση.' },
       { title: 'Εκπαίδευση και Ετοιμότητα', text: 'Γνώσεις, συμμετοχή, ρόλοι ετοιμότητας και βασική τεκμηρίωση.' },
       { title: 'Συμμόρφωση και Διακυβέρνηση', text: 'Απαιτήσεις, ευθύνες, αποφάσεις και διοικητική εποπτεία.' },
       { title: 'Αναφορές', text: 'Συγκεντρωτική πληροφόρηση από τις έγκυρες εγγραφές των αρμόδιων ενοτήτων.' },
@@ -107,7 +107,7 @@ const aboutAppContent: Record<Language, AboutAppContent> = {
     areas: [
       { title: 'Overview', text: 'Aggregated indicators, gaps, deadlines and matters requiring Management attention.' },
       { title: 'People, Locations and Activities', text: 'People or groups, organizational units, locations, activities and foreseeable conditions.' },
-      { title: 'Risks and Measures', text: 'Written assessments, hazards, controls, measures, verification and reassessment.' },
+      { title: 'Written Risk Assessments', text: 'Written assessments, hazards, controls, measures, verification and reassessment.' },
       { title: 'Training and Preparedness', text: 'Knowledge, participation, preparedness roles and basic evidence.' },
       { title: 'Compliance and Governance', text: 'Requirements, accountability, decisions and Management oversight.' },
       { title: 'Reports', text: 'Aggregated information from authoritative records owned by the relevant modules.' },

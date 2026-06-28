@@ -8,7 +8,7 @@ export const dashboardContent = {
     nav: [
       ['dashboard', 'Επισκόπηση'],
       ['documents', 'Άνθρωποι, Χώροι και Δραστηριότητες', 'Άνθρωποι, χώροι, δραστηριότητες και κενά κάλυψης'],
-      ['risk', 'Κίνδυνοι και Μέτρα', 'ΓΕΚ, κίνδυνοι, μέτρα και επανεκτιμήσεις'],
+      ['risk', 'Γραπτές Εκτιμήσεις Κινδύνων (ΓΕΚ)', 'ΓΕΚ, πηγές κινδύνου, αξιολόγηση, μέτρα και επανεκτιμήσεις'],
       ['training', 'Εκπαίδευση και Ετοιμότητα', 'Εκπαιδεύσεις, πιστοποιήσεις και επιχειρησιακή ετοιμότητα'],
       ['shield', 'Συμμόρφωση και Διακυβέρνηση', 'Απαιτήσεις, ευθύνες και διοικητική εποπτεία'],
       ['reports', 'Αναφορές', 'Συγκεντρωτική πληροφόρηση από τα αρχεία προέλευσης'],
@@ -35,13 +35,13 @@ export const dashboardContent = {
     viewAll: 'Προβολή όλων',
     alerts: [
       { title: 'Κενό κάλυψης σε γραφειακό χώρο', detail: 'Άνθρωποι, Χώροι και Δραστηριότητες · Αίθουσα συσκέψεων χωρίς συνδεδεμένη δραστηριότητα', status: 'Επείγον', level: 'high' },
-      { title: 'Υψηλός κίνδυνος προς απόφαση', detail: 'Κίνδυνοι και Μέτρα · Φραγμένη έξοδος κινδύνου', status: 'Διεύθυνση', level: 'high' },
+      { title: 'Υψηλός κίνδυνος προς απόφαση', detail: 'Γραπτές Εκτιμήσεις Κινδύνων (ΓΕΚ) · Φραγμένη έξοδος κινδύνου', status: 'Διεύθυνση', level: 'high' },
       { title: 'Εκπρόθεσμη απαίτηση επανεξέτασης', detail: 'Συμμόρφωση και Διακυβέρνηση · Εφαρμογή οδηγίας πυρασφάλειας', status: 'Εκκρεμεί', level: 'medium' },
     ],
     tasksTitle: 'Επανεξετάσεις και προθεσμίες',
     tasksSubtitle: 'Επόμενα σημεία ελέγχου από τα αρχεία των ενοτήτων',
     tasks: [
-      { day: '28', month: 'ΙΟΥΝ', title: 'Ανασκόπηση γραπτής εκτίμησης κινδύνου', detail: 'Κίνδυνοι και Μέτρα · Χώρος εξυπηρέτησης κοινού', status: '09:00' },
+      { day: '28', month: 'ΙΟΥΝ', title: 'Ανασκόπηση γραπτής εκτίμησης κινδύνου', detail: 'Γραπτές Εκτιμήσεις Κινδύνων (ΓΕΚ) · Χώρος εξυπηρέτησης κοινού', status: '09:00' },
       { day: '30', month: 'ΙΟΥΝ', title: 'Έλεγχος ετοιμότητας εκκένωσης', detail: 'Εκπαίδευση και Ετοιμότητα · Κεντρική είσοδος', status: '10:30' },
       { day: '02', month: 'ΙΟΥΛ', title: 'Περιοδική αναφορά Διεύθυνσης', detail: 'Αναφορές · Κενά κάλυψης και εκπρόθεσμα μέτρα', status: '11:00' },
     ],
@@ -49,7 +49,7 @@ export const dashboardContent = {
     activitySubtitle: 'Ενημερώσεις από τα αρχεία προέλευσης',
     activity: [
       { title: 'Ενημερώθηκε σχέση κάλυψης', detail: 'Άνθρωποι, Χώροι και Δραστηριότητες · Ομάδα επισκεπτών συνδέθηκε με χώρο υποδοχής', time: 'Πριν 18 λεπτά', icon: 'documents' },
-      { title: 'Ανατέθηκε πρόσθετο μέτρο', detail: 'Κίνδυνοι και Μέτρα · Διατήρηση ελεύθερης εξόδου κινδύνου', time: 'Πριν 1 ώρα', icon: 'actions' },
+      { title: 'Ανατέθηκε πρόσθετο μέτρο', detail: 'Γραπτές Εκτιμήσεις Κινδύνων (ΓΕΚ) · Διατήρηση ελεύθερης εξόδου κινδύνου', time: 'Πριν 1 ώρα', icon: 'actions' },
       { title: 'Καταγράφηκε συμμετοχή εκπαίδευσης', detail: 'Εκπαίδευση και Ετοιμότητα · Ενημέρωση εκκένωσης', time: 'Πριν 3 ώρες', icon: 'training' },
       { title: 'Καταχωρίστηκε απόφαση Διεύθυνσης', detail: 'Συμμόρφωση και Διακυβέρνηση · Προτεραιοποίηση μέτρων', time: 'Χθες, 16:42', icon: 'shield' },
     ],
@@ -84,7 +84,7 @@ export const dashboardContent = {
     nav: [
       ['dashboard', 'Overview'],
       ['documents', 'People, Locations and Activities', 'People, locations, activities and coverage gaps'],
-      ['risk', 'Risks and Measures', 'Risk assessments, risks, measures and reassessments'],
+      ['risk', 'Written Risk Assessments', 'Written assessments, hazards, controls, measures and reassessments'],
       ['training', 'Training and Preparedness', 'Training, certifications and operational preparedness'],
       ['shield', 'Compliance and Governance', 'Requirements, responsibilities and Management oversight'],
       ['reports', 'Reports', 'Aggregated information from authoritative source records'],
@@ -111,13 +111,13 @@ export const dashboardContent = {
     viewAll: 'View all',
     alerts: [
       { title: 'Coverage gap in office area', detail: 'People, Locations and Activities · Meeting room has no linked work activity', status: 'Urgent', level: 'high' },
-      { title: 'High risk awaiting decision', detail: 'Risks and Measures · Obstructed emergency exit', status: 'Management', level: 'high' },
+      { title: 'High risk awaiting decision', detail: 'Written Risk Assessments · Obstructed emergency exit', status: 'Management', level: 'high' },
       { title: 'Requirement review overdue', detail: 'Compliance and Governance · Fire-safety guidance applicability', status: 'Pending', level: 'medium' },
     ],
     tasksTitle: 'Reviews and deadlines',
     tasksSubtitle: 'Next checkpoints from authoritative module records',
     tasks: [
-      { day: '28', month: 'JUN', title: 'Written risk-assessment review', detail: 'Risks and Measures · Public service counter area', status: '09:00' },
+      { day: '28', month: 'JUN', title: 'Written risk-assessment review', detail: 'Written Risk Assessments · Public service counter area', status: '09:00' },
       { day: '30', month: 'JUN', title: 'Evacuation preparedness check', detail: 'Training and Preparedness · Main entrance', status: '10:30' },
       { day: '02', month: 'JUL', title: 'Periodic Management report', detail: 'Reports · Coverage gaps and overdue measures', status: '11:00' },
     ],
@@ -125,7 +125,7 @@ export const dashboardContent = {
     activitySubtitle: 'Updates from authoritative source records',
     activity: [
       { title: 'Coverage relationship updated', detail: 'People, Locations and Activities · Visitor group linked to reception area', time: '18 minutes ago', icon: 'documents' },
-      { title: 'Additional measure assigned', detail: 'Risks and Measures · Keep emergency exit clear', time: '1 hour ago', icon: 'actions' },
+      { title: 'Additional measure assigned', detail: 'Written Risk Assessments · Keep emergency exit clear', time: '1 hour ago', icon: 'actions' },
       { title: 'Training participation recorded', detail: 'Training and Preparedness · Evacuation briefing', time: '3 hours ago', icon: 'training' },
       { title: 'Management decision recorded', detail: 'Compliance and Governance · Measure prioritization', time: 'Yesterday, 16:42', icon: 'shield' },
     ],
