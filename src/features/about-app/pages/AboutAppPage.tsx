@@ -50,7 +50,7 @@ const aboutAppContent: Record<Language, AboutAppContent> = {
       'Η εφαρμογή οργανώνεται σε έξι σταθερές περιοχές εργασίας. Η παρούσα πληροφοριακή σελίδα είναι υποστηρικτική και δεν αποτελεί έβδομη κύρια περιοχή.',
     areas: [
       { title: 'Επισκόπηση', text: 'Συγκεντρωτικοί δείκτες, κενά, προθεσμίες και θέματα Διοίκησης.' },
-      { title: 'Κάλυψη', text: 'Άνθρωποι ή ομάδες, οργανωτικές μονάδες, χώροι, δραστηριότητες και συνθήκες.' },
+      { title: 'Άνθρωποι, Χώροι και Δραστηριότητες', text: 'Άνθρωποι ή ομάδες, οργανωτικές μονάδες, χώροι, δραστηριότητες και συνθήκες.' },
       { title: 'Κίνδυνοι και Μέτρα', text: 'Γραπτές εκτιμήσεις, κίνδυνοι, έλεγχοι, μέτρα, επαλήθευση και επανεκτίμηση.' },
       { title: 'Εκπαίδευση και Ετοιμότητα', text: 'Γνώσεις, συμμετοχή, ρόλοι ετοιμότητας και βασική τεκμηρίωση.' },
       { title: 'Συμμόρφωση και Διακυβέρνηση', text: 'Απαιτήσεις, ευθύνες, αποφάσεις και διοικητική εποπτεία.' },
@@ -106,7 +106,7 @@ const aboutAppContent: Record<Language, AboutAppContent> = {
       'The application is organized into six stable areas of work. This informational page is a supporting function and is not a seventh primary product area.',
     areas: [
       { title: 'Overview', text: 'Aggregated indicators, gaps, deadlines and matters requiring Management attention.' },
-      { title: 'Coverage', text: 'People or groups, organizational units, locations, activities and foreseeable conditions.' },
+      { title: 'People, Locations and Activities', text: 'People or groups, organizational units, locations, activities and foreseeable conditions.' },
       { title: 'Risks and Measures', text: 'Written assessments, hazards, controls, measures, verification and reassessment.' },
       { title: 'Training and Preparedness', text: 'Knowledge, participation, preparedness roles and basic evidence.' },
       { title: 'Compliance and Governance', text: 'Requirements, accountability, decisions and Management oversight.' },
