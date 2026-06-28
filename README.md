@@ -1,6 +1,8 @@
 # Health and Safety App
 
-A prototype web application for Safety and Health at Work management in office workplaces of the Cyprus Public Service.
+A human-centred prototype web application for Safety and Health at Work management in office workplaces of the Cyprus Public Service.
+
+Its ultimate aim is to protect and promote the Safety, Health and Wellbeing of people at work. Records, risk assessments, measures, training and reports are management tools that support this human purpose.
 
 The application is being shaped around the Ministry of Energy, Commerce and Industry as the initial organizational and operational model. This model is used only to guide early structure, terminology, and workflows. The application is not an official Ministry system, an official OiRA tool, or a system endorsed by the Department of Labour Inspection, the Napo Consortium, ISO, or any European institution.
 
@@ -9,8 +11,8 @@ All information currently displayed in the application is demonstration data. Th
 ## Current Project State
 
 - **Current phase:** Public frontend prototype and project-continuity documentation, before the first functional Coverage vertical slice.
-- **Implemented:** Bilingual and responsive Overview dashboard, modular dashboard components, language persistence, accessible mobile navigation, CI checks, and GitHub Pages deployment configuration.
-- **Prototype-only:** Navigation, quick actions, search, notifications, profile controls, and product-area cards are currently visual placeholders rather than operational workflows.
+- **Implemented:** Bilingual and responsive Overview dashboard, a bilingual informational About the App view, modular frontend components, language persistence, accessible mobile navigation, CI checks, and GitHub Pages deployment configuration.
+- **Prototype-only:** Product-area navigation, quick actions, search, notifications, profile controls, and product-area cards are currently visual placeholders rather than operational workflows.
 - **Not yet implemented:** Functional product-area routes, Coverage records and workflows, the written risk-assessment workflow, backend services, database persistence, authentication, authorization, audit logging, and secure attachment handling.
 - **Next documented milestone:** First functional Coverage vertical slice.
 - **Data and readiness:** The application uses fabricated demonstration data only and is not production-ready.
@@ -19,11 +21,13 @@ For authoritative project context and the current implementation status, start w
 
 ## Product Mission
 
+The ultimate human-centred purpose of the application is to protect and promote the Safety, Health and Wellbeing of people at work. The software supports the organizational processes, evidence and Management visibility needed to pursue that purpose systematically.
+
 The application supports the Ministry in systematically managing and documenting Safety and Health at Work for every person who may reasonably be affected by its work activities, in every relevant building, workplace or other location, during all relevant activities and under normal, temporary, non-routine, emergency and other reasonably foreseeable conditions, throughout the period in which the activity, exposure or responsibility exists.
 
 This is achieved by identifying applicable binding legislation, regulations, requirements, instructions or decisions of competent authorities, official guidance, guidelines, voluntary standards, good practices and educational material; identifying hazards; assessing risks; applying prevention principles; defining technical and organizational protective measures; assigning responsibilities; providing training and preparedness; maintaining evidence; monitoring implementation; and carrying out periodic review and reassessment.
 
-The software supports management and documentation. It cannot by itself guarantee safety, legal compliance, or the effectiveness of controls.
+The software supports management and documentation. It cannot by itself guarantee safety, legal compliance, wellbeing, or the effectiveness of controls.
 
 Management remains accountable for Safety and Health at Work. Assigning duties to the Safety and Health Officer, organizational units, committees, employees, or external services does not remove Management's responsibility.
 
@@ -51,13 +55,13 @@ The product uses a hybrid architecture with six main user-facing product areas:
 5. Compliance and Governance
 6. Reports
 
-Settings and user administration are supporting functions, not primary product areas.
+Settings, user administration and the informational About the App view are supporting functions, not primary product areas.
 
 The user-facing navigation follows this hybrid structure. The underlying management logic follows the Plan-Do-Check-Act approach and may map to relevant ISO 45001 concepts, but the application must not claim ISO 45001 certification or compliance.
 
 ## Current Prototype Status
 
-The project is in an early prototype phase. The implemented application currently provides a bilingual dashboard with demonstration content and a modular frontend structure. The individual operational modules are planned but not yet fully implemented.
+The project is in an early prototype phase. The implemented application currently provides a bilingual dashboard with demonstration content, a bilingual informational About the App view, and a modular frontend structure. The individual operational modules are planned but not yet fully implemented.
 
 ## Risk Assessment Workflow
 
@@ -166,7 +170,8 @@ For stateless project continuity:
 Current source structure:
 
 - `src/app/` - application entry point
-- `src/features/dashboard/` - dashboard feature
+- `src/features/dashboard/` - dashboard feature and application shell
+- `src/features/about-app/` - informational About the App view
 - `src/shared/styles/` - shared global styling
 
 ## Local Development
