@@ -10,6 +10,7 @@ export type IconName =
   | 'dashboard'
   | 'documents'
   | 'incidents'
+  | 'info'
   | 'inspections'
   | 'menu'
   | 'phone'
@@ -66,6 +67,7 @@ export type DashboardContent = {
   appTagline: string
   navigation: string
   nav: DashboardNavItem[]
+  aboutApp: string
   search: string
   profileName: string
   profileInitials: string
