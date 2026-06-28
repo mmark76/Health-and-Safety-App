@@ -1,15 +1,39 @@
 import { Icon } from './DashboardIcon'
 import type { DashboardContent, Language } from '../types/dashboard'
 
+type DashboardView = 'overview' | 'about'
+
 type DashboardSidebarProps = {
+  activeView: DashboardView
   copy: DashboardContent
   language: Language
   sidebarOpen: boolean
   onClose: () => void
   onLanguageChange: (language: Language) => void
+  onSelectAbout: () => void
+  onSelectOverview: () => void
 }
 
-export function DashboardSidebar({ copy, language, sidebarOpen, onClose, onLanguageChange }: DashboardSidebarProps) {
+export function DashboardSidebar({
+  activeView,
+  copy,
+  language,
+  sidebarOpen,
+  onClose,
+  onLanguageChange,
+  onSelectAbout,
+  onSelectOverview,
+}: DashboardSidebarProps) {
+  const selectOverview = () => {
+    onSelectOverview()
+    onClose()
+  }
+
+  const selectAbout = () => {
+    onSelectAbout()
+    onClose()
+  }
+
   return (
     <aside className={`dashboard-sidebar${sidebarOpen ? ' is-open' : ''}`} id="dashboard-sidebar">
       <button
@@ -31,21 +55,36 @@ export function DashboardSidebar({ copy, language, sidebarOpen, onClose, onLangu
 
       <p className="sidebar-section-label">{copy.navigation}</p>
       <nav className="sidebar-nav" aria-label={copy.navigation}>
-        {copy.nav.map(([icon, label], index) => (
-          <button
-            aria-current={index === 0 ? 'page' : undefined}
-            className={`sidebar-link${index === 0 ? ' is-active' : ''}`}
-            key={label}
-            onClick={onClose}
-            type="button"
-          >
-            <Icon name={icon} />
-            <span>{label}</span>
-          </button>
-        ))}
+        {copy.nav.map(([icon, label], index) => {
+          const isOverview = index === 0
+          const isActive = isOverview && activeView === 'overview'
+
+          return (
+            <button
+              aria-current={isActive ? 'page' : undefined}
+              className={`sidebar-link${isActive ? ' is-active' : ''}`}
+              key={label}
+              onClick={isOverview ? selectOverview : onClose}
+              type="button"
+            >
+              <Icon name={icon} />
+              <span>{label}</span>
+            </button>
+          )
+        })}
       </nav>
 
       <div className="sidebar-footer">
+        <button
+          aria-current={activeView === 'about' ? 'page' : undefined}
+          className={`sidebar-link sidebar-about-link${activeView === 'about' ? ' is-active' : ''}`}
+          onClick={selectAbout}
+          type="button"
+        >
+          <Icon name="info" />
+          <span>{copy.aboutApp}</span>
+        </button>
+
         <div className="language-switch" aria-label="Language / Γλώσσα">
           <button
             aria-pressed={language === 'el'}
