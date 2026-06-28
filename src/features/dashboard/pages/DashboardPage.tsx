@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
+import { AboutAppPage } from '../../about-app/pages/AboutAppPage'
 import { DashboardActionsAndAreas } from '../components/DashboardActionsAndAreas'
 import { DashboardHeading } from '../components/DashboardHeading'
 import { DashboardMetrics } from '../components/DashboardMetrics'
@@ -9,11 +10,14 @@ import { dashboardTranslations } from '../data/dashboardContent'
 import type { Language } from '../types/dashboard'
 import './DashboardPage.css'
 
+type DashboardView = 'overview' | 'about'
+
 export function DashboardPage() {
   const [language, setLanguage] = useState<Language>(() => {
     if (typeof window === 'undefined') return 'el'
     return window.localStorage.getItem('hs-language') === 'en' ? 'en' : 'el'
   })
+  const [activeView, setActiveView] = useState<DashboardView>('overview')
   const [sidebarOpen, setSidebarOpen] = useState(false)
   const mobileMenuButtonRef = useRef<HTMLButtonElement>(null)
   const copy = dashboardTranslations[language]
@@ -48,6 +52,11 @@ export function DashboardPage() {
     setSidebarOpen(false)
   }
 
+  const selectView = (view: DashboardView) => {
+    setActiveView(view)
+    window.scrollTo(0, 0)
+  }
+
   return (
     <div className="dashboard-shell">
       <div className="dashboard-layout">
@@ -61,10 +70,13 @@ export function DashboardPage() {
         )}
 
         <DashboardSidebar
+          activeView={activeView}
           copy={copy}
           language={language}
           onClose={closeSidebar}
           onLanguageChange={switchLanguage}
+          onSelectAbout={() => selectView('about')}
+          onSelectOverview={() => selectView('overview')}
           sidebarOpen={sidebarOpen}
         />
 
@@ -77,10 +89,16 @@ export function DashboardPage() {
           />
 
           <main className="dashboard-content">
-            <DashboardHeading copy={copy} />
-            <DashboardMetrics copy={copy} />
-            <DashboardPanels copy={copy} />
-            <DashboardActionsAndAreas copy={copy} />
+            {activeView === 'overview' ? (
+              <>
+                <DashboardHeading copy={copy} />
+                <DashboardMetrics copy={copy} />
+                <DashboardPanels copy={copy} />
+                <DashboardActionsAndAreas copy={copy} />
+              </>
+            ) : (
+              <AboutAppPage language={language} />
+            )}
 
             <footer className="dashboard-footer-note">
               <span>{copy.footerLeft}</span>
