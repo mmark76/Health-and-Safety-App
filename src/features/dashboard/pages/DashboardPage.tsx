@@ -101,8 +101,14 @@ export function DashboardPage() {
             )}
 
             <footer className="dashboard-footer-note">
-              <span>{copy.footerLeft}</span>
-              <span>{copy.footerRight}</span>
+              <p className="dashboard-footer-credit">{copy.footerCredit}</p>
+              <nav className="dashboard-footer-links" aria-label={copy.footerLinksLabel}>
+                {copy.footerLinks.map((link) => (
+                  <a href={link.href} key={link.href}>
+                    {link.label}
+                  </a>
+                ))}
+              </nav>
             </footer>
           </main>
         </div>

@@ -62,6 +62,11 @@ export type DashboardQuickAction = {
   icon: IconName
 }
 
+export type DashboardFooterLink = {
+  label: string
+  href: string
+}
+
 export type DashboardContent = {
   appName: string
   appTagline: string
@@ -94,8 +99,9 @@ export type DashboardContent = {
   modulesTitle: string
   modulesSubtitle: string
   modulesStatus: string
-  footerLeft: string
-  footerRight: string
+  footerCredit: string
+  footerLinksLabel: string
+  footerLinks: DashboardFooterLink[]
   closeMenu: string
   openMenu: string
   notifications: string
