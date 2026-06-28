@@ -6,6 +6,17 @@ The application is being shaped around the Ministry of Energy, Commerce and Indu
 
 All information currently displayed in the application is demonstration data. The project must not include real names, email addresses, telephone numbers, internal correspondence, real identifiable confidential certificate details, health information, or other personal data from real Ministry or government records. Fabricated demonstration certificate data may be used later if it is clearly non-real and non-identifiable.
 
+## Current Project State
+
+- **Current phase:** Public frontend prototype and project-continuity documentation, before the first functional Coverage vertical slice.
+- **Implemented:** Bilingual and responsive Overview dashboard, modular dashboard components, language persistence, accessible mobile navigation, CI checks, and GitHub Pages deployment configuration.
+- **Prototype-only:** Navigation, quick actions, search, notifications, profile controls, and product-area cards are currently visual placeholders rather than operational workflows.
+- **Not yet implemented:** Functional product-area routes, Coverage records and workflows, the written risk-assessment workflow, backend services, database persistence, authentication, authorization, audit logging, and secure attachment handling.
+- **Next documented milestone:** First functional Coverage vertical slice.
+- **Data and readiness:** The application uses fabricated demonstration data only and is not production-ready.
+
+For authoritative project context and the current implementation status, start with [Stateless Project Recovery](docs/START_HERE.md), the [Project Product and Build Guide](docs/PROJECT_PRODUCT_GUIDE.md), the [Current Project Status](docs/PROJECT_STATUS.md), and [AGENTS.md](AGENTS.md).
+
 ## Product Mission
 
 The application supports the Ministry in systematically managing and documenting Safety and Health at Work for every person who may reasonably be affected by its work activities, in every relevant building, workplace or other location, during all relevant activities and under normal, temporary, non-routine, emergency and other reasonably foreseeable conditions, throughout the period in which the activity, exposure or responsibility exists.
