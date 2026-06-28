@@ -4,9 +4,9 @@
 
 - Audit date: 2026-06-28
 - Baseline HEAD commit inspected before the recovery documentation task: `ff64ca9fb4a6b3d6e5dd6e4d0533424e7a70fc43`
-- Current branch: `main`
+- Current branch at last status update: `feat/internal-ministry-product-identity`
 - Public prototype URL documented in the repository: `https://health-and-safety.markellosecosystem.com`
-- Current project phase: public prototype and project-continuity documentation, before the first functional Coverage vertical slice
+- Current project phase: development frontend prototype and project-continuity documentation, before the first functional Coverage vertical slice
 
 The baseline commit above records the starting point of the stateless recovery audit. Later commits may contain the current status and subsequent prototype improvements.
 
@@ -22,8 +22,10 @@ Completed and documented milestones:
 - project architecture
 - central product and build guide
 - human-centred product framing focused on the Safety, Health and Wellbeing of people at work
+- approved internal Ministry working-tool identity documented in ADR-004
 - bilingual dashboard prototype
 - bilingual informational About the App view
+- About the App wording aligned to purpose, intended users, Management responsibility and current prototype limitations
 - supporting About the App navigation without changing the accepted six primary product areas
 - responsive navigation
 - mobile sidebar accessibility behaviour
@@ -34,7 +36,7 @@ Completed and documented milestones:
 - feature-specific `about-app` implementation
 - CI workflow for lint and build
 - automated GitHub Pages deployment workflow
-- custom-domain public prototype configuration
+- custom-domain public development deployment configuration
 
 ## Currently implemented functionality
 
@@ -44,10 +46,11 @@ Rendered prototype UI:
 - bilingual Greek/English Overview dashboard copy
 - bilingual Greek/English informational About the App view
 - About the App content emphasizing that records and workflows serve the Safety, Health and Wellbeing of people at work
+- About the App content explaining the intended internal working-tool identity, initially intended users, Management responsibility, and current security limitations
 - sidebar navigation showing the six accepted product areas plus Settings and a separate supporting About the App item
 - top bar with search field, notifications button and demonstration user profile
 - Overview-style metrics, alerts, deadlines, activity, quick actions and product-area cards
-- informational summaries of product purpose, current status, the six areas, limitations and the next milestone
+- informational summaries of product purpose, intended access, current status, the six areas and limitations
 
 Genuinely functional behaviour:
 
@@ -59,7 +62,6 @@ Genuinely functional behaviour:
 - Escape closes the mobile sidebar
 - focus returns to the mobile menu button after Escape closes the sidebar
 - accessibility attributes including `aria-current`, `aria-expanded`, `aria-controls` and `aria-pressed`
-- external links from the About the App view to the repository and current project status
 - CI lint/build checks are configured
 - GitHub Pages build and deployment workflow using the generated `dist` directory is configured
 
@@ -96,6 +98,7 @@ The repository does not yet implement:
 - authorization
 - audit logging
 - real attachments
+- controlled internal hosting
 - real personal or operational data
 - production readiness
 
@@ -123,12 +126,14 @@ Future implementation will still require design decisions for data persistence, 
 
 ## Known issues and limitations
 
-- The application is a public prototype, not production software.
+- The current implementation is a development prototype, not production software.
+- The intended operational product is an internal Ministry working tool, but the current development deployment remains publicly reachable.
 - Only the Overview and informational About the App views are currently rendered; operational product-area screens are not yet implemented.
 - View switching is currently local single-page state rather than route-based navigation.
 - Product-area navigation and quick actions are not yet wired to real routes or workflows.
 - The `v0.1 · Development` sidebar label remains as non-blocking prototype wording.
 - No backend, database, authentication, authorization, audit logging or secure attachment handling exists yet.
+- Real Ministry data must not be introduced until appropriate security, access, authorization, audit, attachment and information-protection controls exist.
 
 ## Status update rules
 

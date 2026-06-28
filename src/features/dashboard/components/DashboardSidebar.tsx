@@ -37,8 +37,8 @@ export function DashboardSidebar({
 
   const aboutBadge = language === 'el' ? 'Πληροφορίες' : 'Information'
   const aboutDescription = language === 'el'
-    ? 'Σκοπός και κατάσταση του app'
-    : 'Purpose and project status'
+    ? 'Σκοπός, χρήστες και κατάσταση'
+    : 'Purpose, users and status'
 
   return (
     <aside className={`dashboard-sidebar${sidebarOpen ? ' is-open' : ''}`} id="dashboard-sidebar">

@@ -13,8 +13,11 @@ Before significant product, architecture, feature, navigation, refactoring or im
 
 ## Project-specific rules
 
-- Work directly on `main` unless the project owner explicitly requests otherwise.
-- Do not create branches, pull requests or worktrees unless explicitly requested.
+- Use a worktree or feature branch for substantive or multi-file work unless the project owner explicitly instructs otherwise.
+- Use Pull Requests for review before merging substantive changes into `main`.
+- Prefer squash merge for a clean `main` history.
+- Direct changes to `main` should be limited to very small corrections or explicit owner instructions.
+- Do not create branches, pull requests or worktrees for very small corrections unless explicitly requested.
 - Verify a clean and synchronized repository before editing.
 - Keep one logical task per change.
 - Avoid unrelated refactoring.

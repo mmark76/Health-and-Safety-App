@@ -26,7 +26,11 @@ The application is a Safety and Health at Work management and documentation syst
 
 The Ministry of Energy, Commerce and Industry is used only as the initial organizational and operational model. It provides early structure, terminology and workflow assumptions, but the application is not an official Ministry system.
 
-The current application is a public prototype using fabricated demonstration data.
+ADR-004 is authoritative for the approved operational product identity. The intended operational product is an internal Ministry working tool that primarily supports the Safety and Health Officer in systematically organizing, monitoring and documenting the Safety, Health and Wellbeing of people at work.
+
+The initially intended users are the Safety and Health Officer, the Director General, the First Administrative Officer, and other specifically authorized Ministry personnel at a later stage. Future access may be given only to selected authorized Ministry personnel according to their role and responsibilities.
+
+The current implementation is a development frontend prototype using fabricated demonstration data. It is currently publicly reachable as a development deployment, has no authentication or authorization, and is not ready for real operational Ministry data.
 
 The application is not:
 
@@ -38,6 +42,8 @@ The application is not:
 - endorsed by a European institution
 
 The software supports management and documentation. It cannot by itself guarantee workplace safety, legal compliance, the effectiveness of controls, or correct professional or legal judgement.
+
+Management remains responsible for decisions and obligations. The software supports professional and administrative judgement, but does not replace it.
 
 ## 4. Central mission
 
@@ -171,7 +177,7 @@ Exclude unrelated:
 
 Where special protection is necessary, record only minimum functional information.
 
-Future real-data use requires role-based access control, audit history, secure attachments, retention and deletion, authorization and confidential-record protection.
+Future real-data use requires role-based access control, audit history, secure attachments, retention and deletion, authorization, controlled internal hosting and confidential-record protection.
 
 ## 11. Current MVP
 
@@ -216,6 +222,8 @@ Build using:
 - testing as part of development
 - accessibility as a permanent requirement
 - root-cause fixes rather than accumulated patches
+
+Substantive or multi-file work should use a worktree or feature branch, pass validation before merging, and be reviewed through a Pull Request. Squash merge is preferred for a clean `main` history. Direct changes to `main` should be limited to very small corrections or explicit owner instructions.
 
 Indicative feature structure only:
 
@@ -264,11 +272,11 @@ Preserve:
 - `aria-controls`
 - `aria-pressed`
 
-The public prototype must keep the demonstration-data indicator visible.
+The current prototype must keep the demonstration-data indicator visible.
 
-## 16. Public prototype rules
+## 16. Current prototype rules
 
-Only fabricated, anonymized or demonstration data may appear publicly.
+Only fabricated, anonymized or demonstration data may appear in the current prototype and public development deployment.
 
 Exclude real:
 
@@ -283,6 +291,8 @@ Exclude real:
 - unauthorized official branding
 
 Do not claim official status, endorsement, certification or legal compliance.
+
+Do not imply that authentication, controlled access, secure operational storage, audit logging, secure attachment handling or controlled internal hosting already exists.
 
 ## 17. New-feature checklist
 
@@ -313,6 +323,7 @@ Before adding a feature, confirm:
 - [ADR-001: Office Public-Service Scope](decisions/ADR-001-office-public-service-scope.md)
 - [ADR-002: Hybrid Product Architecture](decisions/ADR-002-hybrid-product-architecture.md)
 - [ADR-003: Repository as Persistent Project Memory](decisions/ADR-003-repository-as-persistent-project-memory.md)
+- [ADR-004: Internal Ministry Working Tool Identity](decisions/ADR-004-internal-ministry-working-tool-identity.md)
 - [Product Scope](requirements/PRODUCT_SCOPE.md)
 - [Minimum Viable Product](requirements/MVP.md)
 - [Conceptual Domain Model](requirements/DOMAIN_MODEL.md)
