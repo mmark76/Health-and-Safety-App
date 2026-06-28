@@ -7,7 +7,7 @@ export const dashboardContent = {
     navigation: 'Πλοήγηση',
     nav: [
       ['dashboard', 'Επισκόπηση'],
-      ['documents', 'Κάλυψη', 'Άνθρωποι, χώροι, δραστηριότητες και κενά κάλυψης'],
+      ['documents', 'Άνθρωποι, Χώροι και Δραστηριότητες', 'Άνθρωποι, χώροι, δραστηριότητες και κενά κάλυψης'],
       ['risk', 'Κίνδυνοι και Μέτρα', 'ΓΕΚ, κίνδυνοι, μέτρα και επανεκτιμήσεις'],
       ['training', 'Εκπαίδευση και Ετοιμότητα', 'Εκπαιδεύσεις, πιστοποιήσεις και επιχειρησιακή ετοιμότητα'],
       ['shield', 'Συμμόρφωση και Διακυβέρνηση', 'Απαιτήσεις, ευθύνες και διοικητική εποπτεία'],
@@ -34,7 +34,7 @@ export const dashboardContent = {
     alertsSubtitle: 'Σύνδεση από την επισκόπηση προς τα αρχεία προέλευσης',
     viewAll: 'Προβολή όλων',
     alerts: [
-      { title: 'Κενό κάλυψης σε γραφειακό χώρο', detail: 'Κάλυψη · Αίθουσα συσκέψεων χωρίς συνδεδεμένη δραστηριότητα', status: 'Επείγον', level: 'high' },
+      { title: 'Κενό κάλυψης σε γραφειακό χώρο', detail: 'Άνθρωποι, Χώροι και Δραστηριότητες · Αίθουσα συσκέψεων χωρίς συνδεδεμένη δραστηριότητα', status: 'Επείγον', level: 'high' },
       { title: 'Υψηλός κίνδυνος προς απόφαση', detail: 'Κίνδυνοι και Μέτρα · Φραγμένη έξοδος κινδύνου', status: 'Διεύθυνση', level: 'high' },
       { title: 'Εκπρόθεσμη απαίτηση επανεξέτασης', detail: 'Συμμόρφωση και Διακυβέρνηση · Εφαρμογή οδηγίας πυρασφάλειας', status: 'Εκκρεμεί', level: 'medium' },
     ],
@@ -48,7 +48,7 @@ export const dashboardContent = {
     activityTitle: 'Πρόσφατη δραστηριότητα',
     activitySubtitle: 'Ενημερώσεις από τα αρχεία προέλευσης',
     activity: [
-      { title: 'Ενημερώθηκε σχέση κάλυψης', detail: 'Κάλυψη · Ομάδα επισκεπτών συνδέθηκε με χώρο υποδοχής', time: 'Πριν 18 λεπτά', icon: 'documents' },
+      { title: 'Ενημερώθηκε σχέση κάλυψης', detail: 'Άνθρωποι, Χώροι και Δραστηριότητες · Ομάδα επισκεπτών συνδέθηκε με χώρο υποδοχής', time: 'Πριν 18 λεπτά', icon: 'documents' },
       { title: 'Ανατέθηκε πρόσθετο μέτρο', detail: 'Κίνδυνοι και Μέτρα · Διατήρηση ελεύθερης εξόδου κινδύνου', time: 'Πριν 1 ώρα', icon: 'actions' },
       { title: 'Καταγράφηκε συμμετοχή εκπαίδευσης', detail: 'Εκπαίδευση και Ετοιμότητα · Ενημέρωση εκκένωσης', time: 'Πριν 3 ώρες', icon: 'training' },
       { title: 'Καταχωρίστηκε απόφαση Διεύθυνσης', detail: 'Συμμόρφωση και Διακυβέρνηση · Προτεραιοποίηση μέτρων', time: 'Χθες, 16:42', icon: 'shield' },
@@ -83,7 +83,7 @@ export const dashboardContent = {
     navigation: 'Navigation',
     nav: [
       ['dashboard', 'Overview'],
-      ['documents', 'Coverage', 'People, locations, activities and coverage gaps'],
+      ['documents', 'People, Locations and Activities', 'People, locations, activities and coverage gaps'],
       ['risk', 'Risks and Measures', 'Risk assessments, risks, measures and reassessments'],
       ['training', 'Training and Preparedness', 'Training, certifications and operational preparedness'],
       ['shield', 'Compliance and Governance', 'Requirements, responsibilities and Management oversight'],
@@ -110,7 +110,7 @@ export const dashboardContent = {
     alertsSubtitle: 'Overview links to authoritative source records',
     viewAll: 'View all',
     alerts: [
-      { title: 'Coverage gap in office area', detail: 'Coverage · Meeting room has no linked work activity', status: 'Urgent', level: 'high' },
+      { title: 'Coverage gap in office area', detail: 'People, Locations and Activities · Meeting room has no linked work activity', status: 'Urgent', level: 'high' },
       { title: 'High risk awaiting decision', detail: 'Risks and Measures · Obstructed emergency exit', status: 'Management', level: 'high' },
       { title: 'Requirement review overdue', detail: 'Compliance and Governance · Fire-safety guidance applicability', status: 'Pending', level: 'medium' },
     ],
@@ -124,7 +124,7 @@ export const dashboardContent = {
     activityTitle: 'Recent activity',
     activitySubtitle: 'Updates from authoritative source records',
     activity: [
-      { title: 'Coverage relationship updated', detail: 'Coverage · Visitor group linked to reception area', time: '18 minutes ago', icon: 'documents' },
+      { title: 'Coverage relationship updated', detail: 'People, Locations and Activities · Visitor group linked to reception area', time: '18 minutes ago', icon: 'documents' },
       { title: 'Additional measure assigned', detail: 'Risks and Measures · Keep emergency exit clear', time: '1 hour ago', icon: 'actions' },
       { title: 'Training participation recorded', detail: 'Training and Preparedness · Evacuation briefing', time: '3 hours ago', icon: 'training' },
       { title: 'Management decision recorded', detail: 'Compliance and Governance · Measure prioritization', time: 'Yesterday, 16:42', icon: 'shield' },
