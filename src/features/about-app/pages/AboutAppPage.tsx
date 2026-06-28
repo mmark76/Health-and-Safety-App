@@ -26,7 +26,7 @@ const aboutAppContent: Record<Language, AboutAppContent> = {
     title: 'Ασφάλεια, Υγεία και Ευημερία των Ανθρώπων στην Εργασία',
     intro:
       'Το Health and Safety App έχει ως τελικό σκοπό την προστασία και προαγωγή της Ασφάλειας, της Υγείας και της Ευημερίας των ανθρώπων στην εργασία. Οι εγγραφές, οι εκτιμήσεις κινδύνου, τα μέτρα, η εκπαίδευση και οι αναφορές είναι τα διαχειριστικά εργαλεία που υπηρετούν αυτόν τον ανθρώπινο σκοπό.',
-    badges: ['Εσωτερικό εργαλείο εργασίας', 'Ελληνικά και Αγγλικά', 'Μόνο ενδεικτικά δεδομένα'],
+    badges: ['Προορίζεται για εσωτερική χρήση', 'Ελληνικά και Αγγλικά', 'Μόνο ενδεικτικά δεδομένα'],
     summaries: [
       {
         title: 'Ανθρωποκεντρικός σκοπός',
@@ -42,7 +42,7 @@ const aboutAppContent: Record<Language, AboutAppContent> = {
       },
       {
         title: 'Αρχικά προβλεπόμενοι χρήστες',
-        text: 'Οι αρχικά προβλεπόμενοι χρήστες περιλαμβάνουν τον Λειτουργό Ασφάλειας και Υγείας, τον Γενικό Διευθυντή, τον Πρώτο Διοικητικό Λειτουργό και άλλο ειδικά εξουσιοδοτημένο προσωπικό.',
+        text: 'Οι αρχικά προβλεπόμενοι χρήστες περιλαμβάνουν τον Λειτουργό Ασφάλειας και Υγείας, τον Γενικό Διευθυντή, την Α΄ Διοικητική Λειτουργό και άλλο ειδικά εξουσιοδοτημένο προσωπικό.',
       },
     ],
     areasTitle: 'Οι έξι κύριες περιοχές',
@@ -82,7 +82,7 @@ const aboutAppContent: Record<Language, AboutAppContent> = {
     title: 'Safety, Health and Wellbeing of People at Work',
     intro:
       'The ultimate purpose of the Health and Safety App is to protect and promote the Safety, Health and Wellbeing of people at work. Records, risk assessments, measures, training and reports are management tools that serve this human purpose.',
-    badges: ['Internal working tool', 'Greek and English', 'Demonstration data only'],
+    badges: ['Intended for internal use', 'Greek and English', 'Demonstration data only'],
     summaries: [
       {
         title: 'Human purpose',
