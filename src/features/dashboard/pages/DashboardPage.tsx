@@ -11,6 +11,7 @@ import type { DashboardView, Language } from '../types/dashboard'
 import { AppSectionPage } from './AppSectionPage'
 import { HomePage } from './HomePage'
 import './DashboardPage.css'
+import './BuildVersion.css'
 
 export function DashboardPage() {
   const [language, setLanguage] = useState<Language>(() => {
@@ -21,6 +22,9 @@ export function DashboardPage() {
   const [sidebarOpen, setSidebarOpen] = useState(false)
   const mobileMenuButtonRef = useRef<HTMLButtonElement>(null)
   const copy = dashboardTranslations[language]
+  const buildVersionTitle = language === 'el'
+    ? `Έκδοση εφαρμογής · Ώρα build Κύπρου · Commit: ${__APP_BUILD_LABEL__}`
+    : `Application version · Cyprus build time · Commit: ${__APP_BUILD_LABEL__}`
 
   useEffect(() => {
     document.documentElement.lang = language
@@ -122,6 +126,9 @@ export function DashboardPage() {
                   </a>
                 ))}
               </nav>
+              <span className="dashboard-build-version" title={buildVersionTitle}>
+                {__APP_BUILD_LABEL__}
+              </span>
             </footer>
           </main>
         </div>
