@@ -1,8 +1,8 @@
 import { Icon } from './DashboardIcon'
-import type { DashboardContent, Language } from '../types/dashboard'
+import type { DashboardContent, DashboardView, Language } from '../types/dashboard'
 import './DashboardSidebar.css'
 
-type DashboardView = 'overview' | 'about'
+const mainViews: DashboardView[] = ['home', 'overview', 'legislation', 'safety-file', 'news']
 
 type DashboardSidebarProps = {
   activeView: DashboardView
@@ -11,8 +11,7 @@ type DashboardSidebarProps = {
   sidebarOpen: boolean
   onClose: () => void
   onLanguageChange: (language: Language) => void
-  onSelectAbout: () => void
-  onSelectOverview: () => void
+  onSelectView: (view: DashboardView) => void
 }
 
 export function DashboardSidebar({
@@ -22,23 +21,20 @@ export function DashboardSidebar({
   sidebarOpen,
   onClose,
   onLanguageChange,
-  onSelectAbout,
-  onSelectOverview,
+  onSelectView,
 }: DashboardSidebarProps) {
-  const selectOverview = () => {
-    onSelectOverview()
+  const selectView = (view: DashboardView) => {
+    onSelectView(view)
     onClose()
   }
 
-  const selectAbout = () => {
-    onSelectAbout()
-    onClose()
-  }
-
+  const supportingLabel = language === 'el' ? 'Βοηθητικές επιλογές' : 'Supporting options'
+  const settingsLabel = language === 'el' ? 'Ρυθμίσεις' : 'Settings'
+  const contactLabel = language === 'el' ? 'Επικοινωνία' : 'Contact'
   const aboutBadge = language === 'el' ? 'Πληροφορίες' : 'Information'
   const aboutDescription = language === 'el'
-    ? 'Σκοπός, χρήστες και κατάσταση'
-    : 'Purpose, users and status'
+    ? 'Σκοπός, λειτουργίες και κατάσταση'
+    : 'Purpose, features and status'
 
   return (
     <aside className={`dashboard-sidebar${sidebarOpen ? ' is-open' : ''}`} id="dashboard-sidebar">
@@ -62,15 +58,15 @@ export function DashboardSidebar({
       <p className="sidebar-section-label">{copy.navigation}</p>
       <nav className="sidebar-nav" aria-label={copy.navigation}>
         {copy.nav.map(([icon, label], index) => {
-          const isOverview = index === 0
-          const isActive = isOverview && activeView === 'overview'
+          const view = mainViews[index]
+          const isActive = activeView === view
 
           return (
             <button
               aria-current={isActive ? 'page' : undefined}
               className={`sidebar-link${isActive ? ' is-active' : ''}`}
-              key={label}
-              onClick={isOverview ? selectOverview : onClose}
+              key={view}
+              onClick={() => selectView(view)}
               type="button"
             >
               <Icon name={icon} />
@@ -81,10 +77,22 @@ export function DashboardSidebar({
       </nav>
 
       <div className="sidebar-supporting-nav">
+        <p className="sidebar-supporting-label">{supportingLabel}</p>
+
+        <button
+          aria-current={activeView === 'settings' ? 'page' : undefined}
+          className={`sidebar-link sidebar-supporting-link${activeView === 'settings' ? ' is-active' : ''}`}
+          onClick={() => selectView('settings')}
+          type="button"
+        >
+          <Icon name="settings" />
+          <span>{settingsLabel}</span>
+        </button>
+
         <button
           aria-current={activeView === 'about' ? 'page' : undefined}
           className={`sidebar-link sidebar-about-link${activeView === 'about' ? ' is-active' : ''}`}
-          onClick={selectAbout}
+          onClick={() => selectView('about')}
           type="button"
         >
           <Icon name="info" />
@@ -93,6 +101,16 @@ export function DashboardSidebar({
             <strong>{copy.aboutApp}</strong>
             <span className="sidebar-about-description">{aboutDescription}</span>
           </span>
+        </button>
+
+        <button
+          aria-current={activeView === 'contact' ? 'page' : undefined}
+          className={`sidebar-link sidebar-supporting-link${activeView === 'contact' ? ' is-active' : ''}`}
+          onClick={() => selectView('contact')}
+          type="button"
+        >
+          <Icon name="phone" />
+          <span>{contactLabel}</span>
         </button>
       </div>
 

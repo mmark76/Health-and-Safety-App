@@ -1,7 +1,22 @@
 .dashboard-sidebar .sidebar-supporting-nav {
+  display: grid;
+  gap: 5px;
   margin-top: 12px;
   padding-top: 12px;
   border-top: 1px solid rgb(255 255 255 / 12%);
+}
+
+.sidebar-supporting-label {
+  margin: 0 12px 5px;
+  color: #83a9c0;
+  font-size: 0.64rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.dashboard-sidebar .sidebar-supporting-link {
+  color: #c9d9e3;
 }
 
 .dashboard-sidebar .sidebar-about-link {
@@ -59,4 +74,16 @@
   letter-spacing: 0.08em;
   line-height: 1;
   text-transform: uppercase;
+}
+
+.dashboard-sidebar {
+  overflow-y: auto;
+}
+
+@media (max-width: 980px) {
+  .dashboard-sidebar {
+    width: min(88vw, 320px);
+    max-width: 100%;
+    height: 100dvh;
+  }
 }

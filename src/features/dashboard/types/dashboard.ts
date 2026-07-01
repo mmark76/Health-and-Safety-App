@@ -1,5 +1,7 @@
 export type Language = 'el' | 'en'
 
+export type DashboardView = 'home' | 'overview' | 'legislation' | 'safety-file' | 'news' | 'settings' | 'about' | 'contact'
+
 export type IconName =
   | 'actions'
   | 'alert'

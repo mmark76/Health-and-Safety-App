@@ -1,11 +1,14 @@
 import { Icon } from './DashboardIcon'
-import type { DashboardContent } from '../types/dashboard'
+import type { DashboardContent, DashboardView } from '../types/dashboard'
 
 type DashboardActionsAndAreasProps = {
   copy: DashboardContent
+  onSelectView: (view: DashboardView) => void
 }
 
-export function DashboardActionsAndAreas({ copy }: DashboardActionsAndAreasProps) {
+const moduleViews: DashboardView[] = ['legislation', 'safety-file', 'news']
+
+export function DashboardActionsAndAreas({ copy, onSelectView }: DashboardActionsAndAreasProps) {
   return (
     <>
       <section className="panel modules-panel">
@@ -40,15 +43,19 @@ export function DashboardActionsAndAreas({ copy }: DashboardActionsAndAreasProps
           </div>
         </div>
         <div className="modules-grid">
-          {copy.nav.slice(1, 6).map(([icon, label, description]) => (
-            <button className="module-card" key={label} type="button">
-              <span className="module-icon"><Icon name={icon} /></span>
-              <span>
-                <strong>{label}</strong>
-                <span>{description}</span>
-              </span>
-            </button>
-          ))}
+          {copy.nav.slice(2).map(([icon, label, description], index) => {
+            const view = moduleViews[index]
+
+            return (
+              <button className="module-card" key={label} onClick={() => onSelectView(view)} type="button">
+                <span className="module-icon"><Icon name={icon} /></span>
+                <span>
+                  <strong>{label}</strong>
+                  <span>{description}</span>
+                </span>
+              </button>
+            )
+          })}
         </div>
       </section>
     </>

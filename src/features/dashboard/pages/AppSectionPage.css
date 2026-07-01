@@ -1,0 +1,130 @@
+.app-section-page {
+  display: grid;
+  gap: 22px;
+}
+
+.app-section-hero {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: start;
+  gap: 18px;
+  padding: 28px;
+  border: 1px solid var(--slate-200);
+  border-radius: 18px;
+  background: linear-gradient(135deg, #ffffff, #f1f8fa);
+  box-shadow: 0 10px 28px rgb(16 42 67 / 7%);
+}
+
+.app-section-icon {
+  display: grid;
+  place-items: center;
+  width: 58px;
+  height: 58px;
+  border-radius: 16px;
+  background: var(--blue-100);
+  color: var(--blue-700);
+}
+
+.app-section-icon .icon {
+  width: 28px;
+  height: 28px;
+}
+
+.app-section-hero h1 {
+  margin: 0;
+  color: var(--navy-950);
+  font-size: clamp(1.9rem, 3vw, 2.8rem);
+  line-height: 1.08;
+}
+
+.app-section-hero p:not(.eyebrow) {
+  max-width: 780px;
+  margin: 10px 0 0;
+  color: var(--slate-600);
+  line-height: 1.65;
+}
+
+.app-section-status {
+  padding: 7px 10px;
+  border: 1px solid #b8e3ee;
+  border-radius: 999px;
+  background: #eaf9fc;
+  color: #0d6680;
+  font-size: 0.7rem;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.app-section-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.app-section-card {
+  min-height: 190px;
+  padding: 22px;
+  border: 1px solid var(--slate-200);
+  border-radius: 16px;
+  background: var(--white);
+  box-shadow: 0 7px 20px rgb(16 42 67 / 5%);
+}
+
+.app-section-card > span {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: var(--teal-100);
+  color: var(--teal-700);
+}
+
+.app-section-card h2 {
+  margin: 17px 0 8px;
+  color: var(--navy-950);
+  font-size: 1.05rem;
+}
+
+.app-section-card p {
+  margin: 0;
+  color: var(--slate-600);
+  font-size: 0.88rem;
+  line-height: 1.6;
+}
+
+.app-section-note {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  margin: 0;
+  padding: 15px 17px;
+  border: 1px solid var(--slate-200);
+  border-radius: 13px;
+  background: var(--slate-50);
+  color: var(--slate-700);
+  font-size: 0.82rem;
+  line-height: 1.55;
+}
+
+.app-section-note .icon {
+  flex: 0 0 auto;
+  margin-top: 1px;
+  color: var(--blue-700);
+}
+
+@media (max-width: 720px) {
+  .app-section-hero {
+    grid-template-columns: auto minmax(0, 1fr);
+    padding: 22px;
+  }
+
+  .app-section-status {
+    grid-column: 1 / -1;
+    justify-self: start;
+  }
+
+  .app-section-grid {
+    grid-template-columns: 1fr;
+  }
+}
