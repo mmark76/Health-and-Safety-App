@@ -7,17 +7,17 @@ import { DashboardPanels } from '../components/DashboardPanels'
 import { DashboardSidebar } from '../components/DashboardSidebar'
 import { DashboardTopbar } from '../components/DashboardTopbar'
 import { dashboardTranslations } from '../data/dashboardContent'
-import type { Language } from '../types/dashboard'
+import type { DashboardView, Language } from '../types/dashboard'
+import { AppSectionPage } from './AppSectionPage'
+import { HomePage } from './HomePage'
 import './DashboardPage.css'
-
-type DashboardView = 'overview' | 'about'
 
 export function DashboardPage() {
   const [language, setLanguage] = useState<Language>(() => {
     if (typeof window === 'undefined') return 'el'
     return window.localStorage.getItem('hs-language') === 'en' ? 'en' : 'el'
   })
-  const [activeView, setActiveView] = useState<DashboardView>('overview')
+  const [activeView, setActiveView] = useState<DashboardView>('home')
   const [sidebarOpen, setSidebarOpen] = useState(false)
   const mobileMenuButtonRef = useRef<HTMLButtonElement>(null)
   const copy = dashboardTranslations[language]
@@ -57,6 +57,29 @@ export function DashboardPage() {
     window.scrollTo(0, 0)
   }
 
+  const renderActiveView = () => {
+    if (activeView === 'home') {
+      return <HomePage copy={copy} language={language} onSelectView={selectView} />
+    }
+
+    if (activeView === 'overview') {
+      return (
+        <>
+          <DashboardHeading copy={copy} />
+          <DashboardMetrics copy={copy} />
+          <DashboardPanels copy={copy} />
+          <DashboardActionsAndAreas copy={copy} onSelectView={selectView} />
+        </>
+      )
+    }
+
+    if (activeView === 'about') {
+      return <AboutAppPage language={language} />
+    }
+
+    return <AppSectionPage language={language} view={activeView} />
+  }
+
   return (
     <div className="dashboard-shell">
       <div className="dashboard-layout">
@@ -75,8 +98,7 @@ export function DashboardPage() {
           language={language}
           onClose={closeSidebar}
           onLanguageChange={switchLanguage}
-          onSelectAbout={() => selectView('about')}
-          onSelectOverview={() => selectView('overview')}
+          onSelectView={selectView}
           sidebarOpen={sidebarOpen}
         />
 
@@ -89,16 +111,7 @@ export function DashboardPage() {
           />
 
           <main className="dashboard-content">
-            {activeView === 'overview' ? (
-              <>
-                <DashboardHeading copy={copy} />
-                <DashboardMetrics copy={copy} />
-                <DashboardPanels copy={copy} />
-                <DashboardActionsAndAreas copy={copy} />
-              </>
-            ) : (
-              <AboutAppPage language={language} />
-            )}
+            {renderActiveView()}
 
             <footer className="dashboard-footer-note">
               <p className="dashboard-footer-credit">{copy.footerCredit}</p>
