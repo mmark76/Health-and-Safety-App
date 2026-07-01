@@ -64,7 +64,7 @@ export const dashboardContent = {
     modulesTitle: 'Κύριες ενότητες',
     modulesSubtitle: 'Πρόσβαση στις βασικές λειτουργίες του συστήματος',
     modulesStatus: 'Πηγή αρμοδιότητας',
-    footerCredit: '© 2026 Κυπριακή Δημοκρατία · Developed by Markellos Markides',
+    footerCredit: '© 2026 Markellos Markides',
     footerLinksLabel: 'Σύνδεσμοι υποσέλιδου',
     footerLinks: [
       { label: 'Δήλωση Απορρήτου', href: '#privacy' },
@@ -140,7 +140,7 @@ export const dashboardContent = {
     modulesTitle: 'Main areas',
     modulesSubtitle: 'Access the system’s main functions',
     modulesStatus: 'Authoritative area',
-    footerCredit: '© 2026 Κυπριακή Δημοκρατία · Developed by Markellos Markides',
+    footerCredit: '© 2026 Markellos Markides',
     footerLinksLabel: 'Footer links',
     footerLinks: [
       { label: 'Δήλωση Απορρήτου', href: '#privacy' },
