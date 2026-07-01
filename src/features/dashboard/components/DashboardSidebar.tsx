@@ -133,7 +133,6 @@ export function DashboardSidebar({
             English
           </button>
         </div>
-        <p className="sidebar-version">v0.1 · Development</p>
       </div>
     </aside>
   )
