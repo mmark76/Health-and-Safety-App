@@ -25,9 +25,8 @@ const greekSections: Record<AppSectionPageProps['view'], SectionDefinition> = {
     items: [
       { title: 'Ευρωπαϊκή Ένωση', description: 'Οδηγίες, κανονισμοί, στρατηγικές και κατευθυντήριες οδηγίες.', icon: 'documents' },
       { title: 'Κυπριακή νομοθεσία', description: 'Νόμοι, κανονισμοί, διατάγματα, εγκύκλιοι και ανακοινώσεις.', icon: 'shield' },
-      { title: 'Θεματική αναζήτηση', description: 'Αναζήτηση ανά θέμα, κίνδυνο, υποχρέωση ή τομέα δραστηριότητας.', icon: 'search' },
     ],
-    note: 'Η ενότητα θα εμπλουτιστεί με ελεγμένες πηγές, ημερομηνίες ισχύος και συνδέσεις προς τις σχετικές απαιτήσεις.',
+    note: 'Η καθολική αναζήτηση παραμένει στο επάνω search bar. Η ενότητα θα εμπλουτιστεί με ελεγμένες πηγές και ημερομηνίες ισχύος.',
   },
   'safety-file': {
     eyebrow: 'Κεντρικός φάκελος',
@@ -88,10 +87,9 @@ const englishSections: Record<AppSectionPageProps['view'], SectionDefinition> = 
     icon: 'documents',
     items: [
       { title: 'European Union', description: 'Directives, regulations, strategies and guidance.', icon: 'documents' },
-      { title: 'Cypriot legislation', description: 'Laws, regulations, decrees, circulars and announcements.', icon: 'shield' },
-      { title: 'Thematic search', description: 'Search by topic, hazard, obligation or area of activity.', icon: 'search' },
+      { title: 'Cyprus legislation', description: 'Laws, regulations, decrees, circulars and announcements.', icon: 'shield' },
     ],
-    note: 'This area will be enriched with verified sources, effective dates and links to related requirements.',
+    note: 'Global search remains in the top search bar. This area will be enriched with verified sources and effective dates.',
   },
   'safety-file': {
     eyebrow: 'Central file',
