@@ -1,6 +1,15 @@
 export type Language = 'el' | 'en'
 
-export type DashboardView = 'home' | 'overview' | 'legislation' | 'safety-file' | 'news' | 'settings' | 'about' | 'contact'
+export type DashboardView =
+  | 'home'
+  | 'overview'
+  | 'coverage'
+  | 'risks-and-measures'
+  | 'training-and-preparedness'
+  | 'compliance-and-governance'
+  | 'reports'
+  | 'about'
+  | 'settings'
 
 export type IconName =
   | 'actions'
@@ -25,7 +34,16 @@ export type IconName =
   | 'training'
   | 'user'
 
-export type DashboardNavItem = [IconName, string, string?]
+export type NavigationCategory = 'primary' | 'supporting'
+
+export type NavigationItem = {
+  id: DashboardView
+  icon: IconName
+  category: NavigationCategory
+  label: string
+  description?: string
+  path: string
+}
 
 export type DashboardMetric = {
   label: string
@@ -66,24 +84,26 @@ export type DashboardQuickAction = {
 
 export type DashboardFooterLink = {
   label: string
-  href: string
 }
 
 export type DashboardContent = {
   appName: string
   appTagline: string
   navigation: string
-  nav: DashboardNavItem[]
+  nav: Record<DashboardView, Omit<NavigationItem, 'id' | 'category' | 'path'>>
   aboutApp: string
   search: string
+  searchUnavailable: string
   profileName: string
   profileInitials: string
   profileRole: string
+  profileUnavailable: string
   eyebrow: string
   title: string
   subtitle: string
   demo: string
   newRecord: string
+  unavailableAction: string
   metrics: DashboardMetric[]
   alertsTitle: string
   alertsSubtitle: string
@@ -107,5 +127,8 @@ export type DashboardContent = {
   closeMenu: string
   openMenu: string
   notifications: string
+  notificationsUnavailable: string
   userMenu: string
+  underDevelopment: string
+  footerUnavailable: string
 }

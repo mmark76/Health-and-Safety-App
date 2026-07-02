@@ -13,9 +13,9 @@ All information currently displayed in the application is demonstration data. Th
 ## Current Project State
 
 - **Current phase:** Development frontend prototype and project-continuity documentation, before the first functional Coverage vertical slice.
-- **Implemented:** Bilingual and responsive Overview dashboard, a bilingual informational About the App view, modular frontend components, language persistence, accessible mobile navigation, CI checks, and GitHub Pages deployment configuration.
-- **Prototype-only:** Product-area navigation, quick actions, search, notifications, profile controls, and product-area cards are currently visual placeholders rather than operational workflows.
-- **Not yet implemented:** Functional product-area routes, Coverage records and workflows, the written risk-assessment workflow, backend services, database persistence, authentication, authorization, audit logging, and secure attachment handling.
+- **Implemented:** Bilingual and responsive Home, Overview, informational product-area pages, a bilingual informational About the App view, route-based navigation, modular frontend components, language persistence, accessible mobile navigation, CI checks, tests, and GitHub Pages deployment configuration.
+- **Prototype-only:** Product-area pages, quick actions, search, notifications, profile controls, and footer policy/legal items are currently disabled or informational placeholders rather than operational workflows.
+- **Not yet implemented:** Coverage records and workflows, the written risk-assessment workflow, backend services, database persistence, authentication, authorization, audit logging, and secure attachment handling.
 - **Next documented milestone:** First functional Coverage vertical slice.
 - **Data and readiness:** The application uses fabricated demonstration data only, is currently publicly reachable as a development deployment, and is not ready for real operational Ministry data.
 
@@ -175,6 +175,7 @@ Current source structure:
 - `src/app/` - application entry point
 - `src/features/dashboard/` - dashboard feature and application shell
 - `src/features/about-app/` - informational About the App view
+- `src/test/` - test setup for the frontend prototype
 - `src/shared/styles/` - shared global styling
 
 ## Local Development
@@ -196,6 +197,14 @@ The application will normally be available at:
 Run the linter:
 
 `npm run lint`
+
+Run the typechecker:
+
+`npm run typecheck`
+
+Run tests:
+
+`npm run test`
 
 Create a production build:
 

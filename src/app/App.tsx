@@ -1,7 +1,12 @@
-﻿import { DashboardPage } from '../features/dashboard/pages/DashboardPage'
+import { BrowserRouter } from 'react-router-dom'
+import { DashboardPage } from '../features/dashboard/pages/DashboardPage'
 
 function App() {
-  return <DashboardPage />
+  return (
+    <BrowserRouter>
+      <DashboardPage />
+    </BrowserRouter>
+  )
 }
 
 export default App

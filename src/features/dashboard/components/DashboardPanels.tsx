@@ -18,7 +18,15 @@ export function DashboardPanels({ copy }: DashboardPanelsProps) {
                 <p className="panel-kicker">{copy.alertsSubtitle}</p>
               </div>
             </div>
-            <button className="text-button" type="button">{copy.viewAll}</button>
+            <button
+              aria-label={`${copy.viewAll}. ${copy.unavailableAction}`}
+              className="text-button"
+              disabled
+              title={copy.unavailableAction}
+              type="button"
+            >
+              {copy.viewAll}
+            </button>
           </div>
           <div className="alert-list">
             {copy.alerts.map((alert) => (
@@ -43,7 +51,15 @@ export function DashboardPanels({ copy }: DashboardPanelsProps) {
                 <p className="panel-kicker">{copy.tasksSubtitle}</p>
               </div>
             </div>
-            <button className="text-button" type="button">{copy.viewAll}</button>
+            <button
+              aria-label={`${copy.viewAll}. ${copy.unavailableAction}`}
+              className="text-button"
+              disabled
+              title={copy.unavailableAction}
+              type="button"
+            >
+              {copy.viewAll}
+            </button>
           </div>
           <div className="task-list">
             {copy.tasks.map((task) => (

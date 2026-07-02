@@ -111,17 +111,9 @@ Each domain record has one authoritative owner. Avoid duplicate sources of truth
 
 ## 6. Known governance warning
 
-As recorded on 1 July 2026, the current `main` navigation introduced by PR #9 differs from the accepted six-area architecture in ADR-002, `PROJECT_PRODUCT_GUIDE.md`, `PROJECT_ARCHITECTURE.md` and the requirements documents.
+As of the prototype-stabilization milestone, the application navigation has been realigned with the six primary product areas accepted in ADR-002.
 
-Until the project owner approves and records a resolution:
-
-- treat this as an unresolved documentation-and-code conflict
-- do not assume the merged navigation silently supersedes ADR-002
-- do not build new domain features around the conflicting navigation model
-- do not remove the approved Coverage, Risks and Measures, Training and Preparedness, Compliance and Governance or Reports concepts
-- recommend either restoring alignment with ADR-002 or creating a new ADR that explicitly supersedes it
-
-When this conflict is resolved, update this section and all affected project documents in the same controlled change.
+The previous warning about PR #9 navigation diverging from ADR-002 has been resolved by restoring the approved areas in code and documentation. Future navigation changes must still preserve the accepted architecture unless a later accepted ADR explicitly supersedes ADR-002.
 
 ## 7. Current implementation limits
 

@@ -1,14 +1,15 @@
 import { Icon } from './DashboardIcon'
-import type { DashboardContent, DashboardView } from '../types/dashboard'
+import type { DashboardContent, DashboardView, NavigationItem } from '../types/dashboard'
 
 type DashboardActionsAndAreasProps = {
   copy: DashboardContent
+  navigationItems: NavigationItem[]
   onSelectView: (view: DashboardView) => void
 }
 
-const moduleViews: DashboardView[] = ['legislation', 'safety-file', 'news']
+export function DashboardActionsAndAreas({ copy, navigationItems, onSelectView }: DashboardActionsAndAreasProps) {
+  const primaryItems = navigationItems.filter((item) => item.category === 'primary')
 
-export function DashboardActionsAndAreas({ copy, onSelectView }: DashboardActionsAndAreasProps) {
   return (
     <>
       <section className="panel modules-panel">
@@ -23,7 +24,14 @@ export function DashboardActionsAndAreas({ copy, onSelectView }: DashboardAction
         </div>
         <div className="quick-actions-grid">
           {copy.quickActions.map((action) => (
-            <button className="quick-action" key={action.title} type="button">
+            <button
+              aria-label={`${action.title}. ${copy.unavailableAction}`}
+              className="quick-action"
+              disabled
+              key={action.title}
+              title={copy.unavailableAction}
+              type="button"
+            >
               <span className="quick-icon"><Icon name={action.icon} /></span>
               <strong>{action.title}</strong>
               <span>{action.detail}</span>
@@ -43,19 +51,15 @@ export function DashboardActionsAndAreas({ copy, onSelectView }: DashboardAction
           </div>
         </div>
         <div className="modules-grid">
-          {copy.nav.slice(2).map(([icon, label, description], index) => {
-            const view = moduleViews[index]
-
-            return (
-              <button className="module-card" key={label} onClick={() => onSelectView(view)} type="button">
-                <span className="module-icon"><Icon name={icon} /></span>
-                <span>
-                  <strong>{label}</strong>
-                  <span>{description}</span>
-                </span>
-              </button>
-            )
-          })}
+          {primaryItems.map((item) => (
+            <button className="module-card" key={item.id} onClick={() => onSelectView(item.id)} type="button">
+              <span className="module-icon"><Icon name={item.icon} /></span>
+              <span>
+                <strong>{item.label}</strong>
+                <span>{item.description}</span>
+              </span>
+            </button>
+          ))}
         </div>
       </section>
     </>

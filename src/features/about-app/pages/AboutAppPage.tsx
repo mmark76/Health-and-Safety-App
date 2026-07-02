@@ -25,7 +25,7 @@ const aboutAppContent: Record<Language, AboutAppContent> = {
     eyebrow: 'Ο άνθρωπος στο επίκεντρο',
     title: 'Ασφάλεια, Υγεία και Ευημερία των Ανθρώπων στην Εργασία',
     intro:
-      'Το Health and Safety App έχει ως τελικό σκοπό την προστασία και προαγωγή της Ασφάλειας, της Υγείας και της Ευημερίας των ανθρώπων στην εργασία. Οι εγγραφές, οι εκτιμήσεις κινδύνου, τα μέτρα, η εκπαίδευση και οι αναφορές είναι τα διαχειριστικά εργαλεία που υπηρετούν αυτόν τον ανθρώπινο σκοπό.',
+      'Το Health and Safety App έχει ως τελικό σκοπό την προστασία και προαγωγή της Ασφάλειας, της Υγείας και της Ευημερίας των ανθρώπων στην εργασία. Οι εγγραφές, οι εκτιμήσεις κινδύνου, τα μέτρα, η εκπαίδευση και οι αναφορές είναι διαχειριστικά εργαλεία που υπηρετούν αυτόν τον ανθρώπινο σκοπό.',
     badges: ['Προορίζεται για εσωτερική χρήση', 'Ελληνικά και Αγγλικά', 'Μόνο ενδεικτικά δεδομένα'],
     summaries: [
       {
@@ -38,44 +38,45 @@ const aboutAppContent: Record<Language, AboutAppContent> = {
       },
       {
         title: 'Προβλεπόμενη πρόσβαση',
-        text: 'Μελλοντική πρόσβαση μπορεί να δοθεί μόνο σε επιλεγμένο εξουσιοδοτημένο προσωπικό του Υπουργείου, σύμφωνα με ρόλο και αρμοδιότητες.',
+        text: 'Μελλοντική πρόσβαση μπορεί να δοθεί μόνο σε επιλεγμένο εξουσιοδοτημένο προσωπικό σύμφωνα με ρόλο και αρμοδιότητες.',
       },
       {
         title: 'Αρχικά προβλεπόμενοι χρήστες',
         text: 'Οι αρχικά προβλεπόμενοι χρήστες περιλαμβάνουν τον Λειτουργό Ασφάλειας και Υγείας, τον Γενικό Διευθυντή, την Α΄ Διοικητική Λειτουργό και άλλο ειδικά εξουσιοδοτημένο προσωπικό.',
       },
     ],
-    areasTitle: 'Οι έξι κύριες περιοχές',
+    areasTitle: 'Οι έξι κύριοι τομείς',
     areasLead:
-      'Η εφαρμογή οργανώνεται σε έξι σταθερές περιοχές εργασίας. Η παρούσα πληροφοριακή σελίδα είναι υποστηρικτική και δεν αποτελεί έβδομη κύρια περιοχή.',
+      'Η εφαρμογή οργανώνεται στους έξι σταθερούς τομείς του ADR-002. Η Αρχική, οι Ρυθμίσεις και αυτή η πληροφοριακή σελίδα είναι υποστηρικτικές λειτουργίες και όχι πρόσθετοι κύριοι τομείς.',
     areas: [
-      { title: 'Επισκόπηση', text: 'Συγκεντρωτικοί δείκτες, κενά, προθεσμίες και θέματα Διοίκησης.' },
-      { title: 'Άνθρωποι, Χώροι και Δραστηριότητες', text: 'Άνθρωποι ή ομάδες, οργανωτικές μονάδες, χώροι, δραστηριότητες και συνθήκες.' },
-      { title: 'Γραπτές Εκτιμήσεις Κινδύνων (ΓΕΚ)', text: 'Γραπτές εκτιμήσεις, κίνδυνοι, έλεγχοι, μέτρα, επαλήθευση και επανεκτίμηση.' },
-      { title: 'Εκπαίδευση και Ετοιμότητα', text: 'Γνώσεις, συμμετοχή, ρόλοι ετοιμότητας και βασική τεκμηρίωση.' },
-      { title: 'Συμμόρφωση και Διακυβέρνηση', text: 'Απαιτήσεις, ευθύνες, αποφάσεις και διοικητική εποπτεία.' },
-      { title: 'Αναφορές', text: 'Συγκεντρωτική πληροφόρηση από τις έγκυρες εγγραφές των αρμόδιων ενοτήτων.' },
+      { title: 'Επισκόπηση', text: 'Συγκεντρωτικοί δείκτες, κενά, προθεσμίες και θέματα που απαιτούν προσοχή Διεύθυνσης.' },
+      { title: 'Κάλυψη', text: 'Άτομα ή ομάδες, οργανωτικές μονάδες, χώροι, δραστηριότητες, συνθήκες και σχέσεις κάλυψης.' },
+      { title: 'Κίνδυνοι και Μέτρα', text: 'Γραπτές εκτιμήσεις, κίνδυνοι, έλεγχοι, μέτρα, επαλήθευση και επανεκτίμηση.' },
+      { title: 'Εκπαίδευση και Ετοιμότητα', text: 'Γνώσεις, συμμετοχή, πιστοποιήσεις, ρόλοι ετοιμότητας και βασική τεκμηρίωση.' },
+      { title: 'Συμμόρφωση και Διακυβέρνηση', text: 'Νομοθεσία, απαιτήσεις, ευθύνες, αποφάσεις και διοικητική εποπτεία.' },
+      { title: 'Αναφορές', text: 'Συγκεντρωτική πληροφόρηση από τις έγκυρες εγγραφές των αρμόδιων τομέων.' },
     ],
     implementedTitle: 'Τι λειτουργεί σήμερα',
     implemented: [
-      'Δίγλωσση και responsive Επισκόπηση με ενδεικτικό περιεχόμενο.',
+      'Δίγλωσση και responsive Αρχική, Επισκόπηση και πληροφοριακές σελίδες τομέων με ενδεικτικό περιεχόμενο.',
+      'Πραγματικές client-side routes για τους κύριους και υποστηρικτικούς προορισμούς.',
       'Επιλογή και αποθήκευση γλώσσας με ενημέρωση της γλώσσας του εγγράφου.',
-      'Προσβάσιμο mobile sidebar με κλείσιμο μέσω Escape και επιστροφή focus.',
-      'Υποστηρικτική σελίδα πληροφοριών για τον σκοπό, τους χρήστες και την κατάσταση της εφαρμογής.',
+      'Προσβάσιμο mobile sidebar με Escape, overlay, επιστροφή focus και σαφή ενεργό σύνδεσμο.',
+      'Σαφής σήμανση ή απενεργοποίηση controls που δεν έχουν ακόμη πραγματική λειτουργία.',
     ],
     pendingTitle: 'Τι δεν λειτουργεί ακόμη',
     pending: [
-      'Πλήρεις λειτουργικές σελίδες και ενέργειες για τις κύριες περιοχές.',
-      'Εγγραφές και ροές Κάλυψης και ολοκληρωμένη γραπτή εκτίμηση κινδύνου.',
-      'Ελεγχόμενη πρόσβαση χρηστών, πρόσβαση σύμφωνα με αρμοδιότητες και ασφαλές ιστορικό σημαντικών ενεργειών.',
-      'Ασφαλής αποθήκευση, ασφαλής διαχείριση συνημμένων ή χρήση πραγματικών προσωπικών και επιχειρησιακών δεδομένων.',
+      'Πραγματικές εγγραφές Κάλυψης και πλήρης ροή γραπτής εκτίμησης κινδύνου.',
+      'Backend, βάση δεδομένων, authentication, authorization ή αποθήκευση πραγματικών δεδομένων.',
+      'Πραγματικές ειδοποιήσεις, αναζήτηση, υποβολές φόρμας, uploads ή operational workflows.',
+      'Ασφαλής διαχείριση συνημμένων ή χρήση πραγματικών προσωπικών και επιχειρησιακών δεδομένων.',
     ],
     noticeTitle: 'Σημαντική διευκρίνιση',
     noticeText:
       'Η εφαρμογή προορίζεται ως εσωτερικό εργαλείο εργασίας για την Ασφάλεια, Υγεία και Ευημερία των ανθρώπων στην εργασία. Υποστηρίζει την επαγγελματική και διοικητική κρίση, αλλά δεν την αντικαθιστά. Η Διοίκηση παραμένει υπεύθυνη για τις αποφάσεις, τις υποχρεώσεις και τη διασφάλιση ότι τα θέματα αντιμετωπίζονται κατάλληλα.',
     nextTitle: 'Κατάσταση της εφαρμογής',
     nextText:
-      'Η εφαρμογή βρίσκεται σε ενεργή ανάπτυξη ως πρωτότυπο. Η σημερινή έκδοση χρησιμοποιεί μόνο ενδεικτικά δεδομένα και δεν διαθέτει ακόμη ελεγχόμενη πρόσβαση χρηστών. Πραγματικά δεδομένα του Υπουργείου θα μπορούν να χρησιμοποιηθούν μόνο όταν υλοποιηθούν οι απαραίτητοι μηχανισμοί ασφάλειας, πρόσβασης και προστασίας πληροφοριών.',
+      'Η εφαρμογή βρίσκεται σε ενεργή ανάπτυξη ως frontend prototype. Η σημερινή έκδοση χρησιμοποιεί μόνο ενδεικτικά δεδομένα και δεν διαθέτει ακόμη ελεγχόμενη πρόσβαση χρηστών. Πραγματικά δεδομένα μπορούν να χρησιμοποιηθούν μόνο μετά την υλοποίηση των απαραίτητων μηχανισμών ασφάλειας, πρόσβασης και προστασίας πληροφοριών.',
   },
   en: {
     eyebrow: 'People at the centre',
@@ -94,7 +95,7 @@ const aboutAppContent: Record<Language, AboutAppContent> = {
       },
       {
         title: 'Intended access',
-        text: 'Future access may be given only to selected authorized Ministry personnel according to their role and responsibilities.',
+        text: 'Future access may be given only to selected authorized personnel according to their role and responsibilities.',
       },
       {
         title: 'Initially intended users',
@@ -103,35 +104,36 @@ const aboutAppContent: Record<Language, AboutAppContent> = {
     ],
     areasTitle: 'The six main product areas',
     areasLead:
-      'The application is organized into six stable areas of work. This informational page is a supporting function and is not a seventh primary product area.',
+      'The application is organized into the six stable ADR-002 areas. Home, Settings and this informational page are supporting functions, not additional primary product areas.',
     areas: [
       { title: 'Overview', text: 'Aggregated indicators, gaps, deadlines and matters requiring Management attention.' },
-      { title: 'People, Locations and Activities', text: 'People or groups, organizational units, locations, activities and foreseeable conditions.' },
-      { title: 'Written Risk Assessments', text: 'Written assessments, hazards, controls, measures, verification and reassessment.' },
-      { title: 'Training and Preparedness', text: 'Knowledge, participation, preparedness roles and basic evidence.' },
-      { title: 'Compliance and Governance', text: 'Requirements, accountability, decisions and Management oversight.' },
+      { title: 'Coverage', text: 'People or groups, organizational units, locations, activities, conditions and coverage relationships.' },
+      { title: 'Risks and Measures', text: 'Written assessments, hazards, controls, measures, verification and reassessment.' },
+      { title: 'Training and Preparedness', text: 'Knowledge, participation, certifications, preparedness roles and basic evidence.' },
+      { title: 'Compliance and Governance', text: 'Legislation, requirements, accountability, decisions and Management oversight.' },
       { title: 'Reports', text: 'Aggregated information from authoritative records owned by the relevant modules.' },
     ],
     implementedTitle: 'What works today',
     implemented: [
-      'A bilingual, responsive Overview with demonstration content.',
+      'Bilingual, responsive Home, Overview and informational product-area pages with demonstration content.',
+      'Real client-side routes for the primary and supporting destinations.',
       'Language selection and persistence, including document-language updates.',
-      'An accessible mobile sidebar with Escape closing and focus return.',
-      'A supporting information page explaining the application purpose, users and status.',
+      'Accessible mobile sidebar behavior with Escape, overlay, focus return and active-route state.',
+      'Clear disabled or under-development treatment for controls that do not yet have real functionality.',
     ],
     pendingTitle: 'What is not yet functional',
     pending: [
-      'Complete operational pages and actions for the main product areas.',
-      'Coverage records and workflows and a complete written risk-assessment workflow.',
-      'Controlled user access, access according to responsibilities and a secure record of important actions.',
-      'Secure storage, secure attachment handling or the use of real personal and operational data.',
+      'Real Coverage records and a complete written risk-assessment workflow.',
+      'Backend, database, authentication, authorization or storage of real data.',
+      'Real notifications, search, form submissions, uploads or operational workflows.',
+      'Secure attachment handling or the use of real personal and operational data.',
     ],
     noticeTitle: 'Important clarification',
     noticeText:
       'The application is intended as an internal working tool for the Safety, Health and Wellbeing of people at work. It supports professional and administrative judgement, but it does not replace it. Management remains responsible for decisions, obligations and ensuring that matters are addressed appropriately.',
     nextTitle: 'Application status',
     nextText:
-      'The application is in active development as a prototype. The current version uses demonstration data only and does not yet provide controlled user access. Real Ministry data may be used only after the necessary security, access and information-protection controls are implemented.',
+      'The application is in active development as a frontend prototype. The current version uses demonstration data only and does not yet provide controlled user access. Real data may be used only after the necessary security, access and information-protection controls are implemented.',
   },
 }
 

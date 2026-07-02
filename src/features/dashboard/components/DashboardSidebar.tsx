@@ -1,13 +1,15 @@
+import type { MouseEvent, RefObject } from 'react'
 import { Icon } from './DashboardIcon'
-import type { DashboardContent, DashboardView, Language } from '../types/dashboard'
+import type { DashboardContent, DashboardView, Language, NavigationItem } from '../types/dashboard'
 import './DashboardSidebar.css'
-
-const mainViews: DashboardView[] = ['home', 'overview', 'legislation', 'safety-file', 'news']
 
 type DashboardSidebarProps = {
   activeView: DashboardView
   copy: DashboardContent
+  firstNavigationRef: RefObject<HTMLAnchorElement | null>
+  inert: boolean
   language: Language
+  navigationItems: NavigationItem[]
   sidebarOpen: boolean
   onClose: () => void
   onLanguageChange: (language: Language) => void
@@ -17,27 +19,31 @@ type DashboardSidebarProps = {
 export function DashboardSidebar({
   activeView,
   copy,
+  firstNavigationRef,
+  inert,
   language,
+  navigationItems,
   sidebarOpen,
   onClose,
   onLanguageChange,
   onSelectView,
 }: DashboardSidebarProps) {
-  const selectView = (view: DashboardView) => {
+  const selectView = (event: MouseEvent<HTMLAnchorElement>, view: DashboardView) => {
+    event.preventDefault()
     onSelectView(view)
-    onClose()
   }
 
   const supportingLabel = language === 'el' ? 'Βοηθητικές επιλογές' : 'Supporting options'
-  const settingsLabel = language === 'el' ? 'Ρυθμίσεις' : 'Settings'
-  const contactLabel = language === 'el' ? 'Επικοινωνία' : 'Contact'
-  const aboutBadge = language === 'el' ? 'Πληροφορίες' : 'Information'
-  const aboutDescription = language === 'el'
-    ? 'Σκοπός, λειτουργίες και κατάσταση'
-    : 'Purpose, features and status'
+  const primaryItems = navigationItems.filter((item) => item.category === 'primary')
+  const supportingItems = navigationItems.filter((item) => item.category === 'supporting')
 
   return (
-    <aside className={`dashboard-sidebar${sidebarOpen ? ' is-open' : ''}`} id="dashboard-sidebar">
+    <aside
+      aria-hidden={inert ? true : undefined}
+      className={`dashboard-sidebar${sidebarOpen ? ' is-open' : ''}`}
+      id="dashboard-sidebar"
+      inert={inert ? true : undefined}
+    >
       <button
         aria-label={copy.closeMenu}
         className="mobile-close-button"
@@ -47,31 +53,38 @@ export function DashboardSidebar({
         <Icon name="close" />
       </button>
 
-      <div className="brand">
+      <button
+        className="brand"
+        onClick={(event) => {
+          event.preventDefault()
+          onSelectView('home')
+        }}
+        type="button"
+      >
         <span className="brand-mark"><Icon name="shield" /></span>
         <span className="brand-copy">
           <strong>{copy.appName}</strong>
           <span>{copy.appTagline}</span>
         </span>
-      </div>
+      </button>
 
       <p className="sidebar-section-label">{copy.navigation}</p>
       <nav className="sidebar-nav" aria-label={copy.navigation}>
-        {copy.nav.map(([icon, label], index) => {
-          const view = mainViews[index]
-          const isActive = activeView === view
+        {primaryItems.map((item, index) => {
+          const isActive = activeView === item.id
 
           return (
-            <button
+            <a
               aria-current={isActive ? 'page' : undefined}
               className={`sidebar-link${isActive ? ' is-active' : ''}`}
-              key={view}
-              onClick={() => selectView(view)}
-              type="button"
+              href={item.path}
+              key={item.id}
+              onClick={(event) => selectView(event, item.id)}
+              ref={index === 0 ? firstNavigationRef : undefined}
             >
-              <Icon name={icon} />
-              <span>{label}</span>
-            </button>
+              <Icon name={item.icon} />
+              <span>{item.label}</span>
+            </a>
           )
         })}
       </nav>
@@ -79,39 +92,26 @@ export function DashboardSidebar({
       <div className="sidebar-supporting-nav">
         <p className="sidebar-supporting-label">{supportingLabel}</p>
 
-        <button
-          aria-current={activeView === 'settings' ? 'page' : undefined}
-          className={`sidebar-link sidebar-supporting-link${activeView === 'settings' ? ' is-active' : ''}`}
-          onClick={() => selectView('settings')}
-          type="button"
-        >
-          <Icon name="settings" />
-          <span>{settingsLabel}</span>
-        </button>
+        {supportingItems.map((item) => {
+          const isActive = activeView === item.id
 
-        <button
-          aria-current={activeView === 'about' ? 'page' : undefined}
-          className={`sidebar-link sidebar-about-link${activeView === 'about' ? ' is-active' : ''}`}
-          onClick={() => selectView('about')}
-          type="button"
-        >
-          <Icon name="info" />
-          <span className="sidebar-about-copy">
-            <span className="sidebar-about-badge">{aboutBadge}</span>
-            <strong>{copy.aboutApp}</strong>
-            <span className="sidebar-about-description">{aboutDescription}</span>
-          </span>
-        </button>
-
-        <button
-          aria-current={activeView === 'contact' ? 'page' : undefined}
-          className={`sidebar-link sidebar-supporting-link${activeView === 'contact' ? ' is-active' : ''}`}
-          onClick={() => selectView('contact')}
-          type="button"
-        >
-          <Icon name="phone" />
-          <span>{contactLabel}</span>
-        </button>
+          return (
+            <a
+              aria-current={isActive ? 'page' : undefined}
+              className={`sidebar-link sidebar-supporting-link${isActive ? ' is-active' : ''}`}
+              href={item.path}
+              key={item.id}
+              onClick={(event) => selectView(event, item.id)}
+            >
+              <Icon name={item.icon} />
+              <span className={item.id === 'about' ? 'sidebar-about-copy' : undefined}>
+                {item.id === 'about' && <span className="sidebar-about-badge">{language === 'el' ? 'Πληροφορίες' : 'Information'}</span>}
+                <strong>{item.label}</strong>
+                <span>{item.description}</span>
+              </span>
+            </a>
+          )
+        })}
       </div>
 
       <div className="sidebar-footer">

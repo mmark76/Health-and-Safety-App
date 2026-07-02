@@ -17,6 +17,8 @@ The user-facing navigation follows this hybrid structure. The underlying managem
 
 The user-facing information architecture is documented in `docs/requirements/INFORMATION_ARCHITECTURE.md`.
 
+The frontend prototype uses route-based navigation for the six primary areas and supporting pages. Navigation items must use stable identifiers that map to the accepted product areas rather than array positions or translated-label order. The current informational route pages do not change domain ownership and do not implement operational workflows.
+
 ## Module Ownership
 
 ### Overview

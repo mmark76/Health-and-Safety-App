@@ -26,15 +26,33 @@ export const DashboardTopbar = forwardRef<HTMLButtonElement, DashboardTopbarProp
 
         <label className="search-box">
           <Icon name="search" />
-          <input aria-label={copy.search} placeholder={copy.search} type="search" />
+          <input
+            aria-describedby="search-under-development"
+            aria-label={copy.search}
+            disabled
+            placeholder={copy.searchUnavailable}
+            type="search"
+          />
+          <span className="visually-hidden" id="search-under-development">{copy.searchUnavailable}</span>
         </label>
 
         <div className="topbar-actions">
-          <button aria-label={copy.notifications} className="icon-button" type="button">
+          <button
+            aria-label={`${copy.notifications}. ${copy.notificationsUnavailable}`}
+            className="icon-button"
+            disabled
+            title={copy.notificationsUnavailable}
+            type="button"
+          >
             <Icon name="bell" />
-            <span className="notification-dot" />
           </button>
-          <button aria-label={copy.userMenu} className="profile-button" type="button">
+          <button
+            aria-label={`${copy.userMenu}. ${copy.profileUnavailable}`}
+            className="profile-button"
+            disabled
+            title={copy.profileUnavailable}
+            type="button"
+          >
             <span className="profile-avatar">{copy.profileInitials}</span>
             <span className="profile-copy">
               <strong>{copy.profileName}</strong>

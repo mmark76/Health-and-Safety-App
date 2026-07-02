@@ -249,11 +249,12 @@ Current sequence based on accepted documents and actual Git history:
 1. Product and architecture foundation - completed
 2. Public prototype, CI and deployment - completed
 3. Controlled dashboard refactor - completed in commit `d0adfbf`
-4. First Coverage vertical slice - next implementation task
-5. First complete Written Risk Assessment flow
-6. Minimal Training, Preparedness and applicable-requirement linkage
-7. Basic Management reporting
-8. Gradual later expansion
+4. Prototype stabilization - completed on branch `prototype-stabilization`
+5. First Coverage vertical slice - next implementation task
+6. First complete Written Risk Assessment flow
+7. Minimal Training, Preparedness and applicable-requirement linkage
+8. Basic Management reporting
+9. Gradual later expansion
 
 The task text that expected the dashboard refactor to remain next is stale relative to the repository. Source code and Git history show the refactor is already complete.
 
@@ -267,12 +268,13 @@ Preserve:
 - keyboard operation
 - focus management
 - accessible labels
+- route-based navigation with stable product-area identifiers
 - `aria-current`
 - `aria-expanded`
 - `aria-controls`
 - `aria-pressed`
 
-The current prototype must keep the demonstration-data indicator visible.
+The current prototype must keep the demonstration-data indicator visible. Placeholder controls must be disabled, non-interactive, or clearly labelled as under development in both Greek and English.
 
 ## 16. Current prototype rules
 

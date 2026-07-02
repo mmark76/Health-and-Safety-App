@@ -1,10 +1,11 @@
 import { Icon } from '../components/DashboardIcon'
-import type { DashboardContent, DashboardView, IconName, Language } from '../types/dashboard'
+import type { DashboardContent, DashboardView, IconName, Language, NavigationItem } from '../types/dashboard'
 import './HomePage.css'
 
 type HomePageProps = {
   copy: DashboardContent
   language: Language
+  navigationItems: NavigationItem[]
   onSelectView: (view: DashboardView) => void
 }
 
@@ -15,53 +16,53 @@ type HomeCard = {
   description: string
 }
 
-export function HomePage({ copy, language, onSelectView }: HomePageProps) {
+export function HomePage({ copy, language, navigationItems, onSelectView }: HomePageProps) {
   const text = language === 'el'
     ? {
         badge: 'Ασφάλεια και Υγεία στην Εργασία',
         title: 'Καλώς ήρθατε',
-        intro: 'Η Ασφάλεια και Υγεία στην Εργασία αφορά την πρόληψη ατυχημάτων και επαγγελματικών κινδύνων, την προστασία της υγείας των εργαζομένων και τη δημιουργία ενός ασφαλούς και οργανωμένου περιβάλλοντος εργασίας.',
-        appPurpose: 'Η εφαρμογή συγκεντρώνει την τεκμηρίωση, τη νομοθεσία, την επιχειρησιακή εικόνα και τις σημαντικές εξελίξεις σε ένα ενιαίο σημείο.',
-        openFile: 'Άνοιγμα ΦΑΥ',
-        browseLegislation: 'Προβολή Νομοθεσίας',
-        mainChoices: 'Κύριες επιλογές',
-        mainChoicesIntro: 'Επίλεξε την ενότητα που θέλεις να επισκεφθείς.',
-        newsTitle: 'Νέα και εξελίξεις',
-        newsIntro: 'Ενημερωτικό περιεχόμενο με προτεραιότητα στην Ευρωπαϊκή Ένωση και στη συνέχεια στην Κύπρο και στις διεθνείς εξελίξεις.',
-        viewNews: 'Όλα τα νέα',
-        development: 'Η εφαρμογή βρίσκεται σε στάδιο ανάπτυξης και χρησιμοποιεί ενδεικτικά δεδομένα.',
-        newsItems: [
-          ['Ευρωπαϊκή Ένωση', 'Οδηγίες, στρατηγικές, εκστρατείες και έρευνες για την Ασφάλεια και Υγεία στην Εργασία.'],
-          ['Κύπρος', 'Νομοθετικές αλλαγές, ανακοινώσεις, εγκύκλιοι και τοπικές δράσεις πρόληψης.'],
-          ['Διεθνή', 'Έρευνες, καλές πρακτικές, νέες τεχνολογίες και αναδυόμενοι επαγγελματικοί κίνδυνοι.'],
+        intro: 'Το προσωπικό prototype δείχνει πώς μπορούν να οργανωθούν η κάλυψη, οι κίνδυνοι, τα μέτρα, η εκπαίδευση, η συμμόρφωση και οι αναφορές για γραφειακούς χώρους.',
+        appPurpose: 'Η Αρχική παραμένει υποστηρικτική σελίδα. Οι κύριοι τομείς της εφαρμογής είναι οι έξι τομείς του ADR-002.',
+        openOverview: 'Άνοιγμα Επισκόπησης',
+        openCoverage: 'Άνοιγμα Κάλυψης',
+        mainChoices: 'Κύριοι τομείς',
+        mainChoicesIntro: 'Επίλεξε έναν από τους εγκεκριμένους τομείς της αρχιτεκτονικής.',
+        statusTitle: 'Κατάσταση prototype',
+        statusIntro: 'Οι σελίδες τομέων είναι πληροφοριακές και σημαίνονται καθαρά ως υπό ανάπτυξη.',
+        development: 'Η εφαρμογή βρίσκεται σε στάδιο ανάπτυξης και χρησιμοποιεί μόνο ενδεικτικά δεδομένα.',
+        statusItems: [
+          ['Χωρίς backend', 'Δεν υπάρχει βάση δεδομένων, authentication, authorization ή αποθήκευση πραγματικών εγγραφών.'],
+          ['Μόνο ενδεικτικά δεδομένα', 'Δεν προστίθενται πραγματικά προσωπικά, Υπουργειακά ή ευαίσθητα δεδομένα.'],
+          ['Υπό ανάπτυξη', 'Τα μη λειτουργικά controls είναι disabled ή σημασμένα ως υπό ανάπτυξη.'],
         ],
       }
     : {
         badge: 'Safety and Health at Work',
         title: 'Welcome',
-        intro: 'Safety and health at work is concerned with preventing accidents and occupational risks, protecting workers’ health and creating a safe and well-organised working environment.',
-        appPurpose: 'The application brings documentation, legislation, operational information and important developments together in one place.',
-        openFile: 'Open Safety and Health File',
-        browseLegislation: 'View Legislation',
-        mainChoices: 'Main choices',
-        mainChoicesIntro: 'Choose the area you want to visit.',
-        newsTitle: 'News and developments',
-        newsIntro: 'Information with priority given to the European Union, followed by Cyprus and wider international developments.',
-        viewNews: 'All news',
+        intro: 'This personal prototype shows how coverage, risks, measures, training, compliance and reports can be organized for office workplaces.',
+        appPurpose: 'Home remains a supporting page. The application’s main structure is the six ADR-002 product areas.',
+        openOverview: 'Open Overview',
+        openCoverage: 'Open Coverage',
+        mainChoices: 'Primary areas',
+        mainChoicesIntro: 'Choose one of the approved architecture areas.',
+        statusTitle: 'Prototype status',
+        statusIntro: 'Domain pages are informational and clearly marked as under development.',
         development: 'The application is under development and currently uses demonstration data.',
-        newsItems: [
-          ['European Union', 'Directives, strategies, campaigns and research on safety and health at work.'],
-          ['Cyprus', 'Legislative changes, announcements, circulars and local prevention initiatives.'],
-          ['International', 'Research, good practices, new technologies and emerging occupational risks.'],
+        statusItems: [
+          ['No backend', 'There is no database, authentication, authorization or real record storage.'],
+          ['Demonstration data only', 'No real personal, Ministry or sensitive data is introduced.'],
+          ['Under development', 'Non-functional controls are disabled or labelled as under development.'],
         ],
       }
 
-  const cards: HomeCard[] = [
-    { view: 'safety-file', icon: 'shield', title: copy.nav[3][1], description: copy.nav[3][2] ?? '' },
-    { view: 'legislation', icon: 'documents', title: copy.nav[2][1], description: copy.nav[2][2] ?? '' },
-    { view: 'overview', icon: 'reports', title: copy.nav[1][1], description: copy.nav[1][2] ?? '' },
-    { view: 'news', icon: 'bell', title: copy.nav[4][1], description: copy.nav[4][2] ?? '' },
-  ]
+  const cards: HomeCard[] = navigationItems
+    .filter((item) => item.category === 'primary')
+    .map((item) => ({
+      view: item.id,
+      icon: item.icon,
+      title: item.label,
+      description: item.description ?? '',
+    }))
 
   return (
     <div className="home-page">
@@ -72,13 +73,13 @@ export function HomePage({ copy, language, onSelectView }: HomePageProps) {
           <p className="home-intro">{text.intro}</p>
           <p className="home-purpose">{text.appPurpose}</p>
           <div className="home-hero-actions">
-            <button className="primary-button" onClick={() => onSelectView('safety-file')} type="button">
-              <Icon name="shield" />
-              {text.openFile}
+            <button className="primary-button" onClick={() => onSelectView('overview')} type="button">
+              <Icon name="dashboard" />
+              {text.openOverview}
             </button>
-            <button className="secondary-button" onClick={() => onSelectView('legislation')} type="button">
+            <button className="secondary-button" onClick={() => onSelectView('coverage')} type="button">
               <Icon name="documents" />
-              {text.browseLegislation}
+              {text.openCoverage}
             </button>
           </div>
         </div>
@@ -109,19 +110,16 @@ export function HomePage({ copy, language, onSelectView }: HomePageProps) {
         </div>
       </section>
 
-      <section className="home-section home-news-section" aria-labelledby="home-news-title">
+      <section className="home-section home-news-section" aria-labelledby="home-status-title">
         <div className="home-section-heading home-news-heading">
           <div>
-            <p className="eyebrow">{copy.nav[4][1]}</p>
-            <h2 id="home-news-title">{text.newsTitle}</h2>
-            <p>{text.newsIntro}</p>
+            <p className="eyebrow">{copy.demo}</p>
+            <h2 id="home-status-title">{text.statusTitle}</h2>
+            <p>{text.statusIntro}</p>
           </div>
-          <button className="secondary-button" onClick={() => onSelectView('news')} type="button">
-            {text.viewNews}
-          </button>
         </div>
         <div className="home-news-grid">
-          {text.newsItems.map(([title, description], index) => (
+          {text.statusItems.map(([title, description], index) => (
             <article className="home-news-card" key={title}>
               <span className="home-news-number">0{index + 1}</span>
               <h3>{title}</h3>

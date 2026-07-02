@@ -15,7 +15,13 @@ export function DashboardHeading({ copy }: DashboardHeadingProps) {
       </div>
       <div className="heading-actions">
         <span className="demo-chip"><Icon name="shield" />{copy.demo}</span>
-        <button className="primary-button" type="button">
+        <button
+          aria-label={`${copy.newRecord}. ${copy.unavailableAction}`}
+          className="primary-button"
+          disabled
+          title={copy.unavailableAction}
+          type="button"
+        >
           <Icon name="plus" />
           {copy.newRecord}
         </button>
