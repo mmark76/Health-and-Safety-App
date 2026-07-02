@@ -80,13 +80,13 @@ export function DashboardSidebar({
         <p className="sidebar-supporting-label">{supportingLabel}</p>
 
         <button
-          aria-current={activeView === 'settings' ? 'page' : undefined}
-          className={`sidebar-link sidebar-supporting-link${activeView === 'settings' ? ' is-active' : ''}`}
-          onClick={() => selectView('settings')}
+          aria-current={activeView === 'contact' ? 'page' : undefined}
+          className={`sidebar-link sidebar-supporting-link${activeView === 'contact' ? ' is-active' : ''}`}
+          onClick={() => selectView('contact')}
           type="button"
         >
-          <Icon name="settings" />
-          <span>{settingsLabel}</span>
+          <Icon name="phone" />
+          <span>{contactLabel}</span>
         </button>
 
         <button
@@ -104,13 +104,13 @@ export function DashboardSidebar({
         </button>
 
         <button
-          aria-current={activeView === 'contact' ? 'page' : undefined}
-          className={`sidebar-link sidebar-supporting-link${activeView === 'contact' ? ' is-active' : ''}`}
-          onClick={() => selectView('contact')}
+          aria-current={activeView === 'settings' ? 'page' : undefined}
+          className={`sidebar-link sidebar-supporting-link${activeView === 'settings' ? ' is-active' : ''}`}
+          onClick={() => selectView('settings')}
           type="button"
         >
-          <Icon name="phone" />
-          <span>{contactLabel}</span>
+          <Icon name="settings" />
+          <span>{settingsLabel}</span>
         </button>
       </div>
 
