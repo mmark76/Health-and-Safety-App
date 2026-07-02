@@ -1,168 +1,192 @@
 # Project Architecture
 
-## Product Modules
+## Purpose
 
-The application uses six main product areas:
+This document defines internal functional boundaries, source-of-truth ownership and module responsibilities. User-facing navigation is defined separately in [ADR-005](../decisions/ADR-005-approved-user-facing-navigation.md) and [INFORMATION_ARCHITECTURE.md](../requirements/INFORMATION_ARCHITECTURE.md).
+
+The user-facing menu and the internal domain architecture are intentionally related but not identical.
+
+## Approved user-facing containers
+
+The persistent top-level navigation is:
+
+- Home
+- Overview
+- Legislation
+- Safety and Health File
+- News and Developments
+
+Supporting entries are Useful telephone numbers, About the App and Settings.
+
+The Safety and Health File groups operational work for users but is not a monolithic data-owning module. The top-level Legislation and News areas are user-facing entry points and do not create duplicate legal, compliance or evidence records.
+
+## Internal functional modules
+
+The internal functional boundaries remain:
 
 1. Overview
 2. Coverage
 3. Risks and Measures
 4. Training and Preparedness
-5. Compliance and Governance
+5. Legislation, Compliance and Governance
 6. Reports
 
-Settings and user administration are supporting functions, not primary product areas.
+These boundaries support modular code, future services and clear record ownership. They are not required to appear as six top-level sidebar entries.
 
-The user-facing navigation follows this hybrid structure. The underlying management logic follows Plan-Do-Check-Act and may map to relevant ISO 45001 concepts, but the application must not claim ISO 45001 certification or compliance.
-
-The user-facing information architecture is documented in `docs/requirements/INFORMATION_ARCHITECTURE.md`.
-
-## Module Ownership
+## Module ownership
 
 ### Overview
 
-Overview reads and aggregates information from the domain-owning modules. It may show coverage gaps, active assessments, high risks, overdue measures, training or preparedness gaps, and governance follow-up indicators.
+Overview reads and aggregates information from domain-owning modules. It may show coverage gaps, active assessments, high risks, overdue measures, training or preparedness gaps and governance follow-up indicators.
 
 Overview must not create duplicate copies of domain records.
 
 ### Coverage
 
-Coverage owns the authoritative records for:
+Coverage owns authoritative records for:
 
-- Organizational units
-- People only to the extent required for Safety and Health at Work
-- Affected groups
-- Safety and Health roles and assignments
-- Locations
-- Buildings
-- Floors
-- Spaces
-- Work activities
-- Reasonably foreseeable conditions
-- Validity periods and coverage relationships
+- organizational units;
+- people only to the extent required for Safety and Health at Work;
+- affected groups;
+- Safety and Health roles and assignments;
+- locations, buildings, floors and spaces;
+- work activities;
+- reasonably foreseeable conditions;
+- validity periods and coverage relationships.
 
-Coverage defines who or what is covered, where, during which activities, under which foreseeable conditions, and for what period.
+Coverage defines who or what is covered, where, during which activities, under which foreseeable conditions and for what period.
 
-A Location represents any place where persons may reasonably be affected by Ministry work activities. It may be a Ministry-controlled building or workplace, a building shared with other organizations, a floor, a space, a temporary office-related workplace, an external location where Ministry work activities occur, or another relevant location. Building, Floor and Space remain structured location types or parts of the location hierarchy. External or temporary locations do not require artificial building or floor records. The first MVP may implement only the minimum location types required by its vertical slice; construction sites, industrial locations, manufacturing and unrelated field-work remain outside the active product scope.
+In the user-facing navigation, Coverage functions are normally reached through **Safety and Health File → Organisation and responsibilities**, through contextual links from Overview or through the General Risk Assessment workflow.
 
 ### Risks and Measures
 
-Risks and Measures owns the authoritative records for:
+Risks and Measures owns authoritative records for:
 
-- Written risk assessments
-- Hazard assessments
-- Affected groups within assessments
-- Existing controls
-- Probability
-- Severity
-- Explicit risk-matrix result
-- Additional measures
-- Corrective actions
-- Verification
-- Residual risk
-- Review and reassessment
+- written and general risk assessments;
+- assessment scope;
+- hazards and affected groups;
+- existing controls;
+- probability, severity and explicit risk-matrix results;
+- additional and corrective measures;
+- assignments and deadlines;
+- implementation evidence and verification;
+- residual risk, review and reassessment.
 
-Risks and Measures uses Coverage records to define assessment scope. It must not duplicate people, buildings, spaces, or activities.
+In the user-facing navigation, these functions are reached primarily through **Safety and Health File → General Risk Assessment**.
+
+Risks and Measures uses Coverage records to define assessment scope and must not duplicate people, locations or activities.
 
 ### Training and Preparedness
 
-Training and Preparedness owns the authoritative records for:
+Training and Preparedness owns authoritative records for:
 
-- Training programmes
-- Training sessions
-- Participation
-- Certifications
-- Renewals
-- First aid
-- AED
-- Fire safety roles
-- Evacuation roles
-- Drills
-- Educational awareness material, including future Napo links or permitted embeds
+- training programmes and sessions;
+- participation;
+- certifications and renewals;
+- first aid and AED preparedness;
+- fire-safety and evacuation roles;
+- drills and preparedness coverage;
+- educational awareness material.
 
-Napo educational content is a future education and awareness component, outside the first MVP. Initial Napo implementation must use only official links or legally permitted embedding. No Napo media or assets may be copied into the repository until usage rights are verified, and no endorsement must be implied.
+In the user-facing navigation, these functions are reached through **Safety and Health File → Training and preparedness**.
 
-### Compliance and Governance
+### Legislation, Compliance and Governance
 
-Compliance and Governance owns the authoritative records for:
+Legislation, Compliance and Governance owns authoritative records for:
 
-- Legislation
-- Regulations
-- Official guidance
-- Guidelines
-- Applicable requirements, instructions or decisions of competent authorities
-- Standards and good practices
-- Legal and other requirements register
-- Policies and procedures
-- Management accountability
-- ESYPP
-- Safety Committees
-- Governance decisions
-- Management review
+- legislation and regulations;
+- official guidance and guidelines;
+- competent-authority requirements, instructions and decisions;
+- standards and good practices;
+- legal and other requirements;
+- applicability and review status;
+- policies and procedures;
+- Management accountability;
+- ESYPP and Safety Committees;
+- governance decisions and Management review.
 
-Compliance and Governance links requirements to Coverage, Risks and Measures, Training and Preparedness, evidence, and Reports without duplicating their domain records.
+The top-level **Legislation** area gives users direct access to European Union and Cyprus legislation. The Safety and Health File subsection **Legislation, Compliance and Governance** supports applicability, compliance action, accountability, review and governance.
 
-Management remains accountable for Safety and Health at Work. Assigning duties to the Safety and Health Officer, organizational units, committees, employees, or external services does not remove Management's responsibility.
+These are two user-facing entry points into one coherent ownership model. They must not create duplicate legal or requirement records.
 
 ### Reports
 
-Reports reads and aggregates information from domain-owning modules. It may produce Management, coverage, risk, measure, training, preparedness, and governance reports.
+Reports reads and aggregates authoritative data from other modules. The approved Greek label is **Εκθέσεις και Αναφορές**.
 
-Reports must not create duplicate copies of domain records.
+Reports may produce Management, coverage, risk, measure, training, preparedness and governance outputs. It is a contextual or internal capability and is not currently a top-level sidebar entry.
 
-## Evidence Ownership
+Reports must not create duplicate copies of source records.
 
-Evidence is not a separate user-facing product module. The originating domain module owns the relationship between evidence and its domain record.
+## Supporting and informational areas
 
-Examples:
+### Home
 
-- Risks and Measures owns evidence linked to measures, implementation and verification.
-- Training and Preparedness owns evidence linked to participation, certification and drills.
-- Compliance and Governance owns evidence linked to requirements, decisions, policies and reviews.
+Home is a user-facing entry point that introduces the application and links to the main areas. It does not own business records.
 
-A future shared technical evidence or attachment capability may provide common file storage, metadata, access control, audit history, retention and security. This technical capability must not become a duplicate source of domain ownership. Reports and Overview may read evidence metadata but do not own evidence records.
+### News and Developments
 
-## Architectural Boundaries
+News and Developments is informational and is separated from authoritative legislation and Safety and Health File evidence. It may present European Union, Cyprus and international updates without becoming the source of legal obligations.
+
+### Useful telephone numbers
+
+Useful telephone numbers is a supporting area. Real numbers must be added only after official verification and approval. Demonstration or invented contact details must not be presented as real.
+
+### About the App
+
+About the App describes purpose, intended users, current functionality, limitations and internal functional areas. It must not describe the six internal modules as the sidebar tree.
+
+### Settings
+
+Settings contains only implemented appearance preferences. Language selection remains a global sidebar control.
+
+### Global search
+
+Search is a global application-shell capability in the top bar. It may search across authoritative records and informational content in the future, but it is not a module or navigation node.
+
+## Evidence ownership
+
+Evidence is not a separate user-facing product module. The originating domain owns the relationship between evidence and its record.
+
+A future shared attachment capability may provide common storage, metadata, access control, audit history, retention and security. It must not become a duplicate source of business ownership.
+
+## Architectural boundaries
 
 - One authoritative source exists for each domain entity.
-- People, buildings, risk assessments, certifications, and legal requirements must not be duplicated across modules.
+- People, locations, risk assessments, certifications and legal requirements must not be duplicated across modules.
 - Modules communicate through explicit interfaces or stable identifiers.
 - UI pages must not contain core business rules.
 - Domain rules must not depend on React components.
-- Cross-module reporting must use read models or aggregation services.
-- Shared code is created only after genuine reuse exists.
+- Cross-module reporting uses read models or aggregation services.
 - Privacy and data minimization are architectural requirements.
-- Lifecycle history, validity periods, and traceability must be supported.
+- Lifecycle history, validity periods and traceability must be supported.
 - The current prototype may use fabricated demonstration data only.
-- Medical diagnoses, personal health histories, salary, performance, disciplinary, and unrelated HR data are out of scope.
-- The software supports management and documentation but cannot by itself guarantee safety, legal compliance, or the effectiveness of controls.
-- Before any real organizational or personal data is used, the system must define and implement role-based access control, audit history for important actions and changes, secure evidence and attachment handling, retention and deletion rules, appropriate protection for confidential records, and authorization for viewing, uploading, changing and deleting records.
-- These privacy and security requirements are for later implementation, not functionality to be built during the current prototype phase.
+- Before real data is used, the system must implement approved authentication, authorization, role-based access, audit history, secure attachment handling, retention and deletion rules, confidential-record protection and controlled hosting.
 
-## Indicative Feature-Based Folder Structure
-
-This structure is indicative only. Source folders are not created or moved as part of this documentation task.
+## Indicative feature structure
 
 ```text
 src/
   app/
   features/
+    home/
     overview/
+    legislation/
+    safety-file/
+      organisation-and-responsibilities/
+      general-risk-assessment/
+      training-and-preparedness/
+      legislation-compliance-and-governance/
+    news/
+    useful-telephone-numbers/
+    about-app/
+    settings/
     coverage/
     risks-and-measures/
-    training-and-preparedness/
-    compliance-and-governance/
     reports/
-    settings/
-    user-administration/
   shared/
     components/
     domain/
     styles/
 ```
 
-## Data Ownership Summary
-
-Overview and Reports are aggregating areas. They read from domain-owning modules and present Management information, but they do not own duplicate domain data.
-
-Coverage, Risks and Measures, Training and Preparedness, and Compliance and Governance are domain-owning areas. Their interfaces must be stable enough for reporting and cross-module workflows without requiring duplicated records.
+User-facing feature folders and internal domain packages may evolve separately, provided ownership remains explicit and the approved navigation is preserved.
