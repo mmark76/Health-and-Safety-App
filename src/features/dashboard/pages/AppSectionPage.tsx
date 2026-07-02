@@ -35,9 +35,9 @@ const greekSections: Record<AppSectionPageProps['view'], SectionDefinition> = {
     icon: 'shield',
     items: [
       { title: 'Οργάνωση και αρμοδιότητες', description: 'Ρόλοι, υπεύθυνοι, ορισμοί, επιτροπές και αποφάσεις.', icon: 'user' },
-      { title: 'Εκτιμήσεις και μέτρα', description: 'Γραπτές εκτιμήσεις κινδύνων, μέτρα πρόληψης, αναθέσεις και επαληθεύσεις.', icon: 'risk' },
+      { title: 'Γενική Εκτίμηση Κινδύνων', description: 'Γραπτές εκτιμήσεις κινδύνων, μέτρα πρόληψης, αναθέσεις και επαληθεύσεις.', icon: 'risk' },
       { title: 'Εκπαίδευση και ετοιμότητα', description: 'Εκπαιδεύσεις, πιστοποιήσεις, ασκήσεις και σχέδια έκτακτης ανάγκης.', icon: 'training' },
-      { title: 'Συμμόρφωση και διακυβέρνηση', description: 'Απαιτήσεις, εγκρίσεις, ανασκοπήσεις, έλεγχοι και ιστορικό αλλαγών.', icon: 'check' },
+      { title: 'Νομοθεσία, Συμμόρφωση και Διακυβέρνηση', description: 'Απαιτήσεις, εγκρίσεις, ανασκοπήσεις, έλεγχοι και ιστορικό αλλαγών.', icon: 'check' },
     ],
     note: 'Κάθε εγγραφή θα διατηρεί μία έγκυρη πηγή, ώστε να αποφεύγονται διπλά ή αντικρουόμενα στοιχεία.',
   },
@@ -98,9 +98,9 @@ const englishSections: Record<AppSectionPageProps['view'], SectionDefinition> = 
     icon: 'shield',
     items: [
       { title: 'Organisation and responsibilities', description: 'Roles, responsible persons, appointments, committees and decisions.', icon: 'user' },
-      { title: 'Assessments and measures', description: 'Written risk assessments, preventive measures, assignments and verification.', icon: 'risk' },
+      { title: 'General Risk Assessment', description: 'Written risk assessments, preventive measures, assignments and verification.', icon: 'risk' },
       { title: 'Training and preparedness', description: 'Training, certification, exercises and emergency plans.', icon: 'training' },
-      { title: 'Compliance and governance', description: 'Requirements, approvals, reviews, inspections and change history.', icon: 'check' },
+      { title: 'Legislation, Compliance and Governance', description: 'Requirements, approvals, reviews, inspections and change history.', icon: 'check' },
     ],
     note: 'Each record will retain one authoritative source to prevent duplicate or conflicting information.',
   },
