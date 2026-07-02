@@ -2,149 +2,110 @@
 
 ## Status metadata
 
-- Audit date: 2026-06-28
-- Baseline HEAD commit inspected before the recovery documentation task: `ff64ca9fb4a6b3d6e5dd6e4d0533424e7a70fc43`
-- Current branch at last status update: `feat/internal-ministry-product-identity`
-- Public prototype URL documented in the repository: `https://health-and-safety.markellosecosystem.com`
-- Current project phase: development frontend prototype and project-continuity documentation, before the first functional Coverage vertical slice
+- Status date: 2026-07-02
+- Baseline `main` commit: `439c12cfb77055e34a7a7b76a76a60cc84d87a88`
+- Current alignment branch: `fix/align-approved-navigation-and-content`
+- Project phase: frontend prototype and navigation/documentation alignment
+- Public prototype URL: `https://health-and-safety.markellosecosystem.com`
 
-The baseline commit above records the starting point of the stateless recovery audit. Later commits may contain the current status and subsequent prototype improvements.
+## Approved navigation
 
-## Completed product work
+Primary sidebar:
 
-Completed and documented milestones:
+1. Home
+2. Overview
+3. Legislation
+4. Safety and Health File
+5. News and Developments
 
-- approved office-public-service scope
-- approved hybrid product architecture
-- conceptual domain model
-- core workflows
-- information architecture
-- project architecture
-- central product and build guide
-- human-centred product framing focused on the Safety, Health and Wellbeing of people at work
-- approved internal Ministry working-tool identity documented in ADR-004
-- bilingual dashboard prototype
-- bilingual informational About the App view
-- About the App wording aligned to purpose, intended users, Management responsibility and current prototype limitations
-- supporting About the App navigation without changing the accepted six primary product areas
-- responsive navigation
-- mobile sidebar accessibility behaviour
-- language switching, language persistence and document-language updates
-- demonstration-data labelling
-- alignment of dashboard content with the six product areas
-- controlled split of the dashboard page into focused dashboard-specific files
-- feature-specific `about-app` implementation
-- CI workflow for lint and build
-- automated GitHub Pages deployment workflow
-- custom-domain public development deployment configuration
+Nested landing-page cards:
 
-## Currently implemented functionality
+```text
+Legislation
+├── European Union
+└── Cyprus legislation
 
-Rendered prototype UI:
+Safety and Health File
+├── Organisation and responsibilities
+├── General Risk Assessment
+├── Training and preparedness
+└── Legislation, Compliance and Governance
 
-- one Vite/React single-page application rendered by `src/app/App.tsx`
-- bilingual Greek/English Overview dashboard copy
-- bilingual Greek/English informational About the App view
-- About the App content emphasizing that records and workflows serve the Safety, Health and Wellbeing of people at work
-- About the App content explaining the intended internal working-tool identity, initially intended users, Management responsibility, and current security limitations
-- sidebar navigation showing the six accepted product areas plus Settings and a separate supporting About the App item
-- top bar with search field, notifications button and demonstration user profile
-- Overview-style metrics, alerts, deadlines, activity, quick actions and product-area cards
-- informational summaries of product purpose, intended access, current status, the six areas and limitations
+News and Developments
+├── European Union
+├── Cyprus
+└── International developments
+```
 
-Genuinely functional behaviour:
+Supporting options:
 
-- switching between the Overview and About the App views
-- language selection between Greek and English
-- language persistence in local storage
-- document `<html lang>` updates
-- responsive mobile sidebar open/close
-- Escape closes the mobile sidebar
-- focus returns to the mobile menu button after Escape closes the sidebar
-- accessibility attributes including `aria-current`, `aria-expanded`, `aria-controls` and `aria-pressed`
-- CI lint/build checks are configured
-- GitHub Pages build and deployment workflow using the generated `dist` directory is configured
+1. Useful telephone numbers
+2. About the App
+3. Settings
 
-Placeholder buttons and controls:
+Search remains global in the top bar. The language selector remains in the sidebar. Settings contains only implemented appearance preferences.
 
-- product-area navigation buttons do not route to separate functional product-area pages
-- dashboard quick-action buttons do not create records
-- search input is visual only and does not query records
-- notifications and profile buttons are visual controls only
-- product-area cards are visual entry points only
+ADR-005 records this decision. ADR-002 remains authoritative for internal functional boundaries and domain ownership, but not for the top-level menu.
 
-Demonstration records:
+## Implemented prototype views
 
-- all displayed metrics, alerts, activities, tasks, names and labels are demonstration content
-- there is no real Ministry, personal, health, certificate, operational or confidential data
+- Home
+- Overview dashboard
+- Legislation landing page
+- Safety and Health File landing page
+- News and Developments landing page
+- About the App
+- supporting navigation pages
+- global search field in the top bar
+- language selector in the sidebar
 
-Infrastructure and deployment functionality:
+Current functional behaviour includes local view switching, Greek and English selection, language persistence, document-language updates, responsive sidebar behaviour, Escape-to-close, CI lint/build checks and GitHub Pages deployment.
 
-- React, TypeScript, Vite, Oxlint and npm are configured
-- CI runs on pushes and pull requests to `main`
-- GitHub Pages deployment runs on pushes to `main` and manual dispatch
-- the intended custom domain is documented as `health-and-safety.markellosecosystem.com`
+## Prototype-only elements
+
+- Search does not yet query application content.
+- Landing-page cards do not yet open complete operational workflows.
+- Quick actions do not create records.
+- Notifications and profile controls are placeholders.
+- All displayed records, dates and indicators are demonstration content.
+
+## Approved terminology
+
+- `Νομοθεσία, Συμμόρφωση και Διακυβέρνηση`
+- `Εκθέσεις και Αναφορές`
+- `Γενική Εκτίμηση Κινδύνων` as the user-facing risk-assessment subsection
+
+The concise English label `Reports` remains acceptable for `Εκθέσεις και Αναφορές`.
 
 ## Not yet implemented
 
-The repository does not yet implement:
+- complete client-side routes and deep links;
+- real global search;
+- operational Coverage records;
+- complete General Risk Assessment workflow;
+- operational training, preparedness, compliance and governance workflows;
+- generated reports from authoritative records;
+- backend and database;
+- authentication, authorization and role-based access;
+- audit logging and secure attachments;
+- production readiness.
 
-- real application routes for the product areas
-- Coverage CRUD or real workflows
-- a functional Written Risk Assessment workflow
-- a backend
-- a database
-- authentication
-- authorization
-- audit logging
-- real attachments
-- controlled internal hosting
-- real personal or operational data
-- production readiness
+## Open branches and Pull Requests
 
-A visible button, card or informational description must not be treated as proof that the corresponding operational feature exists.
+- PR #11 contains valuable technical improvements but proposes a different top-level navigation. It must be revised to preserve ADR-005 before merge.
+- PR #7 and PR #8 contain terminology changes that are now part of the approved direction. Their old branches should not be merged unchanged.
 
-## Current next task
+## Next approved task
 
-The earlier continuity request expected this to be the next task:
+Apply routing, stable identifiers, accessibility improvements, tests and CI hardening while preserving the ADR-005 sidebar, landing pages and nested card hierarchy.
 
-`Controlled refactor of DashboardPage.tsx into focused dashboard-specific files, with no intentional visual, textual, accessibility or behavioural change.`
+After technical stabilization, proceed through controlled operational vertical slices, beginning with the foundational Coverage data needed by Organisation and responsibilities and General Risk Assessment.
 
-Repository audit shows that task is already complete in commit `d0adfbf` and in the current `src/features/dashboard/` structure.
+## Known limitations
 
-The informational About the App view is also complete as a supporting prototype function. It does not change the approved MVP sequence.
+- The current application is a development prototype.
+- Navigation still uses local React state.
+- Several visible controls are not operational.
+- The current deployment is not ready for operational Ministry use.
 
-The next implementation task remains:
-
-`First functional Coverage vertical slice.`
-
-## Open decisions
-
-No blocking open decisions are currently documented.
-
-Future implementation will still require design decisions for data persistence, authentication, authorization, audit history, attachment storage, role-based access, and detailed UI/workflow behaviour for each MVP slice.
-
-## Known issues and limitations
-
-- The current implementation is a development prototype, not production software.
-- The intended operational product is an internal Ministry working tool, but the current development deployment remains publicly reachable.
-- Only the Overview and informational About the App views are currently rendered; operational product-area screens are not yet implemented.
-- View switching is currently local single-page state rather than route-based navigation.
-- Product-area navigation and quick actions are not yet wired to real routes or workflows.
-- The `v0.1 · Development` sidebar label remains as non-blocking prototype wording.
-- No backend, database, authentication, authorization, audit logging or secure attachment handling exists yet.
-- Real Ministry data must not be introduced until appropriate security, access, authorization, audit, attachment and information-protection controls exist.
-
-## Status update rules
-
-Update this file whenever a material change occurs to:
-
-- current phase
-- completed milestone
-- implemented functionality
-- next approved task
-- known blocking issue
-- deployment state
-- MVP scope
-
-This file does not need to change after every trivial formatting edit.
+Update this file after material changes to navigation, architecture, phase, implemented functionality, next approved task, deployment or MVP scope.
