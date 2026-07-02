@@ -146,7 +146,7 @@ About the App presents purpose, intended users, current functionality, limitatio
 
 ### Settings
 
-Settings contains only implemented appearance preferences. It does not contain language selection, future-feature cards, thematic content or general prototype explanations.
+Settings contains only implemented appearance preferences: text size, high contrast, reduced motion and restore defaults. It does not contain language selection, notification settings, future-feature cards, thematic content or general prototype explanations.
 
 ## 7. Internal ownership map
 

@@ -121,7 +121,7 @@ Search is a global function in the top application bar. It is not a navigation i
 
 The language switch remains in the sidebar and is not part of Settings.
 
-Settings contains only currently implemented appearance preferences. Do not place informational prototype cards, language selection or future-feature descriptions inside Settings.
+Settings contains only currently implemented appearance preferences: text size, high contrast, reduced motion and restore defaults. Do not place informational prototype cards, language selection, notification controls or future-feature descriptions inside Settings.
 
 The current visual hierarchy, persistent dark sidebar and nested landing-page cards are approved UI references. Routing, testing, accessibility or refactoring work must preserve them unless a later explicit owner decision changes the design.
 
@@ -151,6 +151,8 @@ The Safety and Health File is a user-facing container. It does not become a seco
 The top-level Legislation area provides access to European Union and Cyprus legislation. Applicability, compliance actions and governance records are handled through `Legislation, Compliance and Governance` while retaining one authoritative source for each record.
 
 `Reports` is presented in Greek as `Εκθέσεις και Αναφορές`. It remains an internal or contextual reporting capability rather than a top-level sidebar entry.
+
+The Useful telephone numbers page is a supporting placeholder until officially verified telephone information is approved. Do not invent or publish real-looking numbers.
 
 ## 8. Management accountability
 

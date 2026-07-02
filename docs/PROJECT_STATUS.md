@@ -54,12 +54,13 @@ ADR-005 records this decision. ADR-002 remains authoritative for internal functi
 - Legislation landing page
 - Safety and Health File landing page
 - News and Developments landing page
+- Useful telephone numbers placeholder reference page
 - About the App
-- supporting navigation pages
+- functional Settings page for appearance preferences
 - global search field in the top bar
 - language selector in the sidebar
 
-Current functional behaviour includes local view switching, Greek and English selection, language persistence, document-language updates, responsive sidebar behaviour, Escape-to-close, CI lint/build checks and GitHub Pages deployment.
+Current functional behaviour includes local view switching, Greek and English selection, language persistence, document-language updates, Settings persistence for text size, high contrast and reduced motion, responsive sidebar behaviour, Escape-to-close, CI lint/build checks and GitHub Pages deployment.
 
 ## Prototype-only elements
 

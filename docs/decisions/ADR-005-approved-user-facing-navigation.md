@@ -95,7 +95,7 @@ The language switch remains in the sidebar and is not part of Settings.
 
 ### Settings
 
-Settings contains only real appearance preferences that are currently implemented. It must not contain informational prototype cards, language selection, future-feature descriptions or unrelated thematic content.
+Settings contains only real appearance preferences that are currently implemented: text size, high contrast, reduced motion and restore defaults. It must not contain informational prototype cards, language selection, notification settings, future-feature descriptions or unrelated thematic content.
 
 ### Terminology
 

@@ -137,7 +137,7 @@ About the App describes purpose, intended users, current functionality, limitati
 
 ### Settings
 
-Settings contains only implemented appearance preferences. Language selection remains a global sidebar control.
+Settings contains only implemented appearance preferences: text size, high contrast, reduced motion and restore defaults. Language selection remains a global sidebar control and does not belong in Settings.
 
 ### Global search
 

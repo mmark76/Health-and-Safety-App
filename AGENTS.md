@@ -86,42 +86,49 @@ Excluded from the current scope unless an explicit decision changes it:
 
 Do not expand the MVP or domain scope without an explicit documented decision.
 
-## 5. Accepted architecture
+## 5. Accepted architecture and navigation
 
-ADR-002 currently defines the accepted primary user-facing product areas as exactly:
+ADR-002 defines the accepted internal functional boundaries and domain-ownership rules:
 
 1. Overview
 2. Coverage
 3. Risks and Measures
 4. Training and Preparedness
-5. Compliance and Governance
+5. Legislation, Compliance and Governance
 6. Reports
 
-Settings and user administration are supporting functions, not primary product areas.
+ADR-005 supersedes ADR-002 only for the user-facing navigation. The approved top-level sidebar is:
+
+1. Home
+2. Overview
+3. Legislation
+4. Safety and Health File
+5. News and Developments
+
+Supporting options are Useful telephone numbers, About the App and Settings. Settings and user administration are supporting functions, not primary product areas. Reports is an internal or contextual capability and is not currently a top-level sidebar item.
 
 Domain ownership rules:
 
 - Coverage owns people or affected groups, organizational units, locations, activities, conditions, validity periods and coverage relationships.
 - Risks and Measures owns assessments, hazards, controls, evaluations, measures, assignments, evidence, verification and reassessment.
 - Training and Preparedness owns competence, participation, certification, drills and preparedness records.
-- Compliance and Governance owns legislation, requirements, policies, accountability and governance records.
+- Legislation, Compliance and Governance owns legislation, requirements, policies, accountability and governance records.
 - Overview and Reports read and aggregate; they must not become duplicate owners of source records.
 
 Each domain record has one authoritative owner. Avoid duplicate sources of truth.
 
-## 6. Known governance warning
+## 6. Navigation resolution
 
-As recorded on 1 July 2026, the current `main` navigation introduced by PR #9 differs from the accepted six-area architecture in ADR-002, `PROJECT_PRODUCT_GUIDE.md`, `PROJECT_ARCHITECTURE.md` and the requirements documents.
+ADR-005, accepted on 2 July 2026, resolves the earlier documentation-and-code conflict about whether the six internal functional areas must appear as six top-level sidebar items.
 
-Until the project owner approves and records a resolution:
+Current rules:
 
-- treat this as an unresolved documentation-and-code conflict
-- do not assume the merged navigation silently supersedes ADR-002
-- do not build new domain features around the conflicting navigation model
-- do not remove the approved Coverage, Risks and Measures, Training and Preparedness, Compliance and Governance or Reports concepts
-- recommend either restoring alignment with ADR-002 or creating a new ADR that explicitly supersedes it
-
-When this conflict is resolved, update this section and all affected project documents in the same controlled change.
+- preserve the approved dark sidebar and nested landing-page hierarchy;
+- do not expose Coverage, Risks and Measures, Training and Preparedness, Legislation, Compliance and Governance or Reports as separate top-level sidebar items unless a later ADR approves it;
+- keep Search as a global top-bar function, not a navigation item or Legislation submenu;
+- keep the language selector at the bottom of the sidebar and out of Settings;
+- keep Settings limited to implemented appearance preferences;
+- retain ADR-002 domain ownership internally and avoid duplicate sources of truth.
 
 ## 7. Current implementation limits
 
@@ -232,6 +239,7 @@ At minimum, after a code change run:
 npm ci
 npm run lint
 npm run build
+npm test
 git diff --check
 ```
 

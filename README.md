@@ -13,7 +13,7 @@ All information currently displayed is demonstration data. The project must not 
 ## Current project state
 
 - **Current phase:** Development frontend prototype and navigation/documentation alignment before functional operational workflows.
-- **Implemented:** Bilingual responsive application shell; Home; Overview dashboard; informational landing pages for Legislation, the Safety and Health File, News and Developments, About the App and supporting options; language persistence; accessible mobile navigation; CI checks; and GitHub Pages deployment configuration.
+- **Implemented:** Bilingual responsive application shell; Home; Overview dashboard; informational landing pages for Legislation, the Safety and Health File, News and Developments, About the App and Useful telephone numbers; functional appearance Settings; language persistence; accessible mobile navigation; CI checks; and GitHub Pages deployment configuration.
 - **Prototype-only:** Global search, notifications, profile controls, quick actions, most landing-page cards and operational records remain visual or informational placeholders.
 - **Not yet implemented:** Complete routes and deep links, real search, operational records and workflows, backend services, database persistence, authentication, authorization, role-based access, audit logging and secure attachment handling.
 - **Data and readiness:** The application uses fabricated demonstration data only, is publicly reachable as a development deployment and is not ready for real operational Ministry data.
@@ -73,6 +73,8 @@ The Greek labels and full decision are recorded in ADR-005.
 Search is a global application-shell function in the top search bar. It is not a navigation item. The language switch remains in the sidebar and is not part of Settings.
 
 Settings contains only implemented appearance preferences. It must not contain language selection or future-feature information cards.
+
+The current Settings page implements text size, high contrast, reduced motion and restore-defaults controls. These preferences apply immediately and are stored in localStorage when browser storage is available.
 
 ## Internal functional architecture
 
@@ -176,6 +178,7 @@ The application will normally be available at `http://localhost:5173/`.
 ```bash
 npm run lint
 npm run build
+npm test
 ```
 
 Substantive or multi-file changes should use a feature branch, pass validation and be reviewed through a Pull Request. Squash merge is preferred for a clean `main` history.

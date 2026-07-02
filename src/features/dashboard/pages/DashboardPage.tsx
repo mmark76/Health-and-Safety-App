@@ -1,5 +1,14 @@
 import { useEffect, useRef, useState } from 'react'
 import { AboutAppPage } from '../../about-app/pages/AboutAppPage'
+import { SettingsPage } from '../../settings/pages/SettingsPage'
+import {
+  clearSettingsPreferences,
+  defaultSettingsPreferences,
+  getAvailableStorage,
+  readSettingsPreferences,
+  writeSettingsPreferences,
+  type SettingsPreferences,
+} from '../../settings/settingsPreferences'
 import { DashboardActionsAndAreas } from '../components/DashboardActionsAndAreas'
 import { DashboardHeading } from '../components/DashboardHeading'
 import { DashboardMetrics } from '../components/DashboardMetrics'
@@ -16,8 +25,16 @@ import './BuildVersion.css'
 export function DashboardPage() {
   const [language, setLanguage] = useState<Language>(() => {
     if (typeof window === 'undefined') return 'el'
-    return window.localStorage.getItem('hs-language') === 'en' ? 'en' : 'el'
+
+    try {
+      return window.localStorage.getItem('hs-language') === 'en' ? 'en' : 'el'
+    } catch {
+      return 'el'
+    }
   })
+  const [settingsPreferences, setSettingsPreferences] = useState<SettingsPreferences>(() => (
+    readSettingsPreferences(getAvailableStorage())
+  ))
   const [activeView, setActiveView] = useState<DashboardView>('home')
   const [sidebarOpen, setSidebarOpen] = useState(false)
   const mobileMenuButtonRef = useRef<HTMLButtonElement>(null)
@@ -28,8 +45,22 @@ export function DashboardPage() {
 
   useEffect(() => {
     document.documentElement.lang = language
-    window.localStorage.setItem('hs-language', language)
+
+    try {
+      window.localStorage.setItem('hs-language', language)
+    } catch {
+      // Language still applies for the current session when storage is unavailable.
+    }
   }, [language])
+
+  useEffect(() => {
+    const root = document.documentElement
+
+    root.classList.toggle('hs-text-large', settingsPreferences.textSize === 'large')
+    root.classList.toggle('hs-high-contrast', settingsPreferences.highContrast)
+    root.classList.toggle('hs-reduce-motion', settingsPreferences.reduceMotion)
+    writeSettingsPreferences(getAvailableStorage(), settingsPreferences)
+  }, [settingsPreferences])
 
   useEffect(() => {
     if (!sidebarOpen) return
@@ -79,6 +110,20 @@ export function DashboardPage() {
 
     if (activeView === 'about') {
       return <AboutAppPage language={language} />
+    }
+
+    if (activeView === 'settings') {
+      return (
+        <SettingsPage
+          language={language}
+          onPreferencesChange={setSettingsPreferences}
+          onRestoreDefaults={() => {
+            clearSettingsPreferences(getAvailableStorage())
+            setSettingsPreferences(defaultSettingsPreferences)
+          }}
+          preferences={settingsPreferences}
+        />
+      )
     }
 
     return <AppSectionPage language={language} view={activeView} />
