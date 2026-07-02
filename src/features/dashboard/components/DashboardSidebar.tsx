@@ -30,7 +30,7 @@ export function DashboardSidebar({
 
   const supportingLabel = language === 'el' ? 'Βοηθητικές επιλογές' : 'Supporting options'
   const settingsLabel = language === 'el' ? 'Ρυθμίσεις' : 'Settings'
-  const contactLabel = language === 'el' ? 'Επικοινωνία' : 'Contact'
+  const contactLabel = language === 'el' ? 'Χρήσιμα τηλέφωνα' : 'Useful telephone numbers'
   const aboutBadge = language === 'el' ? 'Πληροφορίες' : 'Information'
   const aboutDescription = language === 'el'
     ? 'Σκοπός, λειτουργίες και κατάσταση'
