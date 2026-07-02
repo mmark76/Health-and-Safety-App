@@ -67,15 +67,15 @@ const greekSections: Record<AppSectionPageProps['view'], SectionDefinition> = {
   },
   contact: {
     eyebrow: 'Βοηθητική επιλογή',
-    title: 'Επικοινωνία',
-    intro: 'Χώρος για σχόλια, προτάσεις, ερωτήσεις και αναφορά προβλημάτων σχετικά με την εφαρμογή.',
+    title: 'Χρήσιμα τηλέφωνα',
+    intro: 'Συγκεντρωτικό σημείο για επαληθευμένα τηλέφωνα έκτακτης ανάγκης, αρμόδιων υπηρεσιών και εσωτερικών ρόλων.',
     icon: 'phone',
     items: [
-      { title: 'Αναφορά προβλήματος', description: 'Καταγραφή τεχνικού προβλήματος ή δυσλειτουργίας.', icon: 'alert' },
-      { title: 'Πρόταση βελτίωσης', description: 'Υποβολή ιδέας για νέα λειτουργία ή αλλαγή στη δομή.', icon: 'plus' },
-      { title: 'Γενική επικοινωνία', description: 'Ερώτηση ή σχόλιο για τον σκοπό και τη χρήση της εφαρμογής.', icon: 'phone' },
+      { title: 'Υπηρεσίες έκτακτης ανάγκης', description: 'Επαληθευμένα τηλέφωνα άμεσης ανταπόκρισης και έκτακτης ανάγκης.', icon: 'alert' },
+      { title: 'Αρμόδιες υπηρεσίες', description: 'Επαληθευμένα στοιχεία των αρμόδιων δημόσιων και υποστηρικτικών υπηρεσιών.', icon: 'shield' },
+      { title: 'Εσωτερικά τηλέφωνα', description: 'Εγκεκριμένα στοιχεία υπεύθυνων ρόλων και υπηρεσιακών σημείων επικοινωνίας.', icon: 'phone' },
     ],
-    note: 'Τα πραγματικά στοιχεία και ο τρόπος επικοινωνίας θα προστεθούν πριν από τη δημόσια διάθεση.',
+    note: 'Πραγματικά τηλέφωνα θα εμφανίζονται μόνο αφού επιβεβαιωθούν από επίσημη και εγκεκριμένη πηγή.',
   },
 }
 
@@ -130,15 +130,15 @@ const englishSections: Record<AppSectionPageProps['view'], SectionDefinition> = 
   },
   contact: {
     eyebrow: 'Supporting option',
-    title: 'Contact',
-    intro: 'A place for feedback, suggestions, questions and application issue reports.',
+    title: 'Useful telephone numbers',
+    intro: 'A central place for verified emergency, competent-service and internal-role telephone numbers.',
     icon: 'phone',
     items: [
-      { title: 'Report an issue', description: 'Record a technical problem or malfunction.', icon: 'alert' },
-      { title: 'Suggest an improvement', description: 'Submit an idea for a feature or structural change.', icon: 'plus' },
-      { title: 'General contact', description: 'Ask a question or leave a comment about the application.', icon: 'phone' },
+      { title: 'Emergency services', description: 'Verified immediate-response and emergency telephone numbers.', icon: 'alert' },
+      { title: 'Competent services', description: 'Verified details for relevant public and supporting services.', icon: 'shield' },
+      { title: 'Internal telephone numbers', description: 'Approved details for responsible roles and internal service points.', icon: 'phone' },
     ],
-    note: 'Actual contact details and submission methods will be added before public release.',
+    note: 'Real telephone numbers will be shown only after verification through an approved official source.',
   },
 }
 
