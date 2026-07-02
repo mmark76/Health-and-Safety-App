@@ -25,9 +25,8 @@ const greekSections: Record<AppSectionPageProps['view'], SectionDefinition> = {
     items: [
       { title: 'Ευρωπαϊκή Ένωση', description: 'Οδηγίες, κανονισμοί, στρατηγικές και κατευθυντήριες οδηγίες.', icon: 'documents' },
       { title: 'Κυπριακή νομοθεσία', description: 'Νόμοι, κανονισμοί, διατάγματα, εγκύκλιοι και ανακοινώσεις.', icon: 'shield' },
-      { title: 'Θεματική αναζήτηση', description: 'Αναζήτηση ανά θέμα, κίνδυνο, υποχρέωση ή τομέα δραστηριότητας.', icon: 'search' },
     ],
-    note: 'Η ενότητα θα εμπλουτιστεί με ελεγμένες πηγές, ημερομηνίες ισχύος και συνδέσεις προς τις σχετικές απαιτήσεις.',
+    note: 'Η καθολική αναζήτηση παραμένει στο επάνω search bar. Η ενότητα θα εμπλουτιστεί με ελεγμένες πηγές και ημερομηνίες ισχύος.',
   },
   'safety-file': {
     eyebrow: 'Κεντρικός φάκελος',
@@ -36,9 +35,9 @@ const greekSections: Record<AppSectionPageProps['view'], SectionDefinition> = {
     icon: 'shield',
     items: [
       { title: 'Οργάνωση και αρμοδιότητες', description: 'Ρόλοι, υπεύθυνοι, ορισμοί, επιτροπές και αποφάσεις.', icon: 'user' },
-      { title: 'Εκτιμήσεις και μέτρα', description: 'Γραπτές εκτιμήσεις κινδύνων, μέτρα πρόληψης, αναθέσεις και επαληθεύσεις.', icon: 'risk' },
+      { title: 'Γενική Εκτίμηση Κινδύνων', description: 'Γραπτές εκτιμήσεις κινδύνων, μέτρα πρόληψης, αναθέσεις και επαληθεύσεις.', icon: 'risk' },
       { title: 'Εκπαίδευση και ετοιμότητα', description: 'Εκπαιδεύσεις, πιστοποιήσεις, ασκήσεις και σχέδια έκτακτης ανάγκης.', icon: 'training' },
-      { title: 'Συμμόρφωση και διακυβέρνηση', description: 'Απαιτήσεις, εγκρίσεις, ανασκοπήσεις, έλεγχοι και ιστορικό αλλαγών.', icon: 'check' },
+      { title: 'Νομοθεσία, Συμμόρφωση και Διακυβέρνηση', description: 'Απαιτήσεις, εγκρίσεις, ανασκοπήσεις, έλεγχοι και ιστορικό αλλαγών.', icon: 'check' },
     ],
     note: 'Κάθε εγγραφή θα διατηρεί μία έγκυρη πηγή, ώστε να αποφεύγονται διπλά ή αντικρουόμενα στοιχεία.',
   },
@@ -68,15 +67,15 @@ const greekSections: Record<AppSectionPageProps['view'], SectionDefinition> = {
   },
   contact: {
     eyebrow: 'Βοηθητική επιλογή',
-    title: 'Επικοινωνία',
-    intro: 'Χώρος για σχόλια, προτάσεις, ερωτήσεις και αναφορά προβλημάτων σχετικά με την εφαρμογή.',
+    title: 'Χρήσιμα τηλέφωνα',
+    intro: 'Συγκεντρωτικό σημείο για επαληθευμένα τηλέφωνα έκτακτης ανάγκης, αρμόδιων υπηρεσιών και εσωτερικών ρόλων.',
     icon: 'phone',
     items: [
-      { title: 'Αναφορά προβλήματος', description: 'Καταγραφή τεχνικού προβλήματος ή δυσλειτουργίας.', icon: 'alert' },
-      { title: 'Πρόταση βελτίωσης', description: 'Υποβολή ιδέας για νέα λειτουργία ή αλλαγή στη δομή.', icon: 'plus' },
-      { title: 'Γενική επικοινωνία', description: 'Ερώτηση ή σχόλιο για τον σκοπό και τη χρήση της εφαρμογής.', icon: 'phone' },
+      { title: 'Υπηρεσίες έκτακτης ανάγκης', description: 'Επαληθευμένα τηλέφωνα άμεσης ανταπόκρισης και έκτακτης ανάγκης.', icon: 'alert' },
+      { title: 'Αρμόδιες υπηρεσίες', description: 'Επαληθευμένα στοιχεία των αρμόδιων δημόσιων και υποστηρικτικών υπηρεσιών.', icon: 'shield' },
+      { title: 'Εσωτερικά τηλέφωνα', description: 'Εγκεκριμένα στοιχεία υπεύθυνων ρόλων και υπηρεσιακών σημείων επικοινωνίας.', icon: 'phone' },
     ],
-    note: 'Τα πραγματικά στοιχεία και ο τρόπος επικοινωνίας θα προστεθούν πριν από τη δημόσια διάθεση.',
+    note: 'Πραγματικά τηλέφωνα θα εμφανίζονται μόνο αφού επιβεβαιωθούν από επίσημη και εγκεκριμένη πηγή.',
   },
 }
 
@@ -88,10 +87,9 @@ const englishSections: Record<AppSectionPageProps['view'], SectionDefinition> = 
     icon: 'documents',
     items: [
       { title: 'European Union', description: 'Directives, regulations, strategies and guidance.', icon: 'documents' },
-      { title: 'Cypriot legislation', description: 'Laws, regulations, decrees, circulars and announcements.', icon: 'shield' },
-      { title: 'Thematic search', description: 'Search by topic, hazard, obligation or area of activity.', icon: 'search' },
+      { title: 'Cyprus legislation', description: 'Laws, regulations, decrees, circulars and announcements.', icon: 'shield' },
     ],
-    note: 'This area will be enriched with verified sources, effective dates and links to related requirements.',
+    note: 'Global search remains in the top search bar. This area will be enriched with verified sources and effective dates.',
   },
   'safety-file': {
     eyebrow: 'Central file',
@@ -100,9 +98,9 @@ const englishSections: Record<AppSectionPageProps['view'], SectionDefinition> = 
     icon: 'shield',
     items: [
       { title: 'Organisation and responsibilities', description: 'Roles, responsible persons, appointments, committees and decisions.', icon: 'user' },
-      { title: 'Assessments and measures', description: 'Written risk assessments, preventive measures, assignments and verification.', icon: 'risk' },
+      { title: 'General Risk Assessment', description: 'Written risk assessments, preventive measures, assignments and verification.', icon: 'risk' },
       { title: 'Training and preparedness', description: 'Training, certification, exercises and emergency plans.', icon: 'training' },
-      { title: 'Compliance and governance', description: 'Requirements, approvals, reviews, inspections and change history.', icon: 'check' },
+      { title: 'Legislation, Compliance and Governance', description: 'Requirements, approvals, reviews, inspections and change history.', icon: 'check' },
     ],
     note: 'Each record will retain one authoritative source to prevent duplicate or conflicting information.',
   },
@@ -132,15 +130,15 @@ const englishSections: Record<AppSectionPageProps['view'], SectionDefinition> = 
   },
   contact: {
     eyebrow: 'Supporting option',
-    title: 'Contact',
-    intro: 'A place for feedback, suggestions, questions and application issue reports.',
+    title: 'Useful telephone numbers',
+    intro: 'A central place for verified emergency, competent-service and internal-role telephone numbers.',
     icon: 'phone',
     items: [
-      { title: 'Report an issue', description: 'Record a technical problem or malfunction.', icon: 'alert' },
-      { title: 'Suggest an improvement', description: 'Submit an idea for a feature or structural change.', icon: 'plus' },
-      { title: 'General contact', description: 'Ask a question or leave a comment about the application.', icon: 'phone' },
+      { title: 'Emergency services', description: 'Verified immediate-response and emergency telephone numbers.', icon: 'alert' },
+      { title: 'Competent services', description: 'Verified details for relevant public and supporting services.', icon: 'shield' },
+      { title: 'Internal telephone numbers', description: 'Approved details for responsible roles and internal service points.', icon: 'phone' },
     ],
-    note: 'Actual contact details and submission methods will be added before public release.',
+    note: 'Real telephone numbers will be shown only after verification through an approved official source.',
   },
 }
 

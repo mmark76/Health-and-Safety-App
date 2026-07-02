@@ -1,0 +1,56 @@
+.settings-page {
+  display: grid;
+  gap: 18px;
+  max-width: 760px;
+}
+
+.settings-page-header {
+  display: grid;
+  gap: 8px;
+}
+
+.settings-page-header h1 {
+  margin: 0;
+  color: var(--navy-950);
+  font-size: clamp(1.9rem, 3vw, 2.8rem);
+  line-height: 1.08;
+}
+
+.settings-fieldset {
+  display: grid;
+  gap: 12px;
+  margin: 0;
+  padding: 20px;
+  border: 1px solid var(--slate-200);
+  border-radius: 13px;
+  background: var(--white);
+  box-shadow: 0 6px 18px rgb(16 42 67 / 5%);
+}
+
+.settings-fieldset legend {
+  padding: 0 6px;
+  color: var(--navy-950);
+  font-weight: 800;
+}
+
+.settings-choice {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: fit-content;
+  color: var(--slate-800);
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.settings-choice input {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--blue-700);
+}
+
+.settings-actions {
+  display: flex;
+  justify-content: flex-start;
+}
+

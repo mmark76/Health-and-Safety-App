@@ -4,139 +4,137 @@ A human-centred prototype web application for Safety and Health at Work manageme
 
 Its ultimate aim is to protect and promote the Safety, Health and Wellbeing of people at work. Records, risk assessments, measures, training and reports are management tools that support this human purpose.
 
-The intended operational product is an internal Ministry working tool that primarily supports the Safety and Health Officer in organizing, monitoring and documenting Safety, Health and Wellbeing at work. Initially intended users include the Safety and Health Officer, the Director General, the First Administrative Officer, and other specifically authorized Ministry personnel at a later stage.
+The intended operational product is an internal Ministry working tool that primarily supports the Safety and Health Officer in organizing, monitoring and documenting Safety, Health and Wellbeing at work. Initially intended users include the Safety and Health Officer, the Director General, the First Administrative Officer and other specifically authorized Ministry personnel at a later stage.
 
-The application is being shaped around the Ministry of Energy, Commerce and Industry as the initial organizational and operational model. This model is used only to guide early structure, terminology, and workflows. The current prototype is not an official Ministry system, an official OiRA tool, or a system endorsed by the Department of Labour Inspection, the Napo Consortium, ISO, or any European institution.
+The application is being shaped around the Ministry of Energy, Commerce and Industry as the initial organizational and operational model. This model guides early structure, terminology and workflows only. The current prototype is not an official Ministry system, an official OiRA tool, or a system endorsed by the Department of Labour Inspection, the Napo Consortium, ISO or any European institution.
 
-All information currently displayed in the application is demonstration data. The project must not include real names, email addresses, telephone numbers, internal correspondence, real identifiable confidential certificate details, health information, or other personal data from real Ministry or government records. Fabricated demonstration certificate data may be used later if it is clearly non-real and non-identifiable.
+All information currently displayed is demonstration data. The project must not include real names, contact details, internal correspondence, identifiable certificate details, health information or other personal, confidential or operational Ministry data.
 
-## Current Project State
+## Current project state
 
-- **Current phase:** Development frontend prototype and project-continuity documentation, before the first functional Coverage vertical slice.
-- **Implemented:** Bilingual and responsive Overview dashboard, a bilingual informational About the App view, modular frontend components, language persistence, accessible mobile navigation, CI checks, and GitHub Pages deployment configuration.
-- **Prototype-only:** Product-area navigation, quick actions, search, notifications, profile controls, and product-area cards are currently visual placeholders rather than operational workflows.
-- **Not yet implemented:** Functional product-area routes, Coverage records and workflows, the written risk-assessment workflow, backend services, database persistence, authentication, authorization, audit logging, and secure attachment handling.
-- **Next documented milestone:** First functional Coverage vertical slice.
-- **Data and readiness:** The application uses fabricated demonstration data only, is currently publicly reachable as a development deployment, and is not ready for real operational Ministry data.
+- **Current phase:** Development frontend prototype and navigation/documentation alignment before functional operational workflows.
+- **Implemented:** Bilingual responsive application shell; Home; Overview dashboard; informational landing pages for Legislation, the Safety and Health File, News and Developments, About the App and Useful telephone numbers; functional appearance Settings; language persistence; accessible mobile navigation; CI checks; and GitHub Pages deployment configuration.
+- **Prototype-only:** Global search, notifications, profile controls, quick actions, most landing-page cards and operational records remain visual or informational placeholders.
+- **Not yet implemented:** Complete routes and deep links, real search, operational records and workflows, backend services, database persistence, authentication, authorization, role-based access, audit logging and secure attachment handling.
+- **Data and readiness:** The application uses fabricated demonstration data only, is publicly reachable as a development deployment and is not ready for real operational Ministry data.
 
-For the authoritative product identity decision, see [ADR-004: Internal Ministry Working Tool Identity](docs/decisions/ADR-004-internal-ministry-working-tool-identity.md). For broader project context and current implementation status, start with [Stateless Project Recovery](docs/START_HERE.md), the [Project Product and Build Guide](docs/PROJECT_PRODUCT_GUIDE.md), the [Current Project Status](docs/PROJECT_STATUS.md), and [AGENTS.md](AGENTS.md).
+For the approved product identity see [ADR-004](docs/decisions/ADR-004-internal-ministry-working-tool-identity.md). For the approved user-facing navigation see [ADR-005](docs/decisions/ADR-005-approved-user-facing-navigation.md).
 
-## Product Mission
+## Product mission
 
-The ultimate human-centred purpose of the application is to protect and promote the Safety, Health and Wellbeing of people at work. The software supports the organizational processes, evidence and Management visibility needed to pursue that purpose systematically.
+The application supports the Ministry in systematically managing and documenting Safety and Health at Work for every person who may reasonably be affected by its work activities, in every relevant workplace or location, during relevant activities and under normal, temporary, non-routine, emergency and other reasonably foreseeable conditions.
 
-The application supports the Ministry in systematically managing and documenting Safety and Health at Work for every person who may reasonably be affected by its work activities, in every relevant building, workplace or other location, during all relevant activities and under normal, temporary, non-routine, emergency and other reasonably foreseeable conditions, throughout the period in which the activity, exposure or responsibility exists.
+The software supports management and documentation. It cannot by itself guarantee safety, legal compliance, wellbeing or the effectiveness of controls. Management remains accountable for decisions and obligations. The software supports professional and administrative judgement but does not replace it.
 
-This is achieved by identifying applicable binding legislation, regulations, requirements, instructions or decisions of competent authorities, official guidance, guidelines, voluntary standards, good practices and educational material; identifying hazards; assessing risks; applying prevention principles; defining technical and organizational protective measures; assigning responsibilities; providing training and preparedness; maintaining evidence; monitoring implementation; and carrying out periodic review and reassessment.
+## Active scope
 
-The software supports management and documentation. It cannot by itself guarantee safety, legal compliance, wellbeing, or the effectiveness of controls.
+Current scope includes:
 
-Management remains accountable for Safety and Health at Work. Assigning duties to the Safety and Health Officer, organizational units, committees, employees, or external services does not remove Management's responsibility. The software supports professional and administrative judgement, but does not replace it.
+- office workplaces of the Cyprus Public Service;
+- organizational units, people or affected groups, buildings, floors, spaces and office activities;
+- written office risk assessments and preventive or corrective measures;
+- training and preparedness records needed by the first workflows;
+- applicable legal and other requirements;
+- monitoring of coverage gaps, high risks, active assessments, overdue measures and Management information.
 
-## Scope
+The current scope excludes construction sites, factories, industrial production, heavy machinery and unrelated specialist field-work environments.
 
-Current scope:
+## Approved user-facing navigation
 
-- Office workplaces of the Cyprus Public Service
-- Office departments, units, floors, rooms, shared areas, archives, meeting rooms, reception areas, corridors, kitchens, welfare areas, and storage rooms for office supplies
-- Written office risk assessments and corrective measures
-- Training and preparedness records needed by the first workflows
-- Basic legal and other requirement linkage
-- Monitoring of coverage gaps, high risks, active assessments, overdue measures, and Management reporting
+The persistent sidebar and landing-page hierarchy are:
 
-The current application scope does not include construction sites, factories, industrial production, field-work operations, heavy machinery, or specialist non-office operational environments.
+```text
+Home
+Overview
 
-## Product Architecture
+Legislation
+├── European Union
+└── Cyprus legislation
 
-The product uses a hybrid architecture with six main user-facing product areas:
+Safety and Health File
+├── Organisation and responsibilities
+├── General Risk Assessment
+├── Training and preparedness
+└── Legislation, Compliance and Governance
+
+News and Developments
+├── European Union
+├── Cyprus
+└── International developments
+
+Supporting options
+├── Useful telephone numbers
+├── About the App
+└── Settings
+```
+
+The Greek labels and full decision are recorded in ADR-005.
+
+Search is a global application-shell function in the top search bar. It is not a navigation item. The language switch remains in the sidebar and is not part of Settings.
+
+Settings contains only implemented appearance preferences. It must not contain language selection or future-feature information cards.
+
+The current Settings page implements text size, high contrast, reduced motion and restore-defaults controls. These preferences apply immediately and are stored in localStorage when browser storage is available.
+
+## Internal functional architecture
+
+The internal architecture retains these functional boundaries:
 
 1. Overview
 2. Coverage
 3. Risks and Measures
 4. Training and Preparedness
-5. Compliance and Governance
+5. Legislation, Compliance and Governance
 6. Reports
 
-Settings, user administration and the informational About the App view are supporting functions, not primary product areas.
+These boundaries govern data ownership, code organization and future service interfaces. They are not required to appear as six top-level sidebar entries.
 
-The user-facing navigation follows this hybrid structure. The underlying management logic follows the Plan-Do-Check-Act approach and may map to relevant ISO 45001 concepts, but the application must not claim ISO 45001 certification or compliance.
+The user-facing Safety and Health File is a navigation container rather than a monolithic data owner. Coverage, Risks and Measures, Training and Preparedness, and Legislation, Compliance and Governance retain separate authoritative records. Overview and Reports aggregate information without duplicating source records.
 
-## Current Prototype Status
+The approved Greek terminology includes:
 
-The project is in an early prototype phase. The implemented application currently provides a bilingual dashboard with demonstration content, a bilingual informational About the App view, and a modular frontend structure. The individual operational modules are planned but not yet fully implemented.
+- `Νομοθεσία, Συμμόρφωση και Διακυβέρνηση`;
+- `Εκθέσεις και Αναφορές`.
 
-## Risk Assessment Workflow
+Reports remains an internal and contextual capability rather than a separate top-level sidebar item.
 
-The application follows a five-stage risk assessment workflow:
+## General Risk Assessment workflow
+
+The user-facing Safety and Health File contains the subsection **General Risk Assessment / Γενική Εκτίμηση Κινδύνων**. The underlying written risk-assessment workflow continues to include:
 
 1. Preparation
 2. Hazard identification
 3. Risk evaluation
 4. Action plan
 5. Report preparation
-
-Report preparation completes the five-stage workflow, but periodic review and reassessment remain ongoing lifecycle requirements for office risk management.
+6. Periodic review and reassessment
 
 ## Initial MVP
 
-The first MVP is a limited but complete vertical slice containing:
+The first operational MVP remains a limited complete vertical slice containing:
 
-- Basic Coverage records for organizational units, people or affected groups, buildings, floors, spaces, work activities, and foreseeable conditions
-- One complete written risk-assessment workflow
-- Creation and assignment of additional or corrective measures
-- Basic Training and Preparedness records needed by the first workflows
-- Basic Compliance and Governance linkage to legal and other requirements
-- An Overview showing coverage gaps, active assessments, high risks, and overdue measures
-- Basic Management reporting
+- basic Coverage records for organizational units, people or affected groups, locations, activities and foreseeable conditions;
+- one complete written risk-assessment workflow;
+- creation and assignment of additional or corrective measures;
+- minimal Training and Preparedness records required by the workflow;
+- basic applicable-requirement linkage;
+- Overview indicators;
+- basic Management reporting.
 
-The first MVP must not attempt to implement every future module fully.
+The MVP must not attempt to implement every future module fully.
 
-## Main Office Hazard Categories
-
-Initial office hazard categories include:
-
-- Fire safety and emergency exits
-- Electrical safety for office equipment and cabling
-- Slips, trips, and falls in office and shared areas
-- Ergonomics and display screen equipment
-- Indoor air quality, lighting, temperature, and ventilation
-- Housekeeping, storage, and safe access routes
-- Manual handling of office materials and records
-- Psychosocial risks and workload-related factors
-- Visitor, reception, and shared-space safety
-- Emergency preparedness and evacuation arrangements
-
-## Later Expansion
-
-Later expansion may include:
-
-- Office workplace inspections
-- Hazard, near-miss, and incident reporting
-- First aid and AED
-- Fire safety and evacuation
-- Training and certification management
-- ESYPP and Safety Committees
-- Documents and registers
-- Management reporting
-- Napo educational content
-- Settings and administration
-
-Future detailed modules such as incidents, extensive inspection management, full committee meeting management, advanced document management, and full certification campaign management remain outside the first MVP unless required by the initial vertical slice.
-
-The later Napo educational-content module will support education and awareness. It is outside the first MVP. Initial implementation must use only official links or legally permitted embedding, and no Napo media or assets may be copied into this repository until usage rights are verified. No endorsement by the Napo Consortium or any European institution must be implied.
-
-## Official-Status Limitations
+## Official-status limitations
 
 This application is not:
 
-- An official Ministry system
-- An official OiRA tool
-- Endorsed by the Department of Labour Inspection
-- Endorsed by the Napo Consortium
-- Endorsed by ISO
-- Endorsed by any European institution
+- an official Ministry system;
+- an official OiRA tool;
+- endorsed by the Department of Labour Inspection;
+- endorsed by the Napo Consortium;
+- endorsed by ISO;
+- endorsed by any European institution.
 
-Any future references to official guidance, guidelines, voluntary standards, good practices, or educational materials must clearly identify the source and must not imply approval, certification, compliance, or endorsement.
+References to legislation, official guidance, voluntary standards, good practices or educational materials must identify their source and must not imply approval, certification, compliance or endorsement.
 
 ## Technology
 
@@ -146,77 +144,49 @@ Any future references to official guidance, guidelines, voluntary standards, goo
 - Oxlint
 - npm
 
-## Architecture Documentation
+## Architecture and project documentation
 
-The project follows a modular, feature-based architecture guided by:
+Start with:
 
-- `docs/architecture/PROJECT_ARCHITECTURE.md`
-- `docs/requirements/INFORMATION_ARCHITECTURE.md`
-- `docs/decisions/ADR-001-office-public-service-scope.md`
-- `docs/decisions/ADR-002-hybrid-product-architecture.md`
-- `docs/decisions/ADR-004-internal-ministry-working-tool-identity.md`
-- `docs/architecture/GENERAL_SOFTWARE_PROJECT_GUIDE.md`
+- [AGENTS.md](AGENTS.md)
+- [Stateless Project Recovery](docs/START_HERE.md)
+- [Project Product and Build Guide](docs/PROJECT_PRODUCT_GUIDE.md)
+- [Current Project Status](docs/PROJECT_STATUS.md)
+- [Project Architecture](docs/architecture/PROJECT_ARCHITECTURE.md)
+- [Information Architecture](docs/requirements/INFORMATION_ARCHITECTURE.md)
+- [ADR-002: Hybrid Product Architecture](docs/decisions/ADR-002-hybrid-product-architecture.md)
+- [ADR-005: Approved User-Facing Navigation](docs/decisions/ADR-005-approved-user-facing-navigation.md)
 
-Project-specific architecture documentation takes precedence where the general guide intentionally allows project variation.
-
-## Project Guidance
-
-Before significant product, architecture, feature, navigation, or refactoring work, use `docs/PROJECT_PRODUCT_GUIDE.md` as the central summary of the accepted product direction and construction principles.
-
-For stateless project continuity:
-
-- `docs/START_HERE.md` is the entry point for recovering project context without prior chat memory.
-- `docs/PROJECT_PRODUCT_GUIDE.md` is the central product and build compass.
-- `docs/PROJECT_STATUS.md` records current implementation status and the next approved task.
-- `AGENTS.md` contains operating rules for Codex and other coding agents.
-
-Current source structure:
-
-- `src/app/` - application entry point
-- `src/features/dashboard/` - dashboard feature and application shell
-- `src/features/about-app/` - informational About the App view
-- `src/shared/styles/` - shared global styling
-
-## Local Development
+## Local development
 
 Install dependencies:
 
-`npm install`
+```bash
+npm install
+```
 
 Start the development server:
 
-`npm run dev`
+```bash
+npm run dev
+```
 
-The application will normally be available at:
+The application will normally be available at `http://localhost:5173/`.
 
-`http://localhost:5173/`
+## Quality checks
 
-## Quality Checks
+```bash
+npm run lint
+npm run build
+npm test
+```
 
-Run the linter:
-
-`npm run lint`
-
-Create a production build:
-
-`npm run build`
-
-## Repository
-
-`https://github.com/mmark76/Health-and-Safety-App`
-
-Substantive or multi-file changes should use a worktree or feature branch, pass validation before merging, and be reviewed through a Pull Request. Squash merge is preferred for a clean `main` history. Direct changes to `main` should be limited to very small corrections or explicit owner instructions.
+Substantive or multi-file changes should use a feature branch, pass validation and be reviewed through a Pull Request. Squash merge is preferred for a clean `main` history.
 
 ## Deployment
 
-Deployment uses GitHub Actions and GitHub Pages. Pushes to `main` run the deployment workflow, which installs dependencies, runs linting, builds the Vite application, uploads the generated `dist` directory as a GitHub Pages artifact, and deploys it through the GitHub Pages deployment action.
-
-The intended custom domain is:
+Deployment uses GitHub Actions and GitHub Pages. The intended custom domain is:
 
 `https://health-and-safety.markellosecosystem.com`
 
-Repository GitHub Pages settings must use `GitHub Actions` as the publishing source. The custom domain is configured in the repository Pages settings.
-
 The public application contains demonstration data only.
-
-Deployment should not be treated as successful until the GitHub Actions deployment workflow has completed successfully.
